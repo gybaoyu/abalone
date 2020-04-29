@@ -58,9 +58,9 @@
             <div class="required field">
                 <div class="ui left labeled input">
                     <div class="ui selection compact teal basic dropdown label">
-                        <input type="hidden" value="原创" name="flag" th:value="*{flag}" >
+                        <input type="hidden" name="flag.id" th:value="*{flag}!=null ? *{flag.id}">
                         <i class="dropdown icon"></i>
-                        <div class="text">原创</div>
+                        <div class="text"></div>
                         <div class="menu">
                             <div class="item" data-value="原创">原创</div>
                             <div class="item" data-value="转载">转载</div>
@@ -244,6 +244,13 @@
                 rules: [{
                     type: 'empty',
                     prompt: '标题：请输入博客分类'
+                }]
+            },
+            flagId: {
+                identifier: 'flag.id',
+                rules: [{
+                    type: 'empty',
+                    prompt: '类型：请输入博客类型,原创/转载/翻译'
                 }]
             },
             firstPicture: {
