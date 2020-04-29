@@ -1,0 +1,84 @@
+2020-04-20 06:58:19.712  INFO 9036 --- [restartedMain] com.abalone.BlogApplication              : Starting BlogApplication on DESKTOP-O4LA9EG with PID 9036 (started by gavy in D:\IDEA workspace\blog)
+2020-04-20 06:58:19.725  INFO 9036 --- [restartedMain] com.abalone.BlogApplication              : The following profiles are active: pro
+2020-04-20 10:22:47.590  INFO 15512 --- [restartedMain] com.abalone.BlogApplication              : Starting BlogApplication on DESKTOP-O4LA9EG with PID 15512 (started by gavy in D:\IDEA workspace\blog)
+2020-04-20 10:22:47.592  INFO 15512 --- [restartedMain] com.abalone.BlogApplication              : The following profiles are active: pro
+2020-04-20 10:23:11.958  INFO 15512 --- [restartedMain] com.abalone.BlogApplication              : Started BlogApplication in 25.609 seconds (JVM running for 29.133)
+2020-04-20 10:23:14.069  INFO 15512 --- [http-nio-80-exec-1] com.abalone.aspect.LogAspect             : Request : {url='http://localhost/', ip='0:0:0:0:0:0:0:1', classMethod='com.abalone.web.IndexController.index', args=[Page request [number: 0, size 8, sort: updateTime: DESC], {}]}
+2020-04-20 10:23:14.841  WARN 15512 --- [http-nio-80-exec-1] org.hibernate.orm.deprecation            : HHH90000016: Found use of deprecated 'collection property' syntax in HQL/JPQL query [null.size]; use collection function syntax instead [size(null)].
+2020-04-20 10:23:14.913  WARN 15512 --- [http-nio-80-exec-1] org.hibernate.orm.deprecation            : HHH90000016: Found use of deprecated 'collection property' syntax in HQL/JPQL query [null.size]; use collection function syntax instead [size(null)].
+2020-04-20 10:23:15.013  INFO 15512 --- [http-nio-80-exec-1] com.abalone.aspect.LogAspect             : Result : index
+2020-04-20 10:23:38.274  INFO 15512 --- [http-nio-80-exec-3] com.abalone.aspect.LogAspect             : Request : {url='http://localhost/about', ip='0:0:0:0:0:0:0:1', classMethod='com.abalone.web.AboutShowController.about', args=[]}
+2020-04-20 10:23:38.281  INFO 15512 --- [http-nio-80-exec-3] com.abalone.aspect.LogAspect             : Result : about
+2020-04-20 10:23:41.827  INFO 15512 --- [http-nio-80-exec-4] com.abalone.aspect.LogAspect             : Request : {url='http://localhost/about', ip='0:0:0:0:0:0:0:1', classMethod='com.abalone.web.AboutShowController.about', args=[]}
+2020-04-20 10:23:41.828  INFO 15512 --- [http-nio-80-exec-4] com.abalone.aspect.LogAspect             : Result : about
+2020-04-20 10:24:40.364  INFO 15512 --- [http-nio-80-exec-6] com.abalone.aspect.LogAspect             : Request : {url='http://localhost/', ip='0:0:0:0:0:0:0:1', classMethod='com.abalone.web.IndexController.index', args=[Page request [number: 0, size 8, sort: updateTime: DESC], {}]}
+2020-04-20 10:24:41.046  INFO 15512 --- [http-nio-80-exec-6] com.abalone.aspect.LogAspect             : Result : index
+2020-04-20 10:24:43.372  INFO 15512 --- [http-nio-80-exec-8] com.abalone.aspect.LogAspect             : Request : {url='http://localhost/about', ip='0:0:0:0:0:0:0:1', classMethod='com.abalone.web.AboutShowController.about', args=[]}
+2020-04-20 10:24:43.373  INFO 15512 --- [http-nio-80-exec-8] com.abalone.aspect.LogAspect             : Result : about
+2020-04-20 10:25:14.078  INFO 15512 --- [http-nio-80-exec-10] com.abalone.aspect.LogAspect             : Request : {url='http://localhost/', ip='0:0:0:0:0:0:0:1', classMethod='com.abalone.web.IndexController.index', args=[Page request [number: 0, size 8, sort: updateTime: DESC], {}]}
+2020-04-20 10:25:14.819  INFO 15512 --- [http-nio-80-exec-10] com.abalone.aspect.LogAspect             : Result : index
+2020-04-20 10:25:16.829  INFO 15512 --- [http-nio-80-exec-1] com.abalone.aspect.LogAspect             : Request : {url='http://localhost/about', ip='0:0:0:0:0:0:0:1', classMethod='com.abalone.web.AboutShowController.about', args=[]}
+2020-04-20 10:25:16.830  INFO 15512 --- [http-nio-80-exec-1] com.abalone.aspect.LogAspect             : Result : about
+2020-04-20 10:26:50.750  INFO 15512 --- [http-nio-80-exec-5] com.abalone.aspect.LogAspect             : Request : {url='http://localhost/', ip='0:0:0:0:0:0:0:1', classMethod='com.abalone.web.IndexController.index', args=[Page request [number: 0, size 8, sort: updateTime: DESC], {}]}
+2020-04-20 10:26:51.479  INFO 15512 --- [http-nio-80-exec-5] com.abalone.aspect.LogAspect             : Result : index
+2020-04-20 10:26:54.045  INFO 15512 --- [http-nio-80-exec-6] com.abalone.aspect.LogAspect             : Request : {url='http://localhost/about', ip='0:0:0:0:0:0:0:1', classMethod='com.abalone.web.AboutShowController.about', args=[]}
+2020-04-20 10:26:54.046  INFO 15512 --- [http-nio-80-exec-6] com.abalone.aspect.LogAspect             : Result : about
+2020-04-20 10:28:10.484  INFO 15512 --- [http-nio-80-exec-9] com.abalone.aspect.LogAspect             : Request : {url='http://localhost/about', ip='0:0:0:0:0:0:0:1', classMethod='com.abalone.web.AboutShowController.about', args=[]}
+2020-04-20 10:28:10.485  INFO 15512 --- [http-nio-80-exec-9] com.abalone.aspect.LogAspect             : Result : about
+2020-04-20 15:45:16.324  INFO 1164 --- [restartedMain] com.abalone.BlogApplication              : Starting BlogApplication on DESKTOP-O4LA9EG with PID 1164 (started by gavy in D:\IDEA workspace\blog)
+2020-04-20 15:45:16.327  INFO 1164 --- [restartedMain] com.abalone.BlogApplication              : The following profiles are active: pro
+2020-04-20 15:45:36.666  INFO 1164 --- [restartedMain] com.abalone.BlogApplication              : Started BlogApplication in 21.335 seconds (JVM running for 24.381)
+2020-04-20 15:45:37.746  INFO 1164 --- [http-nio-80-exec-1] com.abalone.aspect.LogAspect             : Request : {url='http://localhost/', ip='0:0:0:0:0:0:0:1', classMethod='com.abalone.web.IndexController.index', args=[Page request [number: 0, size 8, sort: updateTime: DESC], {}]}
+2020-04-20 15:45:38.507  WARN 1164 --- [http-nio-80-exec-1] org.hibernate.orm.deprecation            : HHH90000016: Found use of deprecated 'collection property' syntax in HQL/JPQL query [null.size]; use collection function syntax instead [size(null)].
+2020-04-20 15:45:38.573  WARN 1164 --- [http-nio-80-exec-1] org.hibernate.orm.deprecation            : HHH90000016: Found use of deprecated 'collection property' syntax in HQL/JPQL query [null.size]; use collection function syntax instead [size(null)].
+2020-04-20 15:45:38.680  INFO 1164 --- [http-nio-80-exec-1] com.abalone.aspect.LogAspect             : Result : index
+2020-04-20 15:46:40.442  INFO 1164 --- [http-nio-80-exec-4] com.abalone.aspect.LogAspect             : Request : {url='http://localhost/', ip='0:0:0:0:0:0:0:1', classMethod='com.abalone.web.IndexController.index', args=[Page request [number: 0, size 8, sort: updateTime: DESC], {}]}
+2020-04-20 15:46:41.114  INFO 1164 --- [http-nio-80-exec-4] com.abalone.aspect.LogAspect             : Result : index
+2020-04-20 15:48:15.703  INFO 1164 --- [http-nio-80-exec-8] com.abalone.aspect.LogAspect             : Request : {url='http://localhost/', ip='0:0:0:0:0:0:0:1', classMethod='com.abalone.web.IndexController.index', args=[Page request [number: 0, size 8, sort: updateTime: DESC], {}]}
+2020-04-20 15:48:17.007  INFO 1164 --- [http-nio-80-exec-8] com.abalone.aspect.LogAspect             : Result : index
+2020-04-20 15:48:33.251  INFO 1164 --- [http-nio-80-exec-1] com.abalone.aspect.LogAspect             : Request : {url='http://localhost/', ip='0:0:0:0:0:0:0:1', classMethod='com.abalone.web.IndexController.index', args=[Page request [number: 0, size 8, sort: updateTime: DESC], {}]}
+2020-04-20 15:48:34.051  INFO 1164 --- [http-nio-80-exec-1] com.abalone.aspect.LogAspect             : Result : index
+2020-04-20 15:48:38.199  INFO 1164 --- [http-nio-80-exec-2] com.abalone.aspect.LogAspect             : Request : {url='http://localhost/blog/7', ip='0:0:0:0:0:0:0:1', classMethod='com.abalone.web.IndexController.blog', args=[7, {}]}
+2020-04-20 15:48:38.607  INFO 1164 --- [http-nio-80-exec-2] com.abalone.aspect.LogAspect             : Result : blog
+2020-04-20 15:48:39.990  INFO 1164 --- [http-nio-80-exec-3] com.abalone.aspect.LogAspect             : Request : {url='http://localhost/comments/7', ip='0:0:0:0:0:0:0:1', classMethod='com.abalone.web.CommentController.comments', args=[7, {}]}
+2020-04-20 15:48:40.171  INFO 1164 --- [http-nio-80-exec-3] com.abalone.aspect.LogAspect             : Result : blog :: commentList
+2020-04-20 16:09:18.296  INFO 21544 --- [restartedMain] com.abalone.BlogApplication              : Starting BlogApplication on DESKTOP-O4LA9EG with PID 21544 (started by gavy in D:\IDEA workspace\blog)
+2020-04-20 16:09:18.300  INFO 21544 --- [restartedMain] com.abalone.BlogApplication              : The following profiles are active: pro
+2020-04-20 16:09:34.014  INFO 21544 --- [restartedMain] com.abalone.BlogApplication              : Started BlogApplication in 16.753 seconds (JVM running for 19.873)
+2020-04-20 16:09:34.283  INFO 21544 --- [http-nio-80-exec-1] com.abalone.aspect.LogAspect             : Request : {url='http://localhost/', ip='127.0.0.1', classMethod='com.abalone.web.IndexController.index', args=[Page request [number: 0, size 8, sort: updateTime: DESC], {}]}
+2020-04-20 16:09:35.033  WARN 21544 --- [http-nio-80-exec-1] org.hibernate.orm.deprecation            : HHH90000016: Found use of deprecated 'collection property' syntax in HQL/JPQL query [null.size]; use collection function syntax instead [size(null)].
+2020-04-20 16:09:35.098  WARN 21544 --- [http-nio-80-exec-1] org.hibernate.orm.deprecation            : HHH90000016: Found use of deprecated 'collection property' syntax in HQL/JPQL query [null.size]; use collection function syntax instead [size(null)].
+2020-04-20 16:09:35.209  INFO 21544 --- [http-nio-80-exec-1] com.abalone.aspect.LogAspect             : Result : index
+2020-04-20 16:09:47.000  INFO 21544 --- [http-nio-80-exec-4] com.abalone.aspect.LogAspect             : Request : {url='http://localhost/types/-1', ip='127.0.0.1', classMethod='com.abalone.web.TypeShowController.types', args=[Page request [number: 0, size 8, sort: updateTime: DESC], -1, {}]}
+2020-04-20 16:09:47.458  INFO 21544 --- [http-nio-80-exec-4] com.abalone.aspect.LogAspect             : Result : types
+2020-04-20 16:09:49.063  INFO 21544 --- [http-nio-80-exec-5] com.abalone.aspect.LogAspect             : Request : {url='http://localhost/', ip='127.0.0.1', classMethod='com.abalone.web.IndexController.index', args=[Page request [number: 0, size 8, sort: updateTime: DESC], {}]}
+2020-04-20 16:09:49.689  INFO 21544 --- [http-nio-80-exec-5] com.abalone.aspect.LogAspect             : Result : index
+2020-04-20 16:10:28.235  INFO 21544 --- [http-nio-80-exec-7] com.abalone.aspect.LogAspect             : Request : {url='http://localhost/', ip='127.0.0.1', classMethod='com.abalone.web.IndexController.index', args=[Page request [number: 0, size 8, sort: updateTime: DESC], {}]}
+2020-04-20 16:10:29.007  INFO 21544 --- [http-nio-80-exec-7] com.abalone.aspect.LogAspect             : Result : index
+2020-04-20 16:12:34.953  INFO 21544 --- [http-nio-80-exec-5] com.abalone.aspect.LogAspect             : Request : {url='http://localhost/', ip='0:0:0:0:0:0:0:1', classMethod='com.abalone.web.IndexController.index', args=[Page request [number: 0, size 8, sort: updateTime: DESC], {}]}
+2020-04-20 16:12:35.611  INFO 21544 --- [http-nio-80-exec-5] com.abalone.aspect.LogAspect             : Result : index
+2020-04-20 16:33:17.732  INFO 27932 --- [restartedMain] com.abalone.BlogApplication              : Starting BlogApplication on DESKTOP-O4LA9EG with PID 27932 (started by gavy in D:\IDEA workspace\blog)
+2020-04-20 16:33:17.734  INFO 27932 --- [restartedMain] com.abalone.BlogApplication              : The following profiles are active: pro
+2020-04-20 16:33:34.507  INFO 27932 --- [restartedMain] com.abalone.BlogApplication              : Started BlogApplication in 17.947 seconds (JVM running for 21.148)
+2020-04-20 16:33:34.804  INFO 27932 --- [http-nio-80-exec-1] com.abalone.aspect.LogAspect             : Request : {url='http://localhost/', ip='0:0:0:0:0:0:0:1', classMethod='com.abalone.web.IndexController.index', args=[Page request [number: 0, size 8, sort: updateTime: DESC], {}]}
+2020-04-20 16:33:35.600  WARN 27932 --- [http-nio-80-exec-1] org.hibernate.orm.deprecation            : HHH90000016: Found use of deprecated 'collection property' syntax in HQL/JPQL query [null.size]; use collection function syntax instead [size(null)].
+2020-04-20 16:33:35.667  WARN 27932 --- [http-nio-80-exec-1] org.hibernate.orm.deprecation            : HHH90000016: Found use of deprecated 'collection property' syntax in HQL/JPQL query [null.size]; use collection function syntax instead [size(null)].
+2020-04-20 16:33:35.768  INFO 27932 --- [http-nio-80-exec-1] com.abalone.aspect.LogAspect             : Result : index
+2020-04-20 16:33:39.217  INFO 27932 --- [http-nio-80-exec-3] com.abalone.aspect.LogAspect             : Request : {url='http://localhost/', ip='0:0:0:0:0:0:0:1', classMethod='com.abalone.web.IndexController.index', args=[Page request [number: 0, size 8, sort: updateTime: DESC], {}]}
+2020-04-20 16:33:39.883  INFO 27932 --- [http-nio-80-exec-3] com.abalone.aspect.LogAspect             : Result : index
+2020-04-20 16:33:42.844  INFO 27932 --- [http-nio-80-exec-5] com.abalone.aspect.LogAspect             : Request : {url='http://localhost/', ip='0:0:0:0:0:0:0:1', classMethod='com.abalone.web.IndexController.index', args=[Page request [number: 0, size 8, sort: updateTime: DESC], {}]}
+2020-04-20 16:33:43.519  INFO 27932 --- [http-nio-80-exec-5] com.abalone.aspect.LogAspect             : Result : index
+2020-04-20 16:33:44.541  INFO 27932 --- [http-nio-80-exec-6] com.abalone.aspect.LogAspect             : Request : {url='http://localhost/', ip='0:0:0:0:0:0:0:1', classMethod='com.abalone.web.IndexController.index', args=[Page request [number: 0, size 8, sort: updateTime: DESC], {}]}
+2020-04-20 16:33:45.170  INFO 27932 --- [http-nio-80-exec-6] com.abalone.aspect.LogAspect             : Result : index
+2020-04-20 16:38:02.881  INFO 27932 --- [http-nio-80-exec-9] com.abalone.aspect.LogAspect             : Request : {url='http://localhost/', ip='0:0:0:0:0:0:0:1', classMethod='com.abalone.web.IndexController.index', args=[Page request [number: 0, size 8, sort: updateTime: DESC], {}]}
+2020-04-20 16:38:03.544  INFO 27932 --- [http-nio-80-exec-9] com.abalone.aspect.LogAspect             : Result : index
+2020-04-20 16:38:06.645  INFO 27932 --- [http-nio-80-exec-1] com.abalone.aspect.LogAspect             : Request : {url='http://localhost/', ip='0:0:0:0:0:0:0:1', classMethod='com.abalone.web.IndexController.index', args=[Page request [number: 0, size 8, sort: updateTime: DESC], {}]}
+2020-04-20 16:38:07.310  INFO 27932 --- [http-nio-80-exec-1] com.abalone.aspect.LogAspect             : Result : index
+2020-04-20 16:38:09.629  INFO 27932 --- [http-nio-80-exec-3] com.abalone.aspect.LogAspect             : Request : {url='http://localhost/', ip='0:0:0:0:0:0:0:1', classMethod='com.abalone.web.IndexController.index', args=[Page request [number: 0, size 8, sort: updateTime: DESC], {}]}
+2020-04-20 16:38:10.262  INFO 27932 --- [http-nio-80-exec-3] com.abalone.aspect.LogAspect             : Result : index
+2020-04-20 16:41:53.658  INFO 27932 --- [http-nio-80-exec-6] com.abalone.aspect.LogAspect             : Request : {url='http://localhost/', ip='0:0:0:0:0:0:0:1', classMethod='com.abalone.web.IndexController.index', args=[Page request [number: 0, size 8, sort: updateTime: DESC], {}]}
+2020-04-20 16:41:54.365  INFO 27932 --- [http-nio-80-exec-6] com.abalone.aspect.LogAspect             : Result : index
+2020-04-20 16:41:58.700  INFO 27932 --- [http-nio-80-exec-7] com.abalone.aspect.LogAspect             : Request : {url='http://localhost/', ip='0:0:0:0:0:0:0:1', classMethod='com.abalone.web.IndexController.index', args=[Page request [number: 0, size 8, sort: updateTime: DESC], {}]}
+2020-04-20 16:41:59.406  INFO 27932 --- [http-nio-80-exec-7] com.abalone.aspect.LogAspect             : Result : index
+2020-04-20 16:42:06.739  INFO 27932 --- [http-nio-80-exec-10] com.abalone.aspect.LogAspect             : Request : {url='http://localhost/types/-1', ip='0:0:0:0:0:0:0:1', classMethod='com.abalone.web.TypeShowController.types', args=[Page request [number: 0, size 8, sort: updateTime: DESC], -1, {}]}
+2020-04-20 16:42:07.213  INFO 27932 --- [http-nio-80-exec-10] com.abalone.aspect.LogAspect             : Result : types

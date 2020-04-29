@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login</title>
+    <link rel="stylesheet" href="http://49.234.239.122/static/css/me.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/semantic-ui/2.2.4/semantic.min.css">
+    <link rel="stylesheet" href="http://49.234.239.122/static/css/animate.css">
+    <link rel="stylesheet" href="http://49.234.239.122/static/css/typo.css">
+</head>
+<body style="background-image: url(http://49.234.239.122/static/images/1.png)">
+<br>
+<br>
+<br>
+<div class="m-container-small m-padded-tb-massive" style="max-width: 30em !important;">
+    <div class="ur container">
+        <div class="ui middle aligned center aligned grid">
+            <div class="column">
+                <h2 class="ui teal image header">
+                    <div class="content">
+                        Login
+                    </div>
+                </h2>
+                <form class="ui large form" method="post" action="#" th:action="@{/admin/login}">
+                    <div class="ui  segment">
+                        <div class="field">
+                            <div class="ui left icon input">
+                                <i class="user icon"></i>
+                                <input type="text" name="username" placeholder="USERNAME">
+                            </div>
+                        </div>
+                        <div class="field">
+                            <div class="ui left icon input">
+                                <i class="lock icon"></i>
+                                <input type="password" name="password" placeholder="PASSWORD">
+                            </div>
+                        </div>
+                        <div class="ui error mini message"></div>
+                        <div class="ui mini negative message" th:unless="${#strings.isEmpty(message)}" th:text="${message}">用户名和密码错误</div>
+                        <button class="ui fluid large teal submit button">登   录</button>
+                    </div>
+                </form>
+
+            </div>
+        </div>
+    </div>
+</div>
+<th:block th:fragment="script">
+<script src="http://49.234.239.122/static/js/jquery.min.js"></script>
+<script src="http://49.234.239.122/static/js/semantic.min.js"></script>
+<script src="https://cdn.jsdelivr.net/gh/stevenjoezhang/live2d-widget/autoload.js"></script>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/font-awesome/css/font-awesome.min.css"/>
+</th:block>
+
+<script>
+    $('.ui.form').form({
+        fields : {
+            username : {
+                identifier: 'username',
+                rules: [{
+                    type : 'empty',
+                    prompt: '请输入用户名'
+                }]
+            },
+            password : {
+                identifier: 'password',
+                rules: [{
+                    type : 'empty',
+                    prompt: '请输入密码'
+                }]
+            }
+        }
+    });
+</script>
+<script src="http://49.234.239.122/static/js/cursor.js"></script>
+
+</body>
+</html>
