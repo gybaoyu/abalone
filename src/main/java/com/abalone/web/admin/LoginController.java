@@ -25,6 +25,10 @@ public class LoginController {
         return "admin/login";
     }
 
+    @GetMapping("/login")
+    public String login_new(){
+        return "redirect:/admin";
+    }
 
     @PostMapping("/login")
     public String login(@RequestParam String username,
