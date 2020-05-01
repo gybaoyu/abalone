@@ -50,7 +50,7 @@
     </div>
 </div>
 <!--中间内容-->
-<div  class="m-container-blog m-padded-tb-large">
+<div id="waypoint" class="m-container-small m-padded-tb-big animated fadeIn">
     <div class="ui container">
         <form id="blog-form" action="#" th:object="${blog}" th:action="@{/admin/blogs}" method="post" class="ui form">
             <input type="hidden" name="published" th:value="*{published}">

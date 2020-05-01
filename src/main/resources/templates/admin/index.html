@@ -12,18 +12,21 @@
 <body>
 
 <!--导航-->
-<nav class="ui inverted attached segment m-padded-tb-mini m-shadow-small" >
+<nav class="ui inverted attached segment m-padded-tb-mini m-shadow-small">
     <div class="ui container">
         <div class="ui inverted secondary stackable menu">
             <h2 class="ui teal header item">Abalone</h2>
-            <a href="#" th:href="@{/admin/blogs}" class="active m-item item m-mobile-hide" ><i class="mini home icon"></i>博客</a>
-            <a href="#" th:href="@{/admin/types}" class=" m-item item m-mobile-hide" ><i class="mini idea icon"></i>分类</a>
-            <a href="#" th:href="@{/admin/tags}" class="m-item item m-mobile-hide" ><i class="mini tags icon"></i>标签</a>
-            <a href="#" th:href="@{/}" class="m-item item m-mobile-hide" ><i class="mini desktop icon"></i>回到主页</a>
+            <a href="#" th:href="@{/admin/blogs}" class="active m-item item m-mobile-hide"><i
+                    class="mini home icon"></i>博客</a>
+            <a href="#" th:href="@{/admin/types}" class=" m-item item m-mobile-hide"><i
+                    class="mini idea icon"></i>分类</a>
+            <a href="#" th:href="@{/admin/tags}" class="m-item item m-mobile-hide"><i class="mini tags icon"></i>标签</a>
+            <a href="#" th:href="@{/}" class="m-item item m-mobile-hide"><i class="mini desktop icon"></i>回到主页</a>
             <div class="right m-item m-mobile-hide menu">
                 <div class="ui dropdown item">
                     <div class="text">
-                        <img href="http://49.234.239.122/static/images/about_me.jpeg" th:src="@{${session.user.avatar}}"class="ui avatar image">
+                        <img href="http://49.234.239.122/static/images/about_me.jpeg" th:src="@{${session.user.avatar}}"
+                             class="ui avatar image">
                         <t th:text="${session.user.nickname}">...</t>
                     </div>
                     <i class="dropdown icon"></i>
@@ -48,11 +51,15 @@
     </div>
 </div>
 <!--中间内容-->
-<div class="m-container-em m-padded-tb-large">
+<div id="waypoint" class="m-container-small m-padded-tb-big animated fadeIn">
+
     <div class="ui container">
         <div class="ui success large message">
             <h2>Hey,</h2>
-            <h3><t th:text="${session.user.nickname}">...</t>, you're here at last</h3>
+            <h3>
+                <t th:text="${session.user.nickname}">...</t>
+                , you're here at last
+            </h3>
         </div>
         <img src="http://49.234.239.122/static/images/bitmap03.jpg" class="ui rounded bordered fluid image">
     </div>
@@ -97,10 +104,10 @@
 
 </footer>
 <th:block th:fragment="script">
-<script src="http://49.234.239.122/static/js/jquery.min.js" ></script>
-<script src="http://49.234.239.122/static/js/semantic.min.js"></script>
-<script src="https://cdn.jsdelivr.net/gh/stevenjoezhang/live2d-widget/autoload.js"></script>
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/font-awesome/css/font-awesome.min.css"/>
+    <script src="http://49.234.239.122/static/js/jquery.min.js"></script>
+    <script src="http://49.234.239.122/static/js/semantic.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/gh/stevenjoezhang/live2d-widget/autoload.js"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/font-awesome/css/font-awesome.min.css"/>
 </th:block>
 <script>
     $('menu.toggle').click(function () {
