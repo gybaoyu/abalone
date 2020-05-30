@@ -16,7 +16,7 @@
   <nav class="ui inverted attached segment m-padded-tb-mini m-shadow-small">
     <div class="ui container">
       <div class="ui inverted secondary stackable menu">
-        <h2 class="ui teal header item">Abalone</h2>
+        <h2 class="ui violet header item">Abalone</h2>
         <a href="#" th:href="@{/admin/blogs}" class=" m-item item m-mobile-hide"
         ><i class="mini home icon"></i>博客</a>
         <a href="#" th:href="@{/admin/types}" class=" m-item item m-mobile-hide"
@@ -60,7 +60,7 @@
         <input type="hidden" name="id" th:value="*{id}">
         <div class=" field">
           <div class="ui left labeled input">
-            <label class="ui teal basic label">名称</label>
+            <label class="ui violet basic label">名称</label>
             <input type="text" name="name" placeholder="分类名称" th:value="*{name}" >
           </div>
         </div>
@@ -68,7 +68,7 @@
         <div class="ui error message"></div>
         <div class="ui right aligned container">
           <button type="button" class="ui button" onclick="window.history.go(-1)" >返回</button>
-          <button class="ui teal submit button">提交</button>
+          <button class="ui violet submit button">提交</button>
         </div>
 
       </form>

@@ -3,46 +3,119 @@
 <head >
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>标签</title>
+    <title>Abalone-标签</title>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/semantic-ui/2.2.4/semantic.min.css">
-    <link rel="stylesheet" href="http://49.234.239.122/static/css/me.css">
-    <link rel="stylesheet" href="http://49.234.239.122/static/css/animate.css">
-    <link rel="stylesheet" href="http://49.234.239.122/static/css/typo.css">
+    <link rel="stylesheet" th:href="@{/css/me_for_tags.css}">
+    <link rel="stylesheet" th:href="@{/css/animate.css}">
+    <link rel="stylesheet" th:href="@{/css/typo.css}">
+    <link rel="stylesheet" th:href="@{/lib/editormd/css/editormd.min.css}">
 </head>
 <body>
 
 <!--导航-->
-<nav th:replace="_fragments :: menu(3)" class="ui inverted attached segment m-padded-tb-mini m-shadow-small" >
+<nav id="nav" class="gird-header ui inverted attached segment  " >
     <div class="ui container">
         <div class="ui inverted secondary stackable menu">
-            <h2 class="ui teal header item">Blog</h2>
-            <a href="#" class=" m-item item m-mobile-hide"><i class="mini home icon"></i>首页</a>
-            <a href="#" class="m-item item m-mobile-hide"><i class="mini idea icon"></i>分类</a>
-            <a href="#" class="active m-item item m-mobile-hide"><i class="mini tags icon"></i>标签</a>
-            <a href="#" class="m-item item m-mobile-hide"><i class="mini clone icon"></i>归档</a>
-            <a href="#" class="m-item item m-mobile-hide"><i class="mini info icon"></i>关于我</a>
-            <a href="/admin" class="m-item item m-mobile-hide"><i class="mini desktop icon"></i>&nbsp;后台登陆</a>
-            <div class="right m-item item m-mobile-hide">
-                <div class="ui icon inverted transparent input m-margin-tb-tiny">
-                    <input type="text" placeholder="Search....">
-                    <i class="search link icon"></i>
-                </div>
+            <h2 class="ui blue header item" style="font-family: STSong">Abalone</h2>
+            <!--<div class="right m-item item m-mobile-hide">-->
+            <a href="#" th:href="@{/}" class="m-item item m-mobile-hide " th:classappend="${n==1} ? 'active'"><i
+                    class="mini home icon"></i>首页</a>
+
+            <a href="#" th:href="@{/types/-1}" class="m-item item m-mobile-hide" th:classappend="${n==2} ? 'active'"><i
+                    class="mini idea icon"></i>分类</a>
+
+            <a href="#" th:href="@{/tags/-1}" class="m-item item m-mobile-hide" th:classappend="${n==3} ? 'active'"><i
+                    class="mini tags icon"></i>标签</a>
+
+            <a href="#" th:href="@{/archives}" class="m-item item m-mobile-hide" th:classappend="${n==4} ? 'active'"><i
+                    class="mini clock icon"></i>时间线</a>
+
+            <a href="#" class="m-item item"><i class="book icon"></i>留言板</a>
+
+            <a href="#" th:href="@{/game}" target="_blank" class="m-item item m-mobile-hide"><i
+                    class="mini comment game icon"></i>&nbsp;游戏</a>
+
+            <a href="#" th:href="@{/about}" class="m-item item m-mobile-hide"><i class="mini info icon"></i>关于我</a>
+
+            <a href="" th:href="@{/admin}" class="m-item item m-mobile-hide"><i
+                    class="mini desktop icon"></i>后台登陆</a>
+            <div class="right m-item item">
+                <form name="search" action="#" method="post" target="_blank">
+                    <div class="ui icon transparent input m-margin-tb-tiny" style="color: white">
+                        <input style="color: white" type="text" name="query" placeholder="Search....">
+                        <i onclick="document.forms['search'].submit()" class="search link icon"></i>
+                    </div>
+                </form>
             </div>
         </div>
     </div>
-    <a href="#" class="ui menu toggle black icon button m-right-top m-mobile-show">
+    <a href="#" class="ui menu toggle black icon button m-right-top m-mobile-hide" style="display: none">
         <i class="sidebar icon"></i>
     </a>
 </nav>
+
+<!--顶部图片-->
+<div class="m-bg-class_outer" style="width: 100%;height: 750px">
+    <img th:src="@{/images/bg1.jpg}" alt="" class="ui m-bg image"
+         style="width: 100%;height: 100%">
+    <div class="m-bg-class_cover" align="center">
+        <div class="m-margin-top-maxx" align="center">
+            <img class="ui circular image" align="center" th:src="@{/images/me.jpg}"
+                 style="width: 150px;height: 150px;">
+        </div>
+        <div class="m-font-size-title-large" align="center">Abalone</div>
+
+        <div class="" align="center">
+            <a href="#" class="ui wechat circular icon button"><i class="weixin icon"></i></a>
+            <a href="#" class="ui qq circular icon button" data-content="958324611" data-position="bottom center"><i
+                    class="qq icon"></i></a>
+            <a href="https://github.com/gavy26/" target="_blank" class="ui github circular icon button"
+               data-content="点击跳转GitHub" data-position="bottom center"><i class="github icon"></i></a>
+            <a href="https://blog.csdn.net/cgy_gavy" target="_blank" class="ui csdn circular icon button"
+               data-content="点击跳转CSDN" data-position="bottom center"><i class="copyright outline icon"></i></a>
+            <a href="#" class="ui email circular icon button" data-content="gy958324611@hotmail.com"
+               data-position="bottom center"><i class="envelope  icon"></i></a>
+        </div>
+
+        <div class="ui wechat-qr flowing popup transition hidden">
+
+            <div align="center">Wechat:Miao10178</div>
+        </div>
+        <div class="ui qq-qr flowing popup transition hidden">
+
+            <div align="center">QQ:958324611</div>
+        </div>
+
+        <h3 class="m-font-size-text" align="center">Welcome To Abalone</h3>
+        <hr style="width: 30%">
+        <div id="waypoint" class="ui m-margin-top-large" align="center">
+            <a th:href="@{/}" class="ui circular icon button m-opacity-small m-item item m-mobile-hide m-index-btn"
+            ><i class="home icon"></i>首页</a>
+            <a th:href="@{/types/-1}" class="ui circular icon button m-opacity-small m-item item m-mobile-hide m-index-btn"
+            ><i class="clone outline icon"></i>分类</a>
+            <a th:href="@{/tags/-1}" class="ui circular icon button m-opacity-small m-item item m-mobile-hide m-index-btn"
+            ><i class="tags icon"></i>标签</a>
+            <a th:href="@{/archives}"class="ui circular icon button m-opacity-small m-item item m-mobile-hide m-index-btn"
+            ><i class="clock icon"></i>时间线</a>
+            <a th:href="@{/}" class="ui circular icon button m-opacity-small m-item item m-mobile-hide m-index-btn"
+            ><i class="book icon"></i>留言板</a>
+            <a th:href="@{/about}" class="ui circular icon button m-opacity-small m-item item m-mobile-hide m-index-btn"
+            ><i class="info icon"></i>关于我</a>
+            <a th:href="@{/admin}" class="ui circular icon button m-opacity-small m-item item m-mobile-hide m-index-btn"
+            ><i class="pencil alternate icon"></i>后台</a>
+        </div>
+    </div>
+
+</div>
 
 <!--中间内容-->
 <div  class="m-container-small m-padded-tb-big animated fadeIn">
     <div class="ui container">
         <!--header-->
-        <div class="ui top attached segment">
+        <div class="ui top m-opacity attached segment">
             <div class="ui middle aligned two column grid">
                 <div class="column">
-                    <h3 class="ui teal header">标签</h3>
+                    <h3 class="ui violet header">标签</h3>
                 </div>
                 <div class="right aligned column">
                     共 <h2 class="ui orange header m-inline-block m-text-thin" th:text="${#arrays.length(tags)}"> 14 </h2> 个
@@ -50,13 +123,13 @@
             </div>
         </div>
 
-        <div class="ui attached segment m-padded-tb-large">
-            <a href="#" th:href="@{/tags/{id}(id=${tag.id})}"  class="ui basic left pointing large label m-margin-tb-tiny" th:classappend="${tag.id==activeTagId} ? 'teal'" th:each="tag : ${tags}">
+        <div class="ui attached m-opacity segment m-padded-tb-large">
+            <a href="#" th:href="@{/tags/{id}(id=${tag.id})}"  class="ui basic left pointing large label m-margin-tb-tiny" th:classappend="${tag.id==activeTagId} ? 'violet'" th:each="tag : ${tags}">
                 <span th:text="${tag.name}">方法论</span> <div class="detail" th:text="${#arrays.length(tag.blogs)}">23</div>
             </a>
         </div>
 
-        <div class="ui top attached teal segment">
+        <div class="ui top attached m-opacity violet segment">
             <div class="ui padded vertical segment m-padded-tb-large" th:each="blog : ${page.content}">
                 <div class="ui middle aligned mobile reversed stackable grid" >
                     <div class="ui eleven wide column">
@@ -78,12 +151,12 @@
                                     </div>
                                 </div>
                                 <div class="right aligned five wide column">
-                                    <a href="#" target="_blank" class="ui teal basic label m-padded-tiny m-text-thin" th:text="${blog.type.name}">认知升级</a>
+                                    <a href="#" target="_blank" class="ui violet basic label m-padded-tiny m-text-thin" th:text="${blog.type.name}">认知升级</a>
                                 </div>
                             </div>
                             <div class="row">
                                 <div class="column">
-                                    <a href="#" th:href="@{/tags/{id}(id=${tag.id})}" class="ui  basic left pointing label m-padded-mini m-text-thin" th:classappend="${tag.id==activeTagId} ? 'teal'" th:each="tag : ${blog.tags}" th:text="${tag.name}">方法论</a>
+                                    <a href="#" th:href="@{/tags/{id}(id=${tag.id})}" class="ui  basic left pointing label m-padded-mini m-text-thin" th:classappend="${tag.id==activeTagId} ? 'violet'" th:each="tag : ${blog.tags}" th:text="${tag.name}">方法论</a>
                                 </div>
                             </div>
                         </div>
@@ -101,13 +174,13 @@
         </div>
 
         <!--footer-->
-        <div class="ui bottom attached segment" th:if="${page.totalPages}>1">
+        <div class="ui m-opacity bottom attached segment" th:if="${page.totalPages}>1">
             <div class="ui middle aligned two column grid">
                 <div class="column">
-                    <a href="#" th:href="@{'/tags/'+${activeTagId}(page=${page.number}-1)}"  th:unless="${page.first}" class="ui mini teal basic button">上一页</a>
+                    <a href="#" th:href="@{'/tags/'+${activeTagId}(page=${page.number}-1)}"  th:unless="${page.first}" class="ui mini violet basic button">上一页</a>
                 </div>
                 <div class="right aligned column">
-                    <a href="#" th:href="@{'/tags/'+${activeTagId}(page=${page.number}+1)}"  th:unless="${page.last}" class="ui mini teal basic button">下一页</a>
+                    <a href="#" th:href="@{'/tags/'+${activeTagId}(page=${page.number}+1)}"  th:unless="${page.last}" class="ui mini violet basic button">下一页</a>
                 </div>
             </div>
         </div>
@@ -116,6 +189,7 @@
 
 <br>
 <br>
+<!--底部栏-->
 <!--底部footer-->
 <footer class="ui inverted vertical segment m-padded-tb-massive">
     <div class="ui center aligned container">
@@ -123,7 +197,7 @@
             <div class="three wide column">
                 <div class="ui inverted link list">
                     <div class="item">
-                        <img src="http://49.234.239.122/static/images/wechat1.jpg" class="ui rounded image" alt=""
+                        <img th:src="@{/images/wechat1.jpg}" class="ui rounded image" alt=""
                              style="width: 110px">
                     </div>
                 </div>
@@ -144,21 +218,43 @@
                     <a href="#" class="item m-text-thin">QQ：958324611</a>
                 </div>
             </div>
-            <div class="five wide column">
-                <h4 class="ui inverted header m-text-thin m-text-spaced ">简介</h4>
+            <div class="four wide column">
+                <!--博客运行时间统计-->
+                <h4 class="ui inverted header m-text-thin m-text-spaced ">Abalone信息</h4>
+                <div id="blog-message">
+                    <div class="ui inverted link list" style="align-content: center;margin-top: 10px"
+                         th:fragment="blogMessage">
+                        <div class="m-text-thin" style="text-align: left;margin-left: 75px;">
+                            文章总数： <h2 class="ui orange header m-inline-block m-margin-top-null"
+                                      style="font-size:medium;" th:text="${page.totalElements}"> 14 </h2> 篇
+                        </div>
+                    </div>
+                </div>
                 <p class="m-text-thin m-text-spaced m-opacity-mini" style="text-align: left">
-                    这是我的个人博客、会分享关于编程、思考相关的任何内容，希望可以给来到这儿的人有所帮助...</p>
+                    &nbsp;&nbsp;&nbsp;这是我的个人博客、会分享关于编程、思考相关的任何内容，希望可以给来到这儿的人有所帮助...</p>
             </div>
         </div>
         <div class="ui inverted section divider"></div>
+        <div style="color: #F08047;margin-top: -18px" class="ui inverted m-text-thin m-text-spaced">Abalone已运行: <span
+                id="htmer_time" class="item m-text-thin"></span> (*๓´╰╯`๓)
+        </div>
         <p class="m-text-thin m-text-spaced m-opacity-mini">Copyright © 2020 - 2021 Abalone Designed by Abalone</p>
     </div>
 
 </footer>
 
+</div>
+</div>
 
-<script src="https://cdn.jsdelivr.net/npm/jquery@3.2/dist/jquery.min.js"></script>
-<script src="https://cdn.jsdelivr.net/semantic-ui/2.2.4/semantic.min.js"></script>
+</footer>
+
+</footer>
+
+
+<script th:src="@{/js/jquery.min.js}"></script>
+<script th:src="@{/js/semantic.min.js}"></script>
+<script th:src="@{/js/cursor.js}"></script>
+<script th:src="@{/lib/waypoints/jquery.waypoints.min.js}"></script>
 <script src="https://cdn.jsdelivr.net/gh/stevenjoezhang/live2d-widget/autoload.js"></script>
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/font-awesome/css/font-awesome.min.css"/>
 
@@ -167,8 +263,51 @@
         $('.m-item').toggleClass('m-mobile-hide');
     });
 
+    $('#blog-message').load(/*[[@{/footer/blogmessage}]]*/"/footer/blogmessage");
+
+
+    // 运行时间统计
+    function secondToDate(second) {
+        if (!second) {
+            return 0;
+        }
+        var time = new Array(0, 0, 0, 0, 0);
+        if (second >= 365 * 24 * 3600) {
+            time[0] = parseInt(second / (365 * 24 * 3600));
+            second %= 365 * 24 * 3600;
+        }
+        if (second >= 24 * 3600) {
+            time[1] = parseInt(second / (24 * 3600));
+            second %= 24 * 3600;
+        }
+        if (second >= 3600) {
+            time[2] = parseInt(second / 3600);
+            second %= 3600;
+        }
+        if (second >= 60) {
+            time[3] = parseInt(second / 60);
+            second %= 60;
+        }
+        if (second > 0) {
+            time[4] = second;
+        }
+        return time;
+    }
+
+    function setTime() {
+        /*此处为网站的创建时间*/
+        var create_time = Math.round(new Date(Date.UTC(2020, 01, 25, 15, 15, 15)).getTime() / 1000);
+        var timestamp = Math.round((new Date().getTime() + 8 * 60 * 60 * 1000) / 1000);
+        currentTime = secondToDate((timestamp - create_time));
+        currentTimeHtml = currentTime[0] + '年' + currentTime[1] + '天'
+            + currentTime[2] + '时' + currentTime[3] + '分' + currentTime[4]
+            + '秒';
+        document.getElementById("htmer_time").innerHTML = currentTimeHtml;
+    }
+
+    setInterval(setTime, 1000);
 </script>
-<script src="http://49.234.239.122/static/js/cursor.js"></script>
+<script th:src="@{/js/cursor.js}"></script>
 
 </body>
 </html>

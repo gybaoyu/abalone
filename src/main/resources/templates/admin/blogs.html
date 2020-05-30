@@ -15,7 +15,7 @@
 <nav class="ui inverted attached segment m-padded-tb-mini m-shadow-small">
     <div class="ui container">
         <div class="ui inverted secondary stackable menu">
-            <h2 class="ui teal header item">Abalone</h2>
+            <h2 class="ui violet header item">Abalone</h2>
             <a href="#" th:href="@{/admin/blogs}" class="active m-item item m-mobile-hide"><i
                     class="mini home icon"></i>博客</a>
             <a href="#" th:href="@{/admin/types}" class=" m-item item m-mobile-hide"><i
@@ -84,13 +84,13 @@
                     </div>
                 </div>
                 <div class="field">
-                    <button type="button" id="search-btn" class="ui teal basic button"><i class="search icon"></i>搜索
+                    <button type="button" id="search-btn" class="ui violet basic button"><i class="search icon"></i>搜索
                     </button>
                 </div>
             </div>
         </div>
         <div id="table-container">
-            <table th:fragment="blogList" class="ui compact teal table">
+            <table th:fragment="blogList" class="ui compact violet table">
                 <thead>
                 <tr>
                     <th></th>
@@ -112,7 +112,7 @@
                     <td th:text="${blog.updateTime}">2017-10-02 09:45</td>
                     <td>
                         <a href="#" th:href="@{/admin/blogs/{id}/input(id=${blog.id})}"
-                           class="ui small teal button">编辑</a>
+                           class="ui small violet button">编辑</a>
 
                         <a href="#" th:href="@{/admin/blogs/{id}/delete(id=${blog.id})}"
                            class="ui small red button">删除</a>
