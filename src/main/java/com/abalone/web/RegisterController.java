@@ -33,7 +33,7 @@ public class RegisterController {
 
     @GetMapping(value = "/register")
     public String registerPage(){
-        return "/register";
+        return "register";
     }
 
     @RequestMapping(value = "/register", method = RequestMethod.POST)
@@ -41,14 +41,12 @@ public class RegisterController {
                                       @RequestParam String email,
                                       @RequestParam String password,
                                       HttpSession session,
-                                      Cookie cookie,
                                       Model model){
         session.setMaxInactiveInterval(60*60*12);
-        cookie.setMaxAge(60*60*12*14);
         User user = new User(username,email,password,0);
         if (userService.isThereHaveTheUser(username)!=null) {
             model.addAttribute("wrong","用户名已被占用!");
-            return "/register";
+            return "register";
         }else {
             userRepository.save(user);
             session.setAttribute("user", user);
