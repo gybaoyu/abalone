@@ -16,7 +16,7 @@ body{
 }
 
 .m-padded-tiny {
-    padding: 0.3em !important;
+    padding: 0.6em !important;
 }
 .m-padded {
     padding: 1em !important;
@@ -219,11 +219,11 @@ body{
 
 /*-----container*/
 .m-container-mini{
-    max-width: 100em !important;
+    max-width: 140em !important;
     margin: auto !important;
 }
 .m-container {
-    max-width: 72em !important;
+    max-width: 80em !important;
     margin: auto !important;
 }
 .m-container-tiny {
@@ -257,7 +257,7 @@ body{
 .m-black {
     color: #333 !important;
 }
-.m-teal {
+.m-violet {
     color: #00B5AD !important;
 }
 

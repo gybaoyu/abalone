@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="zh-CN" xmlns:th="http://www.w3.org/1999/xhtml">
+
+<head>
+    <meta charset="utf-8">
+    <title>Abalone-游客登陆</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.8.2/css/all.min.css">
+    <link rel="stylesheet" th:href="@{/css/style.css}">
+    <link href="../static/images/me.jpg" th:href="@{/images/me.jpg}" rel="icon" type="image/x-ico">
+</head>
+
+<body>
+    <div class="dowebok" id="dowebok">
+        <div class="form-container sign-up-container">
+            <form method="post" action="/register" th:action="@{/register}">
+                <h1>注册</h1>
+                <input type="text" name="username" placeholder="姓名">
+                <input type="text" name="email" placeholder="请填正确的邮箱! 回复留言时将需要!">
+                <input type="password" name="password" placeholder="密码">
+
+                <button>注册</button>
+            </form>
+        </div>
+
+        <div class="form-container sign-in-container">
+            <form method="post">
+                <h1>登录</h1>
+                <input type="text" name="username" placeholder="用户名">
+                <input type="password" name="password" placeholder="密码">
+                <button>登录</button>
+                <div style="color: #2C2827;" th:text="${message}"></div>
+            </form>
+        </div>
+
+        <div class="overlay-container">
+            <div class="overlay">
+                <div class="overlay-panel overlay-left">
+                    <h1>&nbsp;&nbsp;已有帐号？</h1>
+                    <p>请使用您的帐号进行登录</p>
+                    <button class="ghost" id="signIn">登录</button>
+                </div>
+                <div class="overlay-panel overlay-right">
+                    <h1>&nbsp;&nbsp;没有帐号？</h1>
+                    <p>立即注册，开始旅程吧</p>
+                    <a th:href="@{/register}" style="color: white"><button class="ghost" >注册</button></a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script th:src="@{/js/index.js}"></script>
+
+</body>
+</html>

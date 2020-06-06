@@ -8,6 +8,7 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/semantic-ui/2.2.4/semantic.min.css">
     <link rel="stylesheet" href="../static/css/me.css" th:href="@{/css/me_for_archives.css}">
     <link rel="stylesheet" href="../static/css/timeline.css" th:href="@{/css/timeline.css}">
+    <link href="../static/images/me.jpg" th:href="@{/images/me.jpg}" rel="icon" type="image/x-ico">
 </head>
 
 <!--导航-->
@@ -35,7 +36,7 @@
 
             <a href="#" th:href="@{/about}" class="m-item item m-mobile-hide"><i class="mini info icon"></i>关于我</a>
 
-            <a href="" th:href="@{/admin}" class="m-item item m-mobile-hide"><i
+            <a href="" th:href="@{/admin/blogs}" class="m-item item m-mobile-hide"><i
                     class="mini desktop icon"></i>后台登陆</a>
             <div class="right m-item item">
                 <form name="search" action="#" method="post" target="_blank">
@@ -60,7 +61,7 @@
         <div class="ui top m-opacity attached padded segment">
             <div class="ui middle aligned two column grid">
                 <div class="column">
-                    <h3 class="ui teal header">归档</h3>
+                    <h3 class="ui violet header">归档</h3>
                 </div>
                 <div class="right aligned column">
                     共 <h2 class="ui orange header m-inline-block m-text-thin" th:text="${blogCount}"> 114 </h2> 篇博客
@@ -71,8 +72,8 @@
                 <div class="ui fluid vertical menu">
                     <a href="#" th:href="@{/blog/{id}(id=${blog.id})}" target="_blank" class="item" th:each="blog : ${item.value}">
           <span>
-            <i class="mini teal circle icon"></i><span th:text="${blog.title}">关于刻意练习的清单</span>
-            <div class="ui teal basic left pointing label m-padded-mini " th:text="${#dates.format(blog.updateTime,'MMMdd')}">9月03</div>
+            <i class="mini violet circle icon"></i><span th:text="${blog.title}">关于刻意练习的清单</span>
+            <div class="ui violet basic left pointing label m-padded-mini " th:text="${#dates.format(blog.updateTime,'MMMdd')}">9月03</div>
           </span>
                         <div class="ui orange basic left pointing label m-padded-mini " th:text="${blog.flag}">原创</div>
                     </a>
@@ -187,7 +188,7 @@
     }
     function setTime() {
         /*此处为网站的创建时间*/
-        var create_time = Math.round(new Date(Date.UTC(2020, 01, 25, 15, 15, 15)).getTime() / 1000);
+        var create_time = Math.round(new Date(Date.UTC(2020, 03, 25, 15, 15, 15)).getTime() / 1000);
         var timestamp = Math.round((new Date().getTime() + 8 * 60 * 60 * 1000) / 1000);
         currentTime = secondToDate((timestamp - create_time));
         currentTimeHtml = currentTime[0] + '年' + currentTime[1] + '天'

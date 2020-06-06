@@ -9,6 +9,7 @@
     <link rel="stylesheet" th:href="@{/css/animate.css}">
     <link rel="stylesheet" th:href="@{/css/typo.css}">
     <link rel="stylesheet" th:href="@{/lib/editormd/css/editormd.min.css}">
+    <link href="../static/images/me.jpg" th:href="@{/images/me.jpg}" rel="icon" type="image/x-ico">
 </head>
 <body>
 
@@ -37,7 +38,7 @@
 
             <a href="#" th:href="@{/about}" class="m-item item m-mobile-hide"><i class="mini info icon"></i>关于我</a>
 
-            <a href="" th:href="@{/admin}" class="m-item item m-mobile-hide"><i
+            <a href="" th:href="@{/admin/blogs}" class="m-item item m-mobile-hide"><i
                     class="mini desktop icon"></i>后台登陆</a>
             <div class="right m-item item">
                 <form name="search" action="#" method="post" target="_blank">
@@ -101,7 +102,7 @@
             ><i class="book icon"></i>留言板</a>
             <a th:href="@{/about}" class="ui circular icon button m-opacity-small m-item item m-mobile-hide m-index-btn"
             ><i class="info icon"></i>关于我</a>
-            <a th:href="@{/admin}" class="ui circular icon button m-opacity-small m-item item m-mobile-hide m-index-btn"
+            <a th:href="@{/admin/blogs}" class="ui circular icon button m-opacity-small m-item item m-mobile-hide m-index-btn"
             ><i class="pencil alternate icon"></i>后台</a>
         </div>
     </div>
@@ -281,7 +282,7 @@
 
     function setTime() {
         /*此处为网站的创建时间*/
-        var create_time = Math.round(new Date(Date.UTC(2020, 01, 25, 15, 15, 15)).getTime() / 1000);
+        var create_time = Math.round(new Date(Date.UTC(2020, 03, 25, 15, 15, 15)).getTime() / 1000);
         var timestamp = Math.round((new Date().getTime() + 8 * 60 * 60 * 1000) / 1000);
         currentTime = secondToDate((timestamp - create_time));
         currentTimeHtml = currentTime[0] + '年' + currentTime[1] + '天'

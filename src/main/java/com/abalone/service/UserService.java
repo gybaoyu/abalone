@@ -6,4 +6,5 @@ import com.abalone.po.User;
 public interface UserService {
 
     User checkUser(String username, String password);
+    User isThereHaveTheUser(String username);
 }

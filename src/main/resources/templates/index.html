@@ -9,7 +9,7 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/semantic-ui/2.2.4/semantic.min.css">
     <link rel="stylesheet" th:href="@{/lib/editormd/css/editormd.min.css}">
     <link rel="stylesheet" href="../static/css/me.css" th:href="@{/css/me.css}">
-
+    <link href="../static/images/me.jpg" th:href="@{/images/me.jpg}" rel="icon" type="image/x-ico">
 </head>
 <body>
 
@@ -38,15 +38,19 @@
 
             <a href="#" th:href="@{/about}" class="m-item item m-mobile-hide"><i class="mini info icon"></i>关于我</a>
 
-            <a href="" th:href="@{/admin}" class="m-item item m-mobile-hide"><i
-                    class="mini desktop icon"></i>后台登陆</a>
-            <div class="right m-item item">
-                <form name="search" action="#" method="post" target="_blank">
-                    <div class="ui icon transparent input m-margin-tb-tiny" style="color: white">
-                        <input style="color: white" type="text" name="query" placeholder="Search....">
-                        <i onclick="document.forms['search'].submit()" class="search link icon"></i>
+            <a href="" th:href="@{/admin/blogs}" class="m-item item m-mobile-hide"><i
+                    class="mini desktop icon"></i>&nbsp;后台</a>
+            <div class="right m-item m-mobile-hide menu">
+                <div class="ui dropdown item">
+                    <div class="text">
+                        <t th:text="${session.user.username}">...</t>
                     </div>
-                </form>
+                    <i class="dropdown icon"></i>
+                    <div class="menu">
+                        <a href="#" th:href="@{/admin/logout}" class="item">注销</a>
+
+                    </div>
+                </div>
             </div>
         </div>
     </div>
@@ -57,7 +61,7 @@
 
 <!--顶部图片-->
 <div class="m-bg-class_outer" style="width: 100%;height: 750px">
-    <img  th:src="@{/images/bg.jpg}" alt="" class="ui m-bg image"
+    <img th:src="@{/images/bg.jpg}" alt="" class="ui m-bg image"
          style="width: 100%;height: 100%">
     <div class="m-bg-class_cover" align="center">
         <div class="m-margin-top-maxx" align="center">
@@ -88,21 +92,26 @@
         </div>
 
         <h3 class="m-font-size-text" align="center">Welcome To Abalone</h3>
+        <h3 class="m-font-size-text" align="center">代码,改变世界</h3>
         <hr style="width: 30%">
         <div id="waypoint" class="ui m-margin-top-large" align="center">
             <a th:href="@{/}" class="ui circular icon button m-opacity-small m-item item m-mobile-hide m-index-btn"
             ><i class="home icon"></i>首页</a>
-            <a th:href="@{/types/-1}" class="ui circular icon button m-opacity-small m-item item m-mobile-hide m-index-btn"
+            <a th:href="@{/types/-1}"
+               class="ui circular icon button m-opacity-small m-item item m-mobile-hide m-index-btn"
             ><i class="clone outline icon"></i>分类</a>
-            <a th:href="@{/tags/-1}" class="ui circular icon button m-opacity-small m-item item m-mobile-hide m-index-btn"
+            <a th:href="@{/tags/-1}"
+               class="ui circular icon button m-opacity-small m-item item m-mobile-hide m-index-btn"
             ><i class="tags icon"></i>标签</a>
-            <a th:href="@{/archives}"class="ui circular icon button m-opacity-small m-item item m-mobile-hide m-index-btn"
+            <a th:href="@{/archives}"
+               class="ui circular icon button m-opacity-small m-item item m-mobile-hide m-index-btn"
             ><i class="clock icon"></i>时间线</a>
             <a th:href="@{/}" class="ui circular icon button m-opacity-small m-item item m-mobile-hide m-index-btn"
             ><i class="book icon"></i>留言板</a>
             <a th:href="@{/about}" class="ui circular icon button m-opacity-small m-item item m-mobile-hide m-index-btn"
             ><i class="info icon"></i>关于我</a>
-            <a th:href="@{/admin}" class="ui circular icon button m-opacity-small m-item item m-mobile-hide m-index-btn"
+            <a th:href="@{/admin/blogs}"
+               class="ui circular icon button m-opacity-small m-item item m-mobile-hide m-index-btn"
             ><i class="pencil alternate icon"></i>后台</a>
         </div>
     </div>
@@ -111,79 +120,117 @@
 
 
 <!--中间内容-->
-<div class="m-padded-tb-big animated fadeIn">
+<div  class="m-container-mini m-padded-tb-big animated fadeIn">
     <div class="ui container">
         <div class="ui stackable grid">
-            <!--博客内容-->
-            <div class="ui vertical segment">
-                <!--博文列表-->
-                <div class="ui padded segment m-padded-tb-large m-opacity" th:each="blog : ${page.content}">
-                    <div class="ui aligned mobile reversed stackable grid">
-                        <!--博文信息-->
-                        <div class="eleven wide column ">
-                            <h2 class="ui header"><a href="#" th:href="@{/blog/{id}(id=${blog.id})}" target="_blank"
-                                                     class="m-black m-title-font" th:text="${blog.title}"></a></h2>
-                            <p class="m-text m-margin-top-max" style="font-size: 16px"
-                               th:text="|${blog.description}|"></p>
-                            <div class="ui m-margin-top-max grid">
-                                <div class="eleven wide column">
-                                    <div class="ui mini horizontal link list">
-                                        <div class="item">
-                                            <div class="content"><a href="#" th:href="@{/about}" target="_blank"
-                                                                    class="header" style="font-size:18px;"
-                                                                    th:text="${blog.user.nickname}">Abalone</a></div>
-                                        </div>
-                                        <div class="item" style="font-size: 15px">
-                                            <i class="calendar icon"></i>createTime:<span
-                                                th:text="${#dates.format(blog.createTime,'yyyy-MM-dd')}">2020-01-01</span>
-                                        </div>
-                                        <div class="item" style="font-size: 15px">
-                                            <i class="calendar icon"></i>updateTime:<span
-                                                th:text="${#dates.format(blog.updateTime,'yyyy-MM-dd')}">2020-01-01</span>
-                                        </div>
-                                        <div class="item" style="font-size: 14px">
-                                            <i class="eye icon"></i> <span th:text="${blog.views}">2222</span>
+            <!--左边博客列表-->
+            <div class="twelve wide column">
+                <!--header-->
+                <div class="ui top attached segment m-opacity">
+                    <div class="ui middle aligned two column grid">
+                        <div class="column">
+                            <h3 class="ui violet header">博客</h3>
+                        </div>
+                        <div class="right aligned column">
+                            共 <h2 class="ui orange header m-inline-block m-text-thin" th:text="${page.totalElements}"> 14 </h2> 篇
+                        </div>
+                    </div>
+                </div>
+
+                <!--content-->
+                <div class="ui attached segment m-opacity">
+
+                    <div class="ui padded vertical segment m-padded-tb-large" th:each="blog : ${page.content}">
+                        <div class="ui middle aligned mobile reversed stackable grid" >
+                            <div class="eleven wide column">
+                                <h3 class="ui header" ><a href="#" th:href="@{/blog/{id}(id=${blog.id})}" target="_blank" class="m-black" th:text="${blog.title}"></a></h3>
+                                <p class="m-text" th:text="|${blog.description}......|"></p>
+                                <div class="ui grid">
+                                    <div class="eleven wide column">
+                                        <div class="ui small horizontal link list">
+                                            <div class="item">
+                                                <img th:src="@{${blog.user.avatar}}"  alt="" class="ui avatar image">
+                                                <div class="content"><a href="#" class="header" th:text="${blog.user.nickname}" ></a></div>
+                                            </div>
+                                            <div class="item">
+                                                <i class="calendar icon"></i><span th:text="${#dates.format(blog.updateTime,'yyyy-MM-dd')}"></span>
+                                            </div>
+                                            <div class="item">
+                                                <i class="eye icon"></i> <span th:text="${blog.views}"></span>
+                                            </div>
                                         </div>
                                     </div>
-                                </div>
-                                <div class="right aligned five wide column">
-                                    <a href="#" target="_blank"
-                                       class="ui violet basic label  m-padded-small m-text-thin"
-                                       th:text="${blog.type.name}"></a>
+                                    <div class="right aligned five wide column">
+                                        <a href="#" target="_blank" class="ui violet basic label m-padded-tiny m-text-thin" th:text="${blog.type.name}"></a>
+                                    </div>
                                 </div>
                             </div>
+
+                            <div class="five wide column">
+                                <a href="#" th:href="@{/blog/{id}(id=${blog.id})}" target="_blank">
+                                    <img src="https://unsplash.it/800/450?image=1005" th:src="@{${blog.firstPicture}}"  alt="" class="ui rounded image">
+                                </a>
+                            </div>
+
                         </div>
-                        <!--博文图片-->
-                        <div class="five wide column">
-                            <a href="#" th:href="@{/blog/{id}(id=${blog.id})}" target="_blank">
-                                <img th:src="@{${blog.firstPicture}}" alt=""
-                                     class="ui rounded image">
+                    </div>
+                </div>
+
+                <!--footer-->
+                <div class="ui bottom attached segment m-opacity" th:if="${page.totalPages}>1">
+                    <div class="ui middle aligned two column grid">
+                        <div class="column">
+                            <a href="#" th:href="@{/(page=${page.number}-1)}"  th:unless="${page.first}" class="ui mini violet basic button">上一页</a>
+                        </div>
+                        <div class="right aligned column">
+                            <a href="#" th:href="@{/(page=${page.number}+1)}"  th:unless="${page.last}" class="ui mini violet basic button">下一页</a>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+
+            <!--右边的top-->
+            <div class="four wide column">
+
+                <!--分类-->
+                <div class="ui segments m-opacity">
+                    <div class="ui secondary segment ">
+                        <div class="ui two column grid">
+                            <div class="column">
+                                <i class="idea icon"></i>分类
+                            </div>
+                            <div class="right aligned column">
+                                <a href="#" th:href="@{types/-1}" target="_blank">more <i class="angle double right icon"></i></a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="ui violet segment">
+                        <div class="ui fluid vertical menu" >
+                            <a href="#" th:href="@{/types/{id}(id=${type.id})}" target="_blank" class="item"  th:each="type : ${types}">
+                                <span th:text="${type.name}"></span>
+                                <div class="ui violet basic left pointing label" th:text="${#arrays.length(type.blogs)}">13</div>
                             </a>
                         </div>
+                    </div>
+                </div>
+                <!--最新推荐-->
+                <div class="ui segments m-margin-top-large m-opacity">
+                    <div class="ui secondary segment ">
+                        <div class="column">
+                            <i class="bookmark icon"></i>最新推荐
+                        </div>
+                    </div>
+                    <div class="ui segment" th:each="blog : ${recommendBlogs}">
+                        <a href="#" th:href="@{/blog/{id}(id=${blog.id})}" target="_blank" class="m-black m-text-thin" th:text="${blog.title}">用户故事（User Story）</a>
+                    </div>
+                </div>
+            </div>
 
-                    </div>
-                </div>
-            </div>
-            <!--分页-->
-            <div class="ui bottom attached segment m-opacity" th:if="${page.totalPages}>1">
-                <div class="ui middle aligned two column grid">
-                    <div class="column">
-                        <a href="#" th:href="@{/(page=${page.number}-1)}" th:unless="${page.first}"
-                           class="ui violet basic button">上一页</a>
-                    </div>
-                    <div class="right aligned column">
-                        <a href="#" th:href="@{/(page=${page.number}+1)}" th:unless="${page.last}"
-                           class="ui violet basic button">下一页</a>
-                    </div>
-                </div>
-            </div>
         </div>
-
     </div>
-</div>
 
 </div>
-
 
 <br>
 <br>
@@ -242,7 +289,6 @@
 </footer>
 
 
-
 <script th:src="@{/js/jquery.min.js}"></script>
 <script th:src="@{/js/semantic.min.js}"></script>
 <script th:src="@{/js/cursor.js}"></script>
@@ -286,7 +332,7 @@
 
     function setTime() {
         /*此处为网站的创建时间*/
-        var create_time = Math.round(new Date(Date.UTC(2020, 01, 25, 15, 15, 15)).getTime() / 1000);
+        var create_time = Math.round(new Date(Date.UTC(2020, 03, 25, 15, 15, 15)).getTime() / 1000);
         var timestamp = Math.round((new Date().getTime() + 8 * 60 * 60 * 1000) / 1000);
         currentTime = secondToDate((timestamp - create_time));
         currentTimeHtml = currentTime[0] + '年' + currentTime[1] + '天'
@@ -330,6 +376,9 @@
     // 显示github
     $('.github').popup();
 
+    $('.ui.dropdown').dropdown({
+        on: 'hover'
+    });
 </script>
 </body>
 </html>

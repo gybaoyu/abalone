@@ -8,6 +8,7 @@
     <link rel="stylesheet" th:href="@{/css/me.css}">
     <link rel="stylesheet" th:href="@{/css/animate.css}">
     <link rel="stylesheet" th:href="@{/css/typo.css}">
+    <link href="../static/images/me.jpg" th:href="@{/images/me.jpg}" rel="icon" type="image/x-ico">
 </head>
 <body>
 
@@ -37,7 +38,7 @@
 
             <a href="#" th:href="@{/about}" class="m-item item m-mobile-hide"><i class="mini info icon"></i>关于我</a>
 
-            <a href="" th:href="@{/admin}" class="m-item item m-mobile-hide"><i
+            <a href="" th:href="@{/admin/blogs}" class="m-item item m-mobile-hide"><i
                     class="mini desktop icon"></i>后台登陆</a>
             <div class="right m-item item">
                 <form name="search" action="#" method="post" target="_blank">
@@ -101,7 +102,7 @@
             ><i class="book icon"></i>留言板</a>
             <a th:href="@{/about}" class="ui circular icon button m-opacity-small m-item item m-mobile-hide m-index-btn"
             ><i class="info icon"></i>关于我</a>
-            <a th:href="@{/admin}" class="ui circular icon button m-opacity-small m-item item m-mobile-hide m-index-btn"
+            <a th:href="@{/admin/blogs}" class="ui circular icon button m-opacity-small m-item item m-mobile-hide m-index-btn"
             ><i class="pencil alternate icon"></i>后台</a>
         </div>
     </div>
@@ -185,8 +186,7 @@
                     <div class="ui inverted link list" style="align-content: center;margin-top: 10px"
                          th:fragment="blogMessage">
                         <div class="m-text-thin" style="text-align: left;margin-left: 75px;">
-                            文章总数： <h2 class="ui orange header m-inline-block m-margin-top-null"
-                                      style="font-size:medium;" th:text="${page.totalElements}"> 14 </h2> 篇
+
                         </div>
                     </div>
                 </div>
@@ -195,7 +195,7 @@
             </div>
         </div>
         <div class="ui inverted section divider"></div>
-        <div style="color: #F08047;margin-top: -18px" class="ui inverted m-text-thin m-text-spaced">Abalone已运行: <span
+        <div style="color: #F08047;margin-top: -18px" class="ui inverted m-text-thin m-text-spaced"><span
                 id="htmer_time" class="item m-text-thin"></span> (*๓´╰╯`๓)
         </div>
         <p class="m-text-thin m-text-spaced m-opacity-mini">Copyright © 2020 - 2021 Abalone Designed by Abalone</p>
@@ -224,47 +224,8 @@
         $('.m-item').toggleClass('m-mobile-hide');
     });
 
-    // 运行时间统计
-    function secondToDate(second) {
-        if (!second) {
-            return 0;
-        }
-        var time = new Array(0, 0, 0, 0, 0);
-        if (second >= 365 * 24 * 3600) {
-            time[0] = parseInt(second / (365 * 24 * 3600));
-            second %= 365 * 24 * 3600;
-        }
-        if (second >= 24 * 3600) {
-            time[1] = parseInt(second / (24 * 3600));
-            second %= 24 * 3600;
-        }
-        if (second >= 3600) {
-            time[2] = parseInt(second / 3600);
-            second %= 3600;
-        }
-        if (second >= 60) {
-            time[3] = parseInt(second / 60);
-            second %= 60;
-        }
-        if (second > 0) {
-            time[4] = second;
-        }
-        return time;
-    }
-    function setTime() {
-        /*此处为网站的创建时间*/
-        var create_time = Math.round(new Date(Date.UTC(2020, 01, 25, 15, 15, 15)).getTime() / 1000);
-        var timestamp = Math.round((new Date().getTime() + 8 * 60 * 60 * 1000) / 1000);
-        currentTime = secondToDate((timestamp - create_time));
-        currentTimeHtml = currentTime[0] + '年' + currentTime[1] + '天'
-            + currentTime[2] + '时' + currentTime[3] + '分' + currentTime[4]
-            + '秒';
-        document.getElementById("htmer_time").innerHTML = currentTimeHtml;
-    }
-    setInterval(setTime, 1000);
-
-
 </script>
+
 <script src="" th:src="@{/js/jquery.min.js}"></script>
 <script src=""th:src="@{/js/semantic.min.js}"></script>
 <script th:src="@{/js/cursor.js}"></script>
