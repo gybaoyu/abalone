@@ -20,7 +20,7 @@ public class LoginController {
 
     @RequestMapping(value = "/login",method = RequestMethod.GET)
     public String loginPage() {
-        return "/login";
+        return "login";
     }
 
     @RequestMapping(value = "/login",method = RequestMethod.POST)
@@ -29,7 +29,7 @@ public class LoginController {
                         HttpSession session,
                         Model model) {
         User user = userService.checkUser(username, password);
-//        session.setMaxInactiveInterval();
+        session.setMaxInactiveInterval(60*60*12*14);
 
         if (user == null) {
             model.addAttribute("message", "用户名或密码错误!");
@@ -54,5 +54,11 @@ public class LoginController {
     public String logout1(HttpSession session) {
         session.removeAttribute("user");
         return "redirect:";
+    }
+    @GetMapping(value = "/guess")
+    public String guessPage(HttpSession session){
+        User user = userService.checkUser("User", "123");
+        session.setAttribute("user",user);
+        return "redirect:/";
     }
 }

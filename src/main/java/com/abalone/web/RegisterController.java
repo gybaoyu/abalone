@@ -12,6 +12,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 
+import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpSession;
 
 /**
@@ -40,7 +41,10 @@ public class RegisterController {
                                       @RequestParam String email,
                                       @RequestParam String password,
                                       HttpSession session,
+                                      Cookie cookie,
                                       Model model){
+        session.setMaxInactiveInterval(60*60*12);
+        cookie.setMaxAge(60*60*12*14);
         User user = new User(username,email,password,0);
         if (userService.isThereHaveTheUser(username)!=null) {
             model.addAttribute("wrong","用户名已被占用!");
