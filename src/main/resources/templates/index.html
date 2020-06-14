@@ -4,15 +4,23 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Abalone-首页</title>
-
+    <!--    <script src="../static/js/vendor/modernizr-2.6.2.min.js" th:src="@{/js/vendor/modernizr-2.6.2.min.js}"></script>-->
     <link href="../static/images/me.jpg" th:href="@{/images/me.jpg}" rel="icon" type="image/x-ico">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/semantic-ui/2.2.4/semantic.min.css">
     <link rel="stylesheet" th:href="@{/lib/editormd/css/editormd.min.css}">
     <link rel="stylesheet" href="../static/css/me.css" th:href="@{/css/me.css}">
     <link href="../static/images/me.jpg" th:href="@{/images/me.jpg}" rel="icon" type="image/x-ico">
 </head>
-<body>
+<body class="demo">
 
+<!--<div id="demo-content">-->
+<!--    <div id="loader-wrapper">-->
+<!--        <div id="loader"></div>-->
+<!--        <div class="loader-section section-left"></div>-->
+<!--        <div class="loader-section section-right"></div>-->
+<!--    </div>-->
+<!--    <div id="content">-->
+<!--    </div>-->
 <!--导航-->
 <nav id="nav" class="gird-header ui inverted attached segment  ">
     <div class="ui container">
@@ -31,7 +39,7 @@
             <a href="#" th:href="@{/archives}" class="m-item item m-mobile-hide"><i
                     class="mini clock icon"></i>时间线</a>
 
-            <a href="#" class="m-item item"><i class="book icon"></i>留言板</a>
+            <a href="#" th:href="@{/message}" class="m-item item"><i class="book icon"></i>留言板</a>
 
             <a href="#" th:href="@{/game}" target="_blank" class="m-item item m-mobile-hide"><i
                     class="mini comment game icon"></i>&nbsp;游戏</a>
@@ -41,14 +49,26 @@
             <a href="" th:href="@{/admin/blogs}" class="m-item item m-mobile-hide"><i
                     class="mini desktop icon"></i>&nbsp;后台</a>
             <div class="right m-item m-mobile-hide menu">
-                <div class="ui dropdown item">
+                <div th:if="${session.user}==null">
                     <div class="text">
-                        <t th:text="${session.user.username}">...</t>
+                        <a th:href="@{/login}">
+                            <button class="ui button small grey">登录</button>
+                        </a>
+                        <a th:href="@{/register}">
+                            <button class="ui button small grey">注册</button>
+                        </a>
                     </div>
-                    <i class="dropdown icon"></i>
-                    <div class="menu">
-                        <a href="#" th:href="@{/admin/logout}" class="item">注销</a>
+                </div>
+                <div th:if="${session.user}!=null">
+                    <div class="ui dropdown item">
+                        <div class="text">
+                            <t th:text="${session.user.username}">...</t>
+                        </div>
+                        <i class="dropdown icon"></i>
+                        <div class="menu">
+                            <a href="#" th:href="@{/admin/logout}" class="item">注销</a>
 
+                        </div>
                     </div>
                 </div>
             </div>
@@ -61,8 +81,8 @@
 
 <!--顶部图片-->
 <div class="m-bg-class_outer" style="width: 100%;height: 750px">
-    <img th:src="@{/images/bg.jpg}" alt="" class="ui m-bg image"
-         style="width: 100%;height: 100%">
+    <!--    <img th:src="@{/images/bg.jpg}" alt="" class="ui m-bg image"-->
+    <!--         style="width: 100%;height: 100%">-->
     <div class="m-bg-class_cover" align="center">
         <div class="m-margin-top-maxx" align="center">
             <img class="ui circular image" align="center" th:src="@{/images/me.jpg}"
@@ -106,9 +126,11 @@
             <a th:href="@{/archives}"
                class="ui circular icon button m-opacity-small m-item item m-mobile-hide m-index-btn"
             ><i class="clock icon"></i>时间线</a>
-            <a th:href="@{/}" class="ui circular icon button m-opacity-small m-item item m-mobile-hide m-index-btn"
+            <a th:href="@{/message}"
+               class="ui circular icon button m-opacity-small m-item item m-mobile-hide m-index-btn"
             ><i class="book icon"></i>留言板</a>
-            <a th:href="@{/about}" class="ui circular icon button m-opacity-small m-item item m-mobile-hide m-index-btn"
+            <a th:href="@{/about}"
+               class="ui circular icon button m-opacity-small m-item item m-mobile-hide m-index-btn"
             ><i class="info icon"></i>关于我</a>
             <a th:href="@{/admin/blogs}"
                class="ui circular icon button m-opacity-small m-item item m-mobile-hide m-index-btn"
@@ -120,7 +142,7 @@
 
 
 <!--中间内容-->
-<div  class="m-container-mini m-padded-tb-big animated fadeIn">
+<div class="m-container-mini m-padded-tb-big animated fadeIn">
     <div class="ui container">
         <div class="ui stackable grid">
             <!--左边博客列表-->
@@ -132,7 +154,9 @@
                             <h3 class="ui violet header">博客</h3>
                         </div>
                         <div class="right aligned column">
-                            共 <h2 class="ui orange header m-inline-block m-text-thin" th:text="${page.totalElements}"> 14 </h2> 篇
+                            共 <h2 class="ui orange header m-inline-block m-text-thin"
+                                  th:text="${page.totalElements}">
+                            14 </h2> 篇
                         </div>
                     </div>
                 </div>
@@ -141,18 +165,22 @@
                 <div class="ui attached segment m-opacity">
 
                     <div class="ui padded vertical segment m-padded-tb-large" th:each="blog : ${page.content}">
-                        <div class="ui middle aligned mobile reversed stackable grid" >
+                        <div class="ui middle aligned mobile reversed stackable grid">
                             <div class="eleven wide column">
-                                <h3 class="ui header" ><a href="#" th:href="@{/blog/{id}(id=${blog.id})}" target="_blank" class="m-black" th:text="${blog.title}"></a></h3>
+                                <h3 class="ui header"><a href="#" th:href="@{/blog/{id}(id=${blog.id})}"
+                                                         target="_blank"
+                                                         class="m-black" th:text="${blog.title}"></a></h3>
                                 <p class="m-text" th:text="|${blog.description}......|"></p>
                                 <div class="ui grid">
                                     <div class="eleven wide column">
                                         <div class="ui small horizontal link list">
                                             <div class="item">
-                                                <div class="content"><a href="#" class="header" th:text="${blog.user.nickname}" ></a></div>
+                                                <div class="content"><a href="#" class="header"
+                                                                        th:text="${blog.user.nickname}"></a></div>
                                             </div>
                                             <div class="item">
-                                                <i class="calendar icon"></i><span th:text="${#dates.format(blog.updateTime,'yyyy-MM-dd')}"></span>
+                                                <i class="calendar icon"></i><span
+                                                    th:text="${#dates.format(blog.updateTime,'yyyy-MM-dd')}"></span>
                                             </div>
                                             <div class="item">
                                                 <i class="eye icon"></i> <span th:text="${blog.views}"></span>
@@ -160,14 +188,18 @@
                                         </div>
                                     </div>
                                     <div class="right aligned five wide column">
-                                        <a href="#" target="_blank" class="ui violet basic label m-padded-tiny m-text-thin" th:text="${blog.type.name}"></a>
+                                        <a href="#" target="_blank"
+                                           class="ui violet basic label m-padded-tiny m-text-thin"
+                                           th:text="${blog.type.name}"></a>
                                     </div>
                                 </div>
                             </div>
 
                             <div class="five wide column">
                                 <a href="#" th:href="@{/blog/{id}(id=${blog.id})}" target="_blank">
-                                    <img src="https://unsplash.it/800/450?image=1005" th:src="@{${blog.firstPicture}}"  alt="" class="ui rounded image">
+                                    <img src="https://unsplash.it/800/450?image=1005"
+                                         th:src="@{${blog.firstPicture}}"
+                                         alt="" class="ui rounded image">
                                 </a>
                             </div>
 
@@ -179,10 +211,12 @@
                 <div class="ui bottom attached segment m-opacity" th:if="${page.totalPages}>1">
                     <div class="ui middle aligned two column grid">
                         <div class="column">
-                            <a href="#" th:href="@{/(page=${page.number}-1)}"  th:unless="${page.first}" class="ui mini violet basic button">上一页</a>
+                            <a href="#" th:href="@{/(page=${page.number}-1)}" th:unless="${page.first}"
+                               class="ui mini violet basic button">上一页</a>
                         </div>
                         <div class="right aligned column">
-                            <a href="#" th:href="@{/(page=${page.number}+1)}"  th:unless="${page.last}" class="ui mini violet basic button">下一页</a>
+                            <a href="#" th:href="@{/(page=${page.number}+1)}" th:unless="${page.last}"
+                               class="ui mini violet basic button">下一页</a>
                         </div>
                     </div>
                 </div>
@@ -200,15 +234,19 @@
                                 <i class="idea icon"></i>分类
                             </div>
                             <div class="right aligned column">
-                                <a href="#" th:href="@{types/-1}" target="_blank">more <i class="angle double right icon"></i></a>
+                                <a href="#" th:href="@{types/-1}" target="_blank">more <i
+                                        class="angle double right icon"></i></a>
                             </div>
                         </div>
                     </div>
                     <div class="ui violet segment">
-                        <div class="ui fluid vertical menu" >
-                            <a href="#" th:href="@{/types/{id}(id=${type.id})}" target="_blank" class="item"  th:each="type : ${types}">
+                        <div class="ui fluid vertical menu">
+                            <a href="#" th:href="@{/types/{id}(id=${type.id})}" target="_blank" class="item"
+                               th:each="type : ${types}">
                                 <span th:text="${type.name}"></span>
-                                <div class="ui violet basic left pointing label" th:text="${#arrays.length(type.blogs)}">13</div>
+                                <div class="ui violet basic left pointing label"
+                                     th:text="${#arrays.length(type.blogs)}">13
+                                </div>
                             </a>
                         </div>
                     </div>
@@ -221,14 +259,15 @@
                         </div>
                     </div>
                     <div class="ui segment" th:each="blog : ${recommendBlogs}">
-                        <a href="#" th:href="@{/blog/{id}(id=${blog.id})}" target="_blank" class="m-black m-text-thin" th:text="${blog.title}">用户故事（User Story）</a>
+                        <a href="#" th:href="@{/blog/{id}(id=${blog.id})}" target="_blank"
+                           class="m-black m-text-thin"
+                           th:text="${blog.title}">用户故事（User Story）</a>
                     </div>
                 </div>
             </div>
 
         </div>
     </div>
-
 </div>
 
 <br>
@@ -267,8 +306,7 @@
                 <!--博客运行时间统计-->
                 <h4 class="ui inverted header m-text-thin m-text-spaced ">Abalone信息</h4>
                 <div id="blog-message">
-                    <div class="ui inverted link list" style="align-content: center;margin-top: 10px"
-                         th:fragment="blogMessage">
+                    <div class="ui inverted link list" style="align-content: center;margin-top: 10px">
                         <div class="m-text-thin" style="text-align: left;margin-left: 75px;">
                             文章总数： <h2 class="ui orange header m-inline-block m-margin-top-null"
                                       style="font-size:medium;" th:text="${page.totalElements}"> 14 </h2> 篇
@@ -295,12 +333,8 @@
 <script src="https://cdn.jsdelivr.net/gh/stevenjoezhang/live2d-widget/autoload.js"></script>
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/font-awesome/css/font-awesome.min.css"/>
 
+<!--<script th:src="@{/js/vendor/jquery-1.9.1.min.js}" src="../static/js/vendor/jquery-1.9.1.min.js"></script>-->
 <script>
-
-
-    $('#blog-message').load(/*[[@{/footer/blogmessage}]]*/"/footer/blogmessage");
-
-
     // 运行时间统计
     function secondToDate(second) {
         if (!second) {

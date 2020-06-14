@@ -2,15 +2,15 @@
 <html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Abalone-时间轴</title>
-    <link href="../static/images/favicon.ico" th:href="@{/images/me.jpg}" rel="icon" type="image/x-ico">
+    <title>Abalone-留言</title>
+
+    <link href="../static/images/me.jpg" th:href="@{/images/me.jpg}" rel="icon" type="image/x-ico">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/semantic-ui/2.2.4/semantic.min.css">
-    <link rel="stylesheet" href="../static/css/me.css" th:href="@{/css/me_for_archives.css}">
-    <link rel="stylesheet" href="../static/css/timeline.css" th:href="@{/css/timeline.css}">
+    <link rel="stylesheet" th:href="@{/lib/editormd/css/editormd.min.css}">
+    <link rel="stylesheet" href="../static/css/me.css" th:href="@{/css/me_for_message.css}">
     <link href="../static/images/me.jpg" th:href="@{/images/me.jpg}" rel="icon" type="image/x-ico">
 </head>
-
+<body>
 <!--导航-->
 <nav id="nav" class="gird-header ui inverted attached segment  ">
     <div class="ui container">
@@ -41,8 +41,12 @@
             <div class="right m-item m-mobile-hide menu">
                 <div th:if="${session.user}==null">
                     <div class="text">
-                        <a th:href="@{/login}"><button class="ui button small grey">登录</button></a>
-                        <a th:href="@{/register}"><button class="ui button small grey">注册</button></a>
+                        <a th:href="@{/login}">
+                            <button class="ui button small grey">登录</button>
+                        </a>
+                        <a th:href="@{/register}">
+                            <button class="ui button small grey">注册</button>
+                        </a>
                     </div>
                 </div>
                 <div th:if="${session.user}!=null">
@@ -64,9 +68,10 @@
         <i class="sidebar icon"></i>
     </a>
 </nav>
+
 <!--顶部图片-->
 <div class="m-bg-class_outer" style="width: 100%;height: 750px">
-    <img th:src="@{/images/bg4.jpg}" alt="" class="ui m-bg image"
+    <img th:src="@{/images/bg6.jpg}" alt="" class="ui m-bg image"
          style="width: 100%;height: 100%">
     <div class="m-bg-class_cover" align="center">
         <div class="m-margin-top-maxx" align="center">
@@ -97,7 +102,7 @@
         </div>
 
         <h3 class="m-font-size-text" align="center">Welcome To Abalone</h3>
-        <h3 class="m-font-size-text" align="center">代码,改变世界</h3>
+        <h3 class="m-font-size-text" align="center">留言板,留下你的脚印~plz</h3>
         <hr style="width: 30%">
         <div id="waypoint" class="ui m-margin-top-large" align="center">
             <a th:href="@{/}" class="ui circular icon button m-opacity-small m-item item m-mobile-hide m-index-btn"
@@ -111,7 +116,8 @@
             <a th:href="@{/archives}"
                class="ui circular icon button m-opacity-small m-item item m-mobile-hide m-index-btn"
             ><i class="clock icon"></i>时间线</a>
-            <a th:href="@{/message}" class="ui circular icon button m-opacity-small m-item item m-mobile-hide m-index-btn"
+            <a th:href="@{/message}"
+               class="ui circular icon button m-opacity-small m-item item m-mobile-hide m-index-btn"
             ><i class="book icon"></i>留言板</a>
             <a th:href="@{/about}" class="ui circular icon button m-opacity-small m-item item m-mobile-hide m-index-btn"
             ><i class="info icon"></i>关于我</a>
@@ -120,38 +126,123 @@
             ><i class="pencil alternate icon"></i>后台</a>
         </div>
     </div>
-
 </div>
 
-<!--时间轴内容-->
-<div  class="m-container-small m-padded-tb-big animated fadeIn">
+<div class="m-container-mini m-padded-tb-big animated fadeIn">
     <div class="ui container">
-        <!--header-->
-        <div class="ui top m-opacity attached padded segment">
-            <div class="ui middle aligned two column grid">
-                <div class="column">
-                    <h3 class="ui violet header">归档</h3>
-                </div>
-                <div class="right aligned column">
-                    共 <h2 class="ui orange header m-inline-block m-text-thin" th:text="${blogCount}"> 114 </h2> 篇博客
+        <div class="ui stackable grid">
+            <div class="twelve wide column">
+                <div class="ui attached segment m-opacity">
+                    <!--新增留言-->
+                    <form method="post" th:action="@{/addMessage}" th:if="${session.user!=null}">
+                        <div id="message-form" class="ui form">
+                            <!--留言区-->
+                            <div class="field">
+                                <textarea name="ask_text" placeholder="请输入留言信息...并且确保登录的账号邮箱为真实信息"></textarea>
+                            </div>
+                            <div class="ui grid">
+                                <!--输入姓名-->
+                                <div class="five wide column">
+                                    <div class="field m-mobile-wide m-margin-bottom-small">
+                                        <div class="ui left icon input">
+                                            <input type="hidden" name="username" placeholder="Id"
+                                                   th:value="${session.user.username}">
+                                        </div>
+                                    </div>
+                                </div>
+                                <!--输入邮箱-->
+                                <div class="five wide column">
+                                    <div class="field m-mobile-wide m-margin-bottom-small">
+                                        <div class="ui left icon input">
+                                            <input type="hidden" name="email" placeholder="Email"
+                                                   th:value="${session.user.email}">
+                                        </div>
+                                    </div>
+                                </div>
+                                <!--提交留言-->
+                                <div class="right aligned six wide column">
+                                    <div class="field m-mobile-wide m-margin-bottom-small">
+                                        <input type="submit" value="留下足迹" class="ui violet button">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </form>
+                    <!--留言区-->
+                    <div id="message-container" class="ui violet segment" th:each="message : ${messages}">
+                        <div class="ui threaded comments" style="max-width: 100%;">
+                            <h3 class="ui dividing header">留言</h3>
+                            <div class="comment" th:each="message : ${messages}">
+                                <div class="content">
+                                    <a class="author">
+                                        <span th:text="${message.username}">Matt</span>
+                                    </a>
+                                    <div class="metadata">
+                                                <span class="date"
+                                                      th:text="${#dates.format(message.ask_time,'yyyy-MM-dd HH:mm')}">今天下午 5:42</span>
+                                    </div>
+                                    <div class="text" th:text="${message.ask_text}">太赞了！</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
-            <th:block th:each="item : ${archiveMap}">
-                <h3 class="ui center aligned header" th:text="${item.key}">2017</h3>
-                <div class="ui fluid vertical menu">
-                    <a href="#" th:href="@{/blog/{id}(id=${blog.id})}" target="_blank" class="item" th:each="blog : ${item.value}">
-          <span>
-            <i class="mini violet circle icon"></i><span th:text="${blog.title}">关于刻意练习的清单</span>
-            <div class="ui violet basic left pointing label m-padded-mini " th:text="${#dates.format(blog.updateTime,'MMMdd')}">9月03</div>
-          </span>
-                        <div class="ui orange basic left pointing label m-padded-mini " th:text="${blog.flag}">原创</div>
-                    </a>
-                </div>
-            </th:block>
-        </div>
 
+            <!--右边的top-->
+            <div class="four wide column">
+
+                <!--留言注意事项-->
+                <div class="ui segments m-opacity">
+                    <div class="ui secondary segment ">
+                        <div class="ui two column grid">
+                            <div class="column">
+                                <i class="idea icon"></i>注意事项
+                            </div>
+                        </div>
+                    </div>
+                    <div class="ui violet segment">
+                        <p class="m-text-thin m-text-spaced m-opacity">
+                            1.请确保账号使用的是真实邮箱,<br>&nbsp;&nbsp;&nbsp;&nbsp;否则你将无法收到回复.
+                        </p>
+                        <br>
+                        <p class="m-text-thin m-text-spaced m-opacity">
+                            2.Abalone不会以任何方式泄露<br>&nbsp;&nbsp;&nbsp;任何用户的邮箱.
+                        </p>
+                        <br>
+                        <p class="m-text-thin m-text-spaced m-opacity">
+                            3.请文明用语,营造良好网络环境.
+                        </p>
+                        <br>
+                        <p class="m-text-thin m-text-spaced m-opacity">
+                            4.Just enjoy yourself~
+                        </p>
+                        <br>
+                    </div>
+                </div>
+                <!--最新推荐-->
+                <div class="ui segments m-margin-top-large m-opacity">
+                    <div class="ui secondary segment ">
+                        <div class="column">
+                            <i class="bookmark icon"></i>无法留言?
+                        </div>
+                    </div>
+                    <div class="ui violet segment">
+                        也许应该先登录?<br><br>
+                        <a th:href="@{/login}">点我登录</a>&nbsp;&nbsp;&nbsp;&nbsp;
+                        <a th:href="@{/register}">点我注册</a><br>
+                    </div>
+                </div>
+            </div>
+        </div>
     </div>
 </div>
+
+
+<br>
+<br>
+<br>
+<br>
 <br>
 <br>
 
@@ -190,10 +281,6 @@
                 <div id="blog-message">
                     <div class="ui inverted link list" style="align-content: center;margin-top: 10px"
                          th:fragment="blogMessage">
-                        <div class="m-text-thin" style="text-align: left;margin-left: 75px;">
-                            文章总数： <h2 class="ui orange header m-inline-block m-margin-top-null"
-                                      style="font-size:medium;" th:text="${blogCount}"> 14 </h2> 篇
-                        </div>
                     </div>
                 </div>
                 <p class="m-text-thin m-text-spaced m-opacity-mini" style="text-align: left">
@@ -206,27 +293,22 @@
         </div>
         <p class="m-text-thin m-text-spaced m-opacity-mini">Copyright © 2020 - 2021 Abalone Designed by Abalone</p>
     </div>
-
 </footer>
 
-
-
-<script src="https://cdn.jsdelivr.net/npm/jquery@3.2/dist/jquery.min.js"></script>
-<script src="https://cdn.jsdelivr.net/semantic-ui/2.2.4/semantic.min.js"></script>
-<script src="../static/lib/timeline/timeline.js" th:src="@{/lib/timeline/timeline.js}"></script>
-<script src="../static/lib/waypoints/jquery.waypoints.min.js"
-        th:src="@{/lib/waypoints/jquery.waypoints.min.js}"></script>
-
+<script th:src="@{/js/jquery.min.js}"></script>
+<script th:src="@{/js/semantic.min.js}"></script>
+<script th:src="@{/js/cursor.js}"></script>
+<script th:src="@{/lib/waypoints/jquery.waypoints.min.js}"></script>
+<script src="https://cdn.jsdelivr.net/gh/stevenjoezhang/live2d-widget/autoload.js"></script>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/font-awesome/css/font-awesome.min.css"/>
 
 <script>
-
-    // $('#newblog-container').load(/*[[@{/footer/newblog}]]*/"/footer/newblog");
-
-    $('#blog-message').load(/*[[@{/footer/blogmessage}]]*/"/footer/blogmessage");
-
     $('.menu.toggle').click(function () {
         $('.m-item').toggleClass('m-mobile-hide');
     });
+
+    $('#blog-message').load(/*[[@{/footer/blogmessage}]]*/"/footer/blogmessage");
+
 
     // 运行时间统计
     function secondToDate(second) {
@@ -255,6 +337,7 @@
         }
         return time;
     }
+
     function setTime() {
         /*此处为网站的创建时间*/
         var create_time = Math.round(new Date(Date.UTC(2020, 03, 25, 15, 15, 15)).getTime() / 1000);
@@ -265,11 +348,13 @@
             + '秒';
         document.getElementById("htmer_time").innerHTML = currentTimeHtml;
     }
+
     setInterval(setTime, 1000);
+
     $('.ui.dropdown').dropdown({
         on: 'hover'
     });
-
 </script>
+<script th:src="@{/js/cursor.js}"></script>
 </body>
 </html>

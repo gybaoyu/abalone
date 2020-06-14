@@ -48,17 +48,12 @@ public class LoginController {
     @GetMapping("/admin/logout")
     public String logout(HttpSession session) {
         session.removeAttribute("user");
-        return "redirect:";
+        session.removeAttribute("type");
+        return "login";
     }
     @GetMapping("/logout")
     public String logout1(HttpSession session) {
         session.removeAttribute("user");
-        return "redirect:";
-    }
-    @GetMapping(value = "/guess")
-    public String guessPage(HttpSession session){
-        User user = userService.checkUser("User", "123");
-        session.setAttribute("user",user);
-        return "redirect:/";
+        return "login";
     }
 }

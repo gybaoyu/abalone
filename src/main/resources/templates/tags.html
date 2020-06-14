@@ -14,24 +14,24 @@
 <body>
 
 <!--导航-->
-<nav id="nav" class="gird-header ui inverted attached segment  " >
+<nav id="nav" class="gird-header ui inverted attached segment  ">
     <div class="ui container">
         <div class="ui inverted secondary stackable menu">
             <h2 class="ui blue header item" style="font-family: STSong">Abalone</h2>
             <!--<div class="right m-item item m-mobile-hide">-->
-            <a href="#" th:href="@{/}" class="m-item item m-mobile-hide " th:classappend="${n==1} ? 'active'"><i
+            <a href="#" th:href="@{/}" class="m-item item m-mobile-hide "><i
                     class="mini home icon"></i>首页</a>
 
-            <a href="#" th:href="@{/types/-1}" class="m-item item m-mobile-hide" th:classappend="${n==2} ? 'active'"><i
+            <a href="#" th:href="@{/types/-1}" class="m-item item m-mobile-hide"><i
                     class="mini idea icon"></i>分类</a>
 
-            <a href="#" th:href="@{/tags/-1}" class="m-item item m-mobile-hide" th:classappend="${n==3} ? 'active'"><i
+            <a href="#" th:href="@{/tags/-1}" class="m-item item m-mobile-hide"><i
                     class="mini tags icon"></i>标签</a>
 
-            <a href="#" th:href="@{/archives}" class="m-item item m-mobile-hide" th:classappend="${n==4} ? 'active'"><i
+            <a href="#" th:href="@{/archives}" class="m-item item m-mobile-hide"><i
                     class="mini clock icon"></i>时间线</a>
 
-            <a href="#" class="m-item item"><i class="book icon"></i>留言板</a>
+            <a href="#" th:href="@{/message}" class="m-item item"><i class="book icon"></i>留言板</a>
 
             <a href="#" th:href="@{/game}" target="_blank" class="m-item item m-mobile-hide"><i
                     class="mini comment game icon"></i>&nbsp;游戏</a>
@@ -39,14 +39,30 @@
             <a href="#" th:href="@{/about}" class="m-item item m-mobile-hide"><i class="mini info icon"></i>关于我</a>
 
             <a href="" th:href="@{/admin/blogs}" class="m-item item m-mobile-hide"><i
-                    class="mini desktop icon"></i>后台登陆</a>
-            <div class="right m-item item">
-                <form name="search" action="#" method="post" target="_blank">
-                    <div class="ui icon transparent input m-margin-tb-tiny" style="color: white">
-                        <input style="color: white" type="text" name="query" placeholder="Search....">
-                        <i onclick="document.forms['search'].submit()" class="search link icon"></i>
+                    class="mini desktop icon"></i>&nbsp;后台</a>
+            <div class="right m-item m-mobile-hide menu">
+                <div th:if="${session.user}==null">
+                    <div class="text">
+                        <a th:href="@{/login}">
+                            <button class="ui button small grey">登录</button>
+                        </a>
+                        <a th:href="@{/register}">
+                            <button class="ui button small grey">注册</button>
+                        </a>
                     </div>
-                </form>
+                </div>
+                <div th:if="${session.user}!=null">
+                    <div class="ui dropdown item">
+                        <div class="text">
+                            <t th:text="${session.user.username}">...</t>
+                        </div>
+                        <i class="dropdown icon"></i>
+                        <div class="menu">
+                            <a href="#" th:href="@{/admin/logout}" class="item">注销</a>
+
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
     </div>
@@ -98,12 +114,13 @@
             ><i class="tags icon"></i>标签</a>
             <a th:href="@{/archives}"class="ui circular icon button m-opacity-small m-item item m-mobile-hide m-index-btn"
             ><i class="clock icon"></i>时间线</a>
-            <a th:href="@{/}" class="ui circular icon button m-opacity-small m-item item m-mobile-hide m-index-btn"
+            <a th:href="@{/message}" class="ui circular icon button m-opacity-small m-item item m-mobile-hide m-index-btn"
             ><i class="book icon"></i>留言板</a>
             <a th:href="@{/about}" class="ui circular icon button m-opacity-small m-item item m-mobile-hide m-index-btn"
             ><i class="info icon"></i>关于我</a>
             <a th:href="@{/admin/blogs}" class="ui circular icon button m-opacity-small m-item item m-mobile-hide m-index-btn"
             ><i class="pencil alternate icon"></i>后台</a>
+
         </div>
     </div>
 
@@ -307,6 +324,10 @@
     }
 
     setInterval(setTime, 1000);
+
+    $('.ui.dropdown').dropdown({
+        on: 'hover'
+    });
 </script>
 <script th:src="@{/js/cursor.js}"></script>
 

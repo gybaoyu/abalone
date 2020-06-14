@@ -2,95 +2,96 @@
 <html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>500</title>
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/semantic-ui/2.2.4/semantic.min.css">
-    <link rel="stylesheet" href="http://49.234.239.122/static/css/me.css">
-    <link rel="stylesheet" href="http://49.234.239.122/static/css/animate.css">
-    <link rel="stylesheet" href="http://49.234.239.122/static/css/typo.css">
+    <title>error</title>
+    <style>
+        *{
+            margin: 0; /*外边距*/
+            padding: 0; /*内边距*/
+            box-sizing: border-box; /*盒子大小规则*/
+            font-family: sans-serif; /*字体:非衬线*/
+        }
+        body{
+            background: linear-gradient(45deg, #8500ff, #5acaff); /*背景颜色渐变*/
+            height: 100vh; /*高度：100视窗*/
+        }
+        #container{
+            position: absolute; /*绝对定位*/
+            top: 10%; /*距上部*/
+            left: 10%;
+            right: 10%;
+            bottom: 10%;
+            border-radius: 10px; /*圆角边框*/
+            display: flex; /*弹性盒模型*/
+            justify-content: center; /*主轴对齐方式*/
+            align-items: center; /*交叉轴对齐方式*/
+            background: url('../resources/static/images/bg4.jpg'), #151729; /*背景图片，颜色*/
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.5); /*背景阴影*/
+        }
+        #container .content{
+            max-width: 600px; /*最大宽度*/
+            text-align: center; /*字体行居中*/
+        }
+        #container .content h2{
+            font-size: 18vw; /*字体大小*/
+            color: #fff;
+            line-height: 1em; /*行高*/
+        }
+        #container .content h4{
+            position: relative;
+            font-size: 1.5em;
+            margin-bottom: 20px;
+            color: #111;
+            background: #fff;
+            font-weight: 300;
+            padding: 10px 20px;
+            display: inline-block; /*行内盒模型*/
+        }
+        #container .content p{
+            color: #fff;
+            font-size: 1.2em;
+        }
+        #container .content a{
+            position: relative;
+            display: inline-block;
+            padding: 10px 25px;
+            background: #ff0562;
+            color: #fff;
+            text-decoration: none;
+            margin-top: 25px;
+            border-radius: 25px;
+            border-bottom: 4px solid #d00d56; /*下边框*/
+            user-select: none;
+        }
+
+    </style>
 </head>
 <body>
-
-<!--导航-->
-<nav class="ui inverted attached segment m-padded-tb-mini m-shadow-small">
-    <div class="ui container">
-        <div class="ui inverted secondary stackable menu">
-            <h2 class="ui violet header item">Abalone</h2>
-            <a href="#" class="active m-item item m-mobile-hide"><i class="mini home icon"></i>博客</a>
-            <a href="#" class="m-item item m-mobile-hide"><i class="mini idea icon"></i>分类</a>
-            <a href="#" class="m-item item m-mobile-hide"><i class="mini tags icon"></i>标签</a>
-            <div class="right m-item m-mobile-hide menu">
-                <div class="ui dropdown item">
-                    <div class="text">
-                        <img src="http://49.234.239.122/static/images/about_me.jpeg" class="ui avatar image">
-                        Abalone
-                    </div>
-                    <i class="dropdown icon"></i>
-                    <div class="menu">
-                        <a href="#" class="item">注销</a>
-                    </div>
-                </div>
-            </div>
-        </div>
+<div id='container'>
+    <div class='content'>
+        <h2>error</h2>
+        <h4>Opps!</h4>
+        <p>
+            不知道发生了啥啊......<br>
+            联系站长吧...
+        </p>
+        <a th:href="@{/}">
+            Back To Home
+        </a>
     </div>
-    <a href="#" class="ui menu toggle black icon button m-right-top m-mobile-show">
-        <i class="sidebar icon"></i>
-    </a>
-</nav>
-
-<h1>error</h1>
-<div>
-    <div th:utext="'&lt;!--'" th:remove="tag"></div>
-    <div th:utext="'Failed Request URL : ' + ${url}" th:remove="tag"></div>
-    <div th:utext="'Exception message : ' + ${exception.message}" th:remove="tag"></div>
-    <ul th:remove="tag">
-        <li th:each="st : ${exception.stackTrace}" th:remove="tag"><span th:utext="${st}" th:remove="tag"></span></li>
-    </ul>
-    <div th:utext="'--&gt;'" th:remove="tag"></div>
 </div>
 
-<script src="https://cdn.jsdelivr.net/npm/jquery/dist/jquery.min.js"></script>
-<script src="https://cdn.jsdelivr.net/gh/stevenjoezhang/live2d-widget/autoload.js"></script>
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/font-awesome/css/font-awesome.min.css"/>
-
-<!--底部footer-->
-<footer class="ui inverted vertical segment m-padded-tb-massive">
-    <div class="ui center aligned container">
-        <div class="ui inverted divided stackable grid">
-            <div class="three wide column">
-                <div class="ui inverted link list">
-                    <div class="item">
-                        <img src="http://49.234.239.122/static/images/wechat1.jpg" class="ui rounded image" alt=""
-                             style="width: 110px">
-                    </div>
-                </div>
-            </div>
-
-            <div class="four wide column">
-                <h4 class="ui inverted header m-text-thin m-text-spaced ">关于我</h4>
-                <div class="ui inverted link list">
-                    <a href="https://space.bilibili.com/411498228" class="item m-text-thin">bilibili</a>
-                    <a href="https://github.com/gavy26" class="item m-text-thin">github</a>
-                    <a href="https://blog.csdn.net/cgy_gavy" class="item m-text-thin">CSDN</a>
-                </div>
-            </div>
-            <div class="four wide column">
-                <h4 class="ui inverted header m-text-thin m-text-spaced ">联系我</h4>
-                <div class="ui inverted link list">
-                    <a href="#" class="item m-text-thin">Email：gy958324611@hotmail.com</a>
-                    <a href="#" class="item m-text-thin">QQ：958324611</a>
-                </div>
-            </div>
-            <div class="five wide column">
-                <h4 class="ui inverted header m-text-thin m-text-spaced ">简介</h4>
-                <p class="m-text-thin m-text-spaced m-opacity-mini" style="text-align: left">
-                    这是我的个人博客、会分享关于编程、思考相关的任何内容，希望可以给来到这儿的人有所帮助...</p>
-            </div>
-        </div>
-        <div class="ui inverted section divider"></div>
-        <p class="m-text-thin m-text-spaced m-opacity-mini">Copyright © 2020 - 2021 Abalone Designed by Abalone</p>
-    </div>
-
-</footer>
 </body>
+<script>
+    // 根据id获取元素
+    const container = document.getElementById('container');
+    // 窗口的鼠标移动事件,传入event对象
+    window.onmousemove = function(e) {
+        // 返回被触发时的鼠标X，Y位置
+        let x = e.clientX / 5
+        y = e.clientY / 5;
+        // 将容器的背景图片定位进行修改
+        container.style.backgroundPositionX = x + 'px';
+        container.style.backgroundPositionY = y + 'px';
+    }
+</script>
 </html>

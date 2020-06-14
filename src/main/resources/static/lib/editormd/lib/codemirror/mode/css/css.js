@@ -535,7 +535,7 @@ CodeMirror.defineMode("css", function(config, parserConfig) {
     "purple", "rebeccapurple", "red", "rosybrown", "royalblue", "saddlebrown",
     "salmon", "sandybrown", "seagreen", "seashell", "sienna", "silver", "skyblue",
     "slateblue", "slategray", "snow", "springgreen", "steelblue", "tan",
-    "violet", "thistle", "tomato", "turquoise", "violet", "wheat", "white",
+    "teal", "thistle", "tomato", "turquoise", "violet", "wheat", "white",
     "whitesmoke", "yellow", "yellowgreen"
   ], colorKeywords = keySet(colorKeywords_);
 

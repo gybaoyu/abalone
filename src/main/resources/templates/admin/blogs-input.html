@@ -4,11 +4,13 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>博客发布</title>
+    <link rel="stylesheet" th:href="@{/lib/editormd/css/editormd.css}">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/semantic-ui/2.2.4/semantic.min.css">
-    <link rel="stylesheet" href="http://49.234.239.122/static/css/me.css">
-    <link rel="stylesheet" href="http://49.234.239.122/static/lib/editormd/css/editormd.min.css">
-    <link rel="stylesheet" href="http://49.234.239.122/static/css/animate.css">
-    <link rel="stylesheet" href="http://49.234.239.122/static/css/typo.css">
+    <link rel="stylesheet" th:href="@{/css/me_for_archives.css}">
+    <link rel="stylesheet" th:href="@{/css/animate.css}">
+    <link rel="stylesheet" th:href="@{/css/typo.css}">
+    <script src="" th:src="@{/js/jquery.min.js}"></script>
+
 </head>
 <body>
 <!--导航-->
@@ -25,7 +27,7 @@
             <div class="right m-item m-mobile-hide menu">
                 <div class="ui dropdown  item">
                     <div class="text">
-                        <img src="http://49.234.239.122/static/images/about_me.jpeg" th:src="@{${session.user.avatar}}"
+                        <img th:src="@{${session.user.avatar}}"
                              class="ui avatar image">
                         <t th:text="${session.user.nickname}">...</t>
                     </div>
@@ -164,7 +166,7 @@
             <div class="three wide column">
                 <div class="ui inverted link list">
                     <div class="item">
-                        <img src="http://49.234.239.122/static/images/wechat1.jpg" class="ui rounded image" alt=""
+                        <img th:src="@{/images/wechat1.jpg}" class="ui rounded image" alt=""
                              style="width: 110px">
                     </div>
                 </div>
@@ -185,34 +187,43 @@
                     <a href="#" class="item m-text-thin">QQ：958324611</a>
                 </div>
             </div>
-            <div class="five wide column">
-                <h4 class="ui inverted header m-text-thin m-text-spaced ">简介</h4>
+            <div class="four wide column">
+                <!--博客运行时间统计-->
+                <h4 class="ui inverted header m-text-thin m-text-spaced ">Abalone信息</h4>
+                <div id="blog-message">
+                    <div class="ui inverted link list" style="align-content: center;margin-top: 10px"
+                         th:fragment="blogMessage">
+                        <div class="m-text-thin" style="text-align: left;margin-left: 75px;">
+
+                        </div>
+                    </div>
+                </div>
                 <p class="m-text-thin m-text-spaced m-opacity-mini" style="text-align: left">
-                    这是我的个人博客、会分享关于编程、思考相关的任何内容，希望可以给来到这儿的人有所帮助...</p>
+                    &nbsp;&nbsp;&nbsp;这是我的个人博客、会分享关于编程、思考相关的任何内容，希望可以给来到这儿的人有所帮助...</p>
             </div>
         </div>
         <div class="ui inverted section divider"></div>
+        <div style="color: #F08047;margin-top: -18px" class="ui inverted m-text-thin m-text-spaced"><span
+                id="htmer_time" class="item m-text-thin"></span> (*๓´╰╯`๓)
+        </div>
         <p class="m-text-thin m-text-spaced m-opacity-mini">Copyright © 2020 - 2021 Abalone Designed by Abalone</p>
     </div>
-
 </footer>
-<th:block th:fragment="script">
-    <script src="http://49.234.239.122/static/js/jquery.min.js"></script>
-    <script src="http://49.234.239.122/static/js/semantic.min.js"></script>
-    <script src="http://49.234.239.122/static/lib/editormd/editormd.min.js"></script>
     <script src="https://cdn.jsdelivr.net/gh/stevenjoezhang/live2d-widget/autoload.js"></script>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/font-awesome/css/font-awesome.min.css"/>
-</th:block>
+    <script src=""th:src="@{/js/semantic.min.js}"></script>
+    <script th:src="@{/js/cursor.js}"></script>
+    <script th:src="@{/lib/editormd/editormd.js}"></script>
 
 <script>
     //初始化Markdown编辑器
     var contentEditor;
-    $(function () {
+    $(function() {
         contentEditor = editormd("md-content", {
-            width: "100%",
-            height: 700,
-            syncScrolling: "single",
-            path: "http://49.234.239.122/static/lib/editormd/lib/"
+            width   : "100%",
+            height  : 640,
+            syncScrolling : "single",
+            path    : "/lib/editormd/lib/"
         });
     });
     $('.menu.toggle').click(function () {
@@ -220,48 +231,9 @@
     });
 
     $('.ui.dropdown').dropdown({
-        on: 'hover'
+        on : 'hover'
     });
 
-    $('.ui.form').form({
-        fields: {
-            title: {
-                identifier: 'title',
-                rules: [{
-                    type: 'empty',
-                    prompt: '标题：请输入博客标题'
-                }]
-            },
-            content: {
-                identifier: 'content',
-                rules: [{
-                    type: 'empty',
-                    prompt: '标题：请输入博客内容'
-                }]
-            },
-            typeId: {
-                identifier: 'type.id',
-                rules: [{
-                    type: 'empty',
-                    prompt: '标题：请输入博客分类'
-                }]
-            },
-            flag: {
-                identifier: 'flag',
-                rules: [{
-                    type: 'empty',
-                    prompt: '类型：请输入博客类型,原创/转载/翻译'
-                }]
-            },
-            firstPicture: {
-                identifier: 'firstPicture',
-                rules: [{
-                    type: 'empty',
-                    prompt: '标题：请输入博客首图'
-                }]
-            }
-        }
-    });
     $('#save-btn').click(function () {
         $('[name="published"]').val(false);
         $('#blog-form').submit();
@@ -273,8 +245,49 @@
         $('#blog-form').submit();
     });
 
+
+
+    $('.ui.form').form({
+        fields : {
+            title : {
+                identifier: 'title',
+                rules: [{
+                    type : 'empty',
+                    prompt: '标题：请输入博客标题'
+                }]
+            },
+            content : {
+                identifier: 'content',
+                rules: [{
+                    type : 'empty',
+                    prompt: '标题：请输入博客内容'
+                }]
+            },
+            typeId : {
+                identifier: 'type.id',
+                rules: [{
+                    type : 'empty',
+                    prompt: '标题：请输入博客分类'
+                }]
+            },
+            firstPicture : {
+                identifier: 'firstPicture',
+                rules: [{
+                    type : 'empty',
+                    prompt: '标题：请输入博客首图'
+                }]
+            },
+            description : {
+                identifier: 'description',
+                rules: [{
+                    type : 'empty',
+                    prompt: '标题：请输入博客描述'
+                }]
+            }
+        }
+    });
+
 </script>
-<script src="http://49.234.239.122/static/js/cursor.js"></script>
 
 </body>
 </html>

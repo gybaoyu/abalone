@@ -5,10 +5,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>分类新增</title>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/semantic-ui/2.2.4/semantic.min.css">
-    <link rel="stylesheet" href="http://49.234.239.122/static/css/me.css">
-    <link rel="stylesheet" href="http://49.234.239.122/static/lib/editormd/css/editormd.min.css">
-    <link rel="stylesheet" href="http://49.234.239.122/static/css/animate.css">
-    <link rel="stylesheet" href="http://49.234.239.122/static/css/typo.css"></head>
+    <link rel="stylesheet" th:href="@{/lib/editormd/css/editormd.css}">
+    <link rel="stylesheet" th:href="@{/css/me.css}">
+    <link rel="stylesheet" th:href="@{/css/animate.css}">
+    <link rel="stylesheet" th:href="@{/css/typo.css}"></head>
 <body>
 <!--导航-->
 <nav class="ui inverted attached segment m-padded-tb-mini m-shadow-small">
@@ -86,7 +86,7 @@
             <div class="three wide column">
                 <div class="ui inverted link list">
                     <div class="item">
-                        <img src="http://49.234.239.122/static/images/wechat1.jpg" class="ui rounded image" alt=""
+                        <img th:src="@{/images/wechat1.jpg}" class="ui rounded image" alt=""
                              style="width: 110px">
                     </div>
                 </div>
@@ -119,13 +119,11 @@
 
 </footer>
 
-<th:block th:fragment="script">
-<script src="http://49.234.239.122/static/js/jquery.min.js"></script>
-<script src="http://49.234.239.122/static/js/semantic.min.js"></script>
-<script src="http://49.234.239.122/static/lib/editormd/editormd.min.js"></script>
 <script src="https://cdn.jsdelivr.net/gh/stevenjoezhang/live2d-widget/autoload.js"></script>
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/font-awesome/css/font-awesome.min.css"/>
-</th:block>
+<script src="" th:src="@{/js/jquery.min.js}"></script>
+<script src=""th:src="@{/js/semantic.min.js}"></script>
+<script th:src="@{/js/cursor.js}"></script>
 <script>
 
     $('.menu.toggle').click(function () {
@@ -147,7 +145,6 @@
         }
     })
 </script>
-<script src="http://49.234.239.122/static/js/cursor.js"></script>
 
 </body>
 </html>

@@ -3,9 +3,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>博客详情</title>
+    <title>Abalone-博客</title>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/semantic-ui/2.2.4/semantic.min.css">
-    <link rel="stylesheet" th:href="@{/css/me.css}">
+    <link rel="stylesheet" th:href="@{/css/me_for_blog.css}">
     <link rel="stylesheet" th:href="@{/css/animate.css}">
     <link rel="stylesheet" th:href="@{/css/typo.css}">
     <link rel="stylesheet" th:href="@{/lib/prism/prism.css}">
@@ -34,7 +34,7 @@
             <a href="#" th:href="@{/archives}" class="m-item item m-mobile-hide"><i
                     class="mini clock icon"></i>时间线</a>
 
-            <a href="#" class="m-item item"><i class="book icon"></i>留言板</a>
+            <a href="#" th:href="@{/message}" class="m-item item"><i class="book icon"></i>留言板</a>
 
             <a href="#" th:href="@{/game}" target="_blank" class="m-item item m-mobile-hide"><i
                     class="mini comment game icon"></i>&nbsp;游戏</a>
@@ -42,14 +42,30 @@
             <a href="#" th:href="@{/about}" class="m-item item m-mobile-hide"><i class="mini info icon"></i>关于我</a>
 
             <a href="" th:href="@{/admin/blogs}" class="m-item item m-mobile-hide"><i
-                    class="mini desktop icon"></i>后台登陆</a>
-            <div class="right m-item item">
-                <form name="search" action="#" method="post" target="_blank">
-                    <div class="ui icon transparent input m-margin-tb-tiny" style="color: white">
-                        <input style="color: white" type="text" name="query" placeholder="Search....">
-                        <i onclick="document.forms['search'].submit()" class="search link icon"></i>
+                    class="mini desktop icon"></i>&nbsp;后台</a>
+            <div class="right m-item m-mobile-hide menu">
+                <div th:if="${session.user}==null">
+                    <div class="text">
+                        <a th:href="@{/login}">
+                            <button class="ui button small grey">登录</button>
+                        </a>
+                        <a th:href="@{/register}">
+                            <button class="ui button small grey">注册</button>
+                        </a>
                     </div>
-                </form>
+                </div>
+                <div th:if="${session.user}!=null">
+                    <div class="ui dropdown item">
+                        <div class="text">
+                            <t th:text="${session.user.username}">...</t>
+                        </div>
+                        <i class="dropdown icon"></i>
+                        <div class="menu">
+                            <a href="#" th:href="@{/admin/logout}" class="item">注销</a>
+
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
     </div>
@@ -63,7 +79,7 @@
 <br>
 
 <!--中间内容-->
-<div id="waypoint" class="m-container-tiny m-padded-tb-big animated fadeIn">
+<div id="waypoint" class="m-container-tiny m-padded-tb-big animated fadeIn m-opacity">
     <div class="ui container">
         <div class="ui top attached segment">
             <div class="ui horizontal link list">
@@ -144,8 +160,10 @@
             <div id="comment-container" class="ui violet segment">
                 <div th:fragment="commentList">
                     <div class="ui threaded comments" style="max-width: 100%;">
-                        <div th:if="${session.user.username==User}"><h3 class="ui dividing header">(未正常登录无法评论)</h3><a th:href="@{/login}">点我登录</a></div>
-                        <div th:if="${session.user.username!=User}"><h3 class="ui dividing header">评论</h3></div>
+                        <div th:if="${session.user==null}"><h3 class="ui dividing header">(未登录无法评论)</h3><a
+                                th:href="@{/login}">点我登录</a>&nbsp;&nbsp;&nbsp;&nbsp;<a
+                                th:href="@{/register}">点我注册</a></div>
+                        <div th:if="${session.user!=null}"><h3 class="ui dividing header">评论</h3></div>
                         <div class="comment" th:each="comment : ${comments}">
                             <a class="avatar">
                                 <img src="https://unsplash.it/100/100?image=1005" th:src="@{${comment.avatar}}">
@@ -204,7 +222,7 @@
             </div>
 
 
-            <div id="comment-form" class="ui form" th:unless="${session.user.username==User}">
+            <div id="comment-form" class="ui form" th:if="${session.user != null}">
                 <input type="hidden" name="blog.id" th:value="${blog.id}">
                 <input type="hidden" name="parentComment.id" value="-1">
                 <div class="field">
@@ -229,22 +247,18 @@
                         </button>
                     </div>
                 </div>
-
-            </div>
-        </div>
-
-
-        <div id="toolbar" class="m-padded m-fixed m-right-bottom" style="display: none">
-            <div class="ui vertical icon buttons ">
-                <a href="#comment-container" class="ui violet button" >留言</a>
-                <div id="toTop-button" class="ui icon button" ><i class="chevron up icon"></i></div>
             </div>
         </div>
     </div>
+
+
+    <div id="toolbar" class="m-padded m-fixed m-right-bottom" style="display: none">
+        <div class="ui vertical icon buttons ">
+            <a href="#comment-container" class="ui violet button">留言</a>
+            <div id="toTop-button" class="ui icon button"><i class="chevron up icon"></i></div>
+        </div>
+    </div>
 </div>
-
-
-
 
 
 <br>
@@ -311,8 +325,8 @@
     });
 
     $('#payButton').popup({
-        popup : $('.payQR.popup'),
-        on : 'click',
+        popup: $('.payQR.popup'),
+        on: 'click',
         position: 'bottom center'
     });
 
@@ -326,13 +340,13 @@
     });
 
     $('.toc.button').popup({
-        popup : $('.toc-container.popup'),
-        on : 'click',
+        popup: $('.toc-container.popup'),
+        on: 'click',
         position: 'left center'
     });
 
     $('.wechat').popup({
-        popup : $('.wechat-qr'),
+        popup: $('.wechat-qr'),
         position: 'left center'
     });
 
@@ -344,7 +358,7 @@
 
     var waypoint = new Waypoint({
         element: document.getElementById('waypoint'),
-        handler: function(direction) {
+        handler: function (direction) {
             if (direction == 'down') {
                 $('#toolbar').show(100);
             } else {
@@ -388,7 +402,6 @@
     });
 
 
-
     $('#commentpost-btn').click(function () {
         var boo = $('.ui.form').form('validate form');
         if (boo) {
@@ -401,13 +414,13 @@
     });
 
     function postData() {
-        $("#comment-container").load(/*[[@{/comments}]]*/"",{
-            "parentComment.id" : $("[name='parentComment.id']").val(),
-            "blog.id" : $("[name='blog.id']").val(),
+        $("#comment-container").load(/*[[@{/comments}]]*/"", {
+            "parentComment.id": $("[name='parentComment.id']").val(),
+            "blog.id": $("[name='blog.id']").val(),
             "nickname": $("[name='nickname']").val(),
-            "email"   : $("[name='email']").val(),
-            "content" : $("[name='content']").val()
-        },function (responseTxt, statusTxt, xhr) {
+            "email": $("[name='email']").val(),
+            "content": $("[name='content']").val()
+        }, function (responseTxt, statusTxt, xhr) {
 //        $(window).scrollTo($('#comment-container'),500);
             clearContent();
         });
@@ -423,11 +436,14 @@
     function reply(obj) {
         var commentId = $(obj).data('commentid');
         var commentNickname = $(obj).data('commentnickname');
-        $("[name='content']").attr("placeholder", "@"+commentNickname).focus();
+        $("[name='content']").attr("placeholder", "@" + commentNickname).focus();
         $("[name='parentComment.id']").val(commentId);
-        $(window).scrollTo($('#comment-form'),500);
+        $(window).scrollTo($('#comment-form'), 500);
     }
 
+    $('.ui.dropdown').dropdown({
+        on: 'hover'
+    });
 
 </script>
 <script th:src="@{/js/cursor.js}"></script>
