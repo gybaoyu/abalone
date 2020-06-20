@@ -36,6 +36,14 @@ public class User {
         this.type = type;
     }
 
+    public User(String username, String email, String password,Integer type, Date createTime) {
+        this.username = username;
+        this.email = email;
+        this.password = password;
+        this.type = type;
+        this.createTime = createTime;
+    }
+
     public Long getId() {
         return id;
     }

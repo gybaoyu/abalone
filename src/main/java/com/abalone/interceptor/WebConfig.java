@@ -12,6 +12,9 @@ public class WebConfig extends WebMvcConfigurerAdapter {
     public void addInterceptors(InterceptorRegistry registry) {
         registry.addInterceptor(new AdminInterceptor())
                 .addPathPatterns("/admin/**");
-
+        registry.addInterceptor(new MobileUserInterceptor())
+                .addPathPatterns("/**")
+                .excludePathPatterns("/mobile/**")
+                .excludePathPatterns("/mobile/mobile/blog/**");
     }
 }

@@ -14,6 +14,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 
 import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpSession;
+import java.util.Date;
 
 /**
  * @Author: gavy
@@ -43,7 +44,7 @@ public class RegisterController {
                                       HttpSession session,
                                       Model model){
         session.setMaxInactiveInterval(60*60*12);
-        User user = new User(username,email,password,0);
+        User user = new User(username,email,password,0,new Date());
         if (userService.isThereHaveTheUser(username)!=null) {
             model.addAttribute("wrong","用户名已被占用!");
             return "register";
