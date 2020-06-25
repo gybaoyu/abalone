@@ -37,6 +37,6 @@ public class MessageController {
                              @RequestParam String email){
         Message message = new Message(username,email,ask_text,new Date(),0);
         messageRepository.save(message);
-        return "message";
+        return "redirect:/message";
     }
 }

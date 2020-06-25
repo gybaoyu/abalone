@@ -651,3 +651,40 @@ java.lang.NullPointerException: null
 2020-06-25 13:24:30.996  INFO 4760 --- [http-nio-80-exec-4] com.abalone.aspect.LogAspect             : Result : index
 2020-06-25 13:24:33.086  INFO 4760 --- [http-nio-80-exec-4] com.abalone.aspect.LogAspect             : Request : {url='http://localhost/login', ip='0:0:0:0:0:0:0:1', classMethod='com.abalone.web.LoginController.loginPage', args=[org.apache.catalina.connector.RequestFacade@4e7129aa, org.apache.catalina.session.StandardSessionFacade@21cffbe9]}
 2020-06-25 13:24:36.057  INFO 4760 --- [http-nio-80-exec-4] com.abalone.aspect.LogAspect             : Result : login
+2020-06-25 21:16:55.628  INFO 20464 --- [restartedMain] com.abalone.BlogApplication              : Starting BlogApplication on DESKTOP-O4LA9EG with PID 20464 (started by gavy in D:\IDEA workspace\blog)
+2020-06-25 21:16:55.733  INFO 20464 --- [restartedMain] com.abalone.BlogApplication              : The following profiles are active: pro
+2020-06-25 21:17:10.362  INFO 20464 --- [restartedMain] com.abalone.BlogApplication              : Started BlogApplication in 15.628 seconds (JVM running for 20.512)
+2020-06-25 21:17:10.799  INFO 20464 --- [http-nio-80-exec-1] com.abalone.aspect.LogAspect             : Request : {url='http://localhost/', ip='0:0:0:0:0:0:0:1', classMethod='com.abalone.web.IndexController.index', args=[Page request [number: 0, size 8, sort: updateTime: DESC], {}]}
+2020-06-25 21:17:11.187  WARN 20464 --- [http-nio-80-exec-1] org.hibernate.orm.deprecation            : HHH90000016: Found use of deprecated 'collection property' syntax in HQL/JPQL query [null.size]; use collection function syntax instead [size(null)].
+2020-06-25 21:17:11.215  WARN 20464 --- [http-nio-80-exec-1] org.hibernate.orm.deprecation            : HHH90000016: Found use of deprecated 'collection property' syntax in HQL/JPQL query [null.size]; use collection function syntax instead [size(null)].
+2020-06-25 21:17:11.234  INFO 20464 --- [http-nio-80-exec-1] com.abalone.aspect.LogAspect             : Result : index
+2020-06-25 21:17:14.955  INFO 20464 --- [http-nio-80-exec-2] com.abalone.aspect.LogAspect             : Request : {url='http://localhost/message', ip='0:0:0:0:0:0:0:1', classMethod='com.abalone.web.MessageController.messagePage', args=[{}]}
+2020-06-25 21:17:15.016  INFO 20464 --- [http-nio-80-exec-2] com.abalone.aspect.LogAspect             : Result : message
+2020-06-25 21:17:16.191  INFO 20464 --- [http-nio-80-exec-6] com.abalone.aspect.LogAspect             : Request : {url='http://localhost/login', ip='0:0:0:0:0:0:0:1', classMethod='com.abalone.web.LoginController.loginPage', args=[org.apache.catalina.connector.RequestFacade@24096dd1, org.apache.catalina.session.StandardSessionFacade@569d6f21]}
+2020-06-25 21:17:16.220  INFO 20464 --- [http-nio-80-exec-6] com.abalone.aspect.LogAspect             : Result : redirect:
+2020-06-25 21:17:16.260  INFO 20464 --- [http-nio-80-exec-4] com.abalone.aspect.LogAspect             : Request : {url='http://localhost/', ip='0:0:0:0:0:0:0:1', classMethod='com.abalone.web.IndexController.index', args=[Page request [number: 0, size 8, sort: updateTime: DESC], {}]}
+2020-06-25 21:17:16.315  INFO 20464 --- [http-nio-80-exec-4] com.abalone.aspect.LogAspect             : Result : index
+2020-06-25 21:17:19.503  INFO 20464 --- [http-nio-80-exec-4] com.abalone.aspect.LogAspect             : Request : {url='http://localhost/message', ip='0:0:0:0:0:0:0:1', classMethod='com.abalone.web.MessageController.messagePage', args=[{}]}
+2020-06-25 21:17:19.512  INFO 20464 --- [http-nio-80-exec-4] com.abalone.aspect.LogAspect             : Result : message
+2020-06-25 21:17:27.082  INFO 20464 --- [http-nio-80-exec-1] com.abalone.aspect.LogAspect             : Request : {url='http://localhost/addMessage', ip='127.0.0.1', classMethod='com.abalone.web.MessageController.getMessage', args=[awa
+, Abalone, gy958324611@hotmail.com]}
+2020-06-25 21:17:47.744  INFO 20464 --- [http-nio-80-exec-1] com.abalone.aspect.LogAspect             : Result : redirect:/message
+2020-06-25 21:17:47.763  INFO 20464 --- [http-nio-80-exec-3] com.abalone.aspect.LogAspect             : Request : {url='http://localhost/message', ip='127.0.0.1', classMethod='com.abalone.web.MessageController.messagePage', args=[{}]}
+2020-06-25 21:17:47.771  INFO 20464 --- [http-nio-80-exec-3] com.abalone.aspect.LogAspect             : Result : message
+2020-06-25 21:19:16.506  INFO 22596 --- [restartedMain] com.abalone.BlogApplication              : Starting BlogApplication on DESKTOP-O4LA9EG with PID 22596 (started by gavy in D:\IDEA workspace\blog)
+2020-06-25 21:19:16.509  INFO 22596 --- [restartedMain] com.abalone.BlogApplication              : The following profiles are active: pro
+2020-06-25 21:19:30.426  INFO 22596 --- [restartedMain] com.abalone.BlogApplication              : Started BlogApplication in 15.437 seconds (JVM running for 20.34)
+2020-06-25 21:19:30.698  INFO 22596 --- [http-nio-80-exec-1] com.abalone.aspect.LogAspect             : Request : {url='http://localhost/message', ip='127.0.0.1', classMethod='com.abalone.web.MessageController.messagePage', args=[{}]}
+2020-06-25 21:19:30.859  INFO 22596 --- [http-nio-80-exec-1] com.abalone.aspect.LogAspect             : Result : message
+2020-06-25 21:19:41.512  INFO 22596 --- [http-nio-80-exec-8] com.abalone.aspect.LogAspect             : Request : {url='http://localhost/login', ip='0:0:0:0:0:0:0:1', classMethod='com.abalone.web.LoginController.loginPage', args=[org.apache.catalina.connector.RequestFacade@a3e4a1f, org.apache.catalina.session.StandardSessionFacade@6a2dfe62]}
+2020-06-25 21:19:41.566  INFO 22596 --- [http-nio-80-exec-8] com.abalone.aspect.LogAspect             : Result : redirect:
+2020-06-25 21:19:41.608  INFO 22596 --- [http-nio-80-exec-5] com.abalone.aspect.LogAspect             : Request : {url='http://localhost/', ip='0:0:0:0:0:0:0:1', classMethod='com.abalone.web.IndexController.index', args=[Page request [number: 0, size 8, sort: updateTime: DESC], {}]}
+2020-06-25 21:19:41.732  WARN 22596 --- [http-nio-80-exec-5] org.hibernate.orm.deprecation            : HHH90000016: Found use of deprecated 'collection property' syntax in HQL/JPQL query [null.size]; use collection function syntax instead [size(null)].
+2020-06-25 21:19:41.760  WARN 22596 --- [http-nio-80-exec-5] org.hibernate.orm.deprecation            : HHH90000016: Found use of deprecated 'collection property' syntax in HQL/JPQL query [null.size]; use collection function syntax instead [size(null)].
+2020-06-25 21:19:41.784  INFO 22596 --- [http-nio-80-exec-5] com.abalone.aspect.LogAspect             : Result : index
+2020-06-25 21:19:45.163  INFO 22596 --- [http-nio-80-exec-9] com.abalone.aspect.LogAspect             : Request : {url='http://localhost/message', ip='127.0.0.1', classMethod='com.abalone.web.MessageController.messagePage', args=[{}]}
+2020-06-25 21:19:45.175  INFO 22596 --- [http-nio-80-exec-9] com.abalone.aspect.LogAspect             : Result : message
+2020-06-25 21:19:52.865  INFO 22596 --- [http-nio-80-exec-6] com.abalone.aspect.LogAspect             : Request : {url='http://localhost/addMessage', ip='127.0.0.1', classMethod='com.abalone.web.MessageController.getMessage', args=[留言功能已修复, Abalone, gy958324611@hotmail.com]}
+2020-06-25 21:19:57.573  INFO 22596 --- [http-nio-80-exec-6] com.abalone.aspect.LogAspect             : Result : redirect:/message
+2020-06-25 21:19:57.595  INFO 22596 --- [http-nio-80-exec-5] com.abalone.aspect.LogAspect             : Request : {url='http://localhost/message', ip='127.0.0.1', classMethod='com.abalone.web.MessageController.messagePage', args=[{}]}
+2020-06-25 21:19:57.605  INFO 22596 --- [http-nio-80-exec-5] com.abalone.aspect.LogAspect             : Result : message
