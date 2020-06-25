@@ -13002,7 +13002,7 @@ org.thymeleaf.exceptions.TemplateInputException: Error resolving template "messa
 2020-06-13 13:27:24.071  INFO 24436 --- [http-nio-80-exec-8] com.abalone.aspect.LogAspect             : Result : blog
 2020-06-13 13:27:25.749  INFO 24436 --- [http-nio-80-exec-4] com.abalone.aspect.LogAspect             : Request : {url='http://localhost/comments/37', ip='0:0:0:0:0:0:0:1', classMethod='com.abalone.web.CommentController.comments', args=[37, {}]}
 2020-06-13 13:27:25.753  INFO 24436 --- [http-nio-80-exec-4] com.abalone.aspect.LogAspect             : Result : blog :: commentList
-2020-06-13 13:27:32.679  INFO 24436 --- [http-nio-80-exec-10] com.abalone.aspect.LogAspect             : Request : {url='http://localhost/admin/logout', ip='0:0:0:0:0:0:0:1', classMethod='com.abalone.web.LoginController.logout', args=[org.apache.catalina.session.StandardSessionFacade@7ba8b297]}
+2020-06-13 13:27:32.679  INFO 24436 --- [http-nio-80-exec-10] com.abalone.aspect.LogAspect             : Request : {url='http://localhost/logout', ip='0:0:0:0:0:0:0:1', classMethod='com.abalone.web.LoginController.logout', args=[org.apache.catalina.session.StandardSessionFacade@7ba8b297]}
 2020-06-13 13:27:32.680  INFO 24436 --- [http-nio-80-exec-10] com.abalone.aspect.LogAspect             : Result : login
 2020-06-13 13:27:35.777  INFO 24436 --- [http-nio-80-exec-5] com.abalone.aspect.LogAspect             : Request : {url='http://localhost/', ip='0:0:0:0:0:0:0:1', classMethod='com.abalone.web.IndexController.index', args=[Page request [number: 0, size 8, sort: updateTime: DESC], {}]}
 2020-06-13 13:27:35.812  INFO 24436 --- [http-nio-80-exec-5] com.abalone.aspect.LogAspect             : Result : index

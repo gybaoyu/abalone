@@ -13635,7 +13635,7 @@ Caused by: javax.persistence.NonUniqueResultException: result returns more than 
 2020-06-06 19:28:52.369  WARN 19904 --- [http-nio-80-exec-6] org.hibernate.orm.deprecation            : HHH90000016: Found use of deprecated 'collection property' syntax in HQL/JPQL query [null.size]; use collection function syntax instead [size(null)].
 2020-06-06 19:28:52.379  WARN 19904 --- [http-nio-80-exec-6] org.hibernate.orm.deprecation            : HHH90000016: Found use of deprecated 'collection property' syntax in HQL/JPQL query [null.size]; use collection function syntax instead [size(null)].
 2020-06-06 19:28:52.391  INFO 19904 --- [http-nio-80-exec-6] com.abalone.aspect.LogAspect             : Result : index
-2020-06-06 19:28:55.034  INFO 19904 --- [http-nio-80-exec-7] com.abalone.aspect.LogAspect             : Request : {url='http://localhost/admin/logout', ip='0:0:0:0:0:0:0:1', classMethod='com.abalone.web.LoginController.logout', args=[org.apache.catalina.session.StandardSessionFacade@1634d7d4]}
+2020-06-06 19:28:55.034  INFO 19904 --- [http-nio-80-exec-7] com.abalone.aspect.LogAspect             : Request : {url='http://localhost/logout', ip='0:0:0:0:0:0:0:1', classMethod='com.abalone.web.LoginController.logout', args=[org.apache.catalina.session.StandardSessionFacade@1634d7d4]}
 2020-06-06 19:28:55.035  INFO 19904 --- [http-nio-80-exec-7] com.abalone.aspect.LogAspect             : Result : redirect:
 2020-06-06 19:28:55.058  INFO 19904 --- [http-nio-80-exec-1] com.abalone.aspect.LogAspect             : Request : {url='http://localhost/login', ip='0:0:0:0:0:0:0:1', classMethod='com.abalone.web.LoginController.loginPage', args=[]}
 2020-06-06 19:28:55.058  INFO 19904 --- [http-nio-80-exec-1] com.abalone.aspect.LogAspect             : Result : /login
@@ -13645,7 +13645,7 @@ Caused by: javax.persistence.NonUniqueResultException: result returns more than 
 2020-06-06 19:29:00.610  INFO 19904 --- [http-nio-80-exec-6] com.abalone.aspect.LogAspect             : Result : redirect:
 2020-06-06 19:29:00.619  INFO 19904 --- [http-nio-80-exec-8] com.abalone.aspect.LogAspect             : Request : {url='http://localhost/', ip='0:0:0:0:0:0:0:1', classMethod='com.abalone.web.IndexController.index', args=[Page request [number: 0, size 8, sort: updateTime: DESC], {}]}
 2020-06-06 19:29:00.658  INFO 19904 --- [http-nio-80-exec-8] com.abalone.aspect.LogAspect             : Result : index
-2020-06-06 19:29:04.763  INFO 19904 --- [http-nio-80-exec-7] com.abalone.aspect.LogAspect             : Request : {url='http://localhost/admin/logout', ip='127.0.0.1', classMethod='com.abalone.web.LoginController.logout', args=[org.apache.catalina.session.StandardSessionFacade@1634d7d4]}
+2020-06-06 19:29:04.763  INFO 19904 --- [http-nio-80-exec-7] com.abalone.aspect.LogAspect             : Request : {url='http://localhost/logout', ip='127.0.0.1', classMethod='com.abalone.web.LoginController.logout', args=[org.apache.catalina.session.StandardSessionFacade@1634d7d4]}
 2020-06-06 19:29:04.763  INFO 19904 --- [http-nio-80-exec-7] com.abalone.aspect.LogAspect             : Result : redirect:
 2020-06-06 19:29:04.782  INFO 19904 --- [http-nio-80-exec-5] com.abalone.aspect.LogAspect             : Request : {url='http://localhost/login', ip='127.0.0.1', classMethod='com.abalone.web.LoginController.loginPage', args=[]}
 2020-06-06 19:29:04.783  INFO 19904 --- [http-nio-80-exec-5] com.abalone.aspect.LogAspect             : Result : /login
@@ -13655,7 +13655,7 @@ Caused by: javax.persistence.NonUniqueResultException: result returns more than 
 2020-06-06 19:29:11.203  INFO 19904 --- [http-nio-80-exec-6] com.abalone.aspect.LogAspect             : Result : index
 2020-06-06 19:29:26.134  INFO 19904 --- [http-nio-80-exec-4] com.abalone.aspect.LogAspect             : Request : {url='http://localhost/', ip='0:0:0:0:0:0:0:1', classMethod='com.abalone.web.IndexController.index', args=[Page request [number: 0, size 8, sort: updateTime: DESC], {}]}
 2020-06-06 19:29:26.202  INFO 19904 --- [http-nio-80-exec-4] com.abalone.aspect.LogAspect             : Result : index
-2020-06-06 19:29:29.259  INFO 19904 --- [http-nio-80-exec-7] com.abalone.aspect.LogAspect             : Request : {url='http://localhost/admin/logout', ip='0:0:0:0:0:0:0:1', classMethod='com.abalone.web.LoginController.logout', args=[org.apache.catalina.session.StandardSessionFacade@1634d7d4]}
+2020-06-06 19:29:29.259  INFO 19904 --- [http-nio-80-exec-7] com.abalone.aspect.LogAspect             : Request : {url='http://localhost/logout', ip='0:0:0:0:0:0:0:1', classMethod='com.abalone.web.LoginController.logout', args=[org.apache.catalina.session.StandardSessionFacade@1634d7d4]}
 2020-06-06 19:29:29.259  INFO 19904 --- [http-nio-80-exec-7] com.abalone.aspect.LogAspect             : Result : redirect:
 2020-06-06 19:29:29.288  INFO 19904 --- [http-nio-80-exec-6] com.abalone.aspect.LogAspect             : Request : {url='http://localhost/login', ip='0:0:0:0:0:0:0:1', classMethod='com.abalone.web.LoginController.loginPage', args=[]}
 2020-06-06 19:29:29.289  INFO 19904 --- [http-nio-80-exec-6] com.abalone.aspect.LogAspect             : Result : /login
@@ -13665,7 +13665,7 @@ Caused by: javax.persistence.NonUniqueResultException: result returns more than 
 2020-06-06 19:29:34.739  INFO 19904 --- [http-nio-80-exec-10] com.abalone.aspect.LogAspect             : Result : index
 2020-06-06 19:30:14.308  INFO 19904 --- [http-nio-80-exec-4] com.abalone.aspect.LogAspect             : Request : {url='http://localhost/', ip='0:0:0:0:0:0:0:1', classMethod='com.abalone.web.IndexController.index', args=[Page request [number: 0, size 8, sort: updateTime: DESC], {}]}
 2020-06-06 19:30:14.355  INFO 19904 --- [http-nio-80-exec-4] com.abalone.aspect.LogAspect             : Result : index
-2020-06-06 19:30:20.834  INFO 19904 --- [http-nio-80-exec-5] com.abalone.aspect.LogAspect             : Request : {url='http://localhost/admin/logout', ip='0:0:0:0:0:0:0:1', classMethod='com.abalone.web.LoginController.logout', args=[org.apache.catalina.session.StandardSessionFacade@1634d7d4]}
+2020-06-06 19:30:20.834  INFO 19904 --- [http-nio-80-exec-5] com.abalone.aspect.LogAspect             : Request : {url='http://localhost/logout', ip='0:0:0:0:0:0:0:1', classMethod='com.abalone.web.LoginController.logout', args=[org.apache.catalina.session.StandardSessionFacade@1634d7d4]}
 2020-06-06 19:30:20.835  INFO 19904 --- [http-nio-80-exec-5] com.abalone.aspect.LogAspect             : Result : redirect:
 2020-06-06 19:30:20.865  INFO 19904 --- [http-nio-80-exec-1] com.abalone.aspect.LogAspect             : Request : {url='http://localhost/login', ip='0:0:0:0:0:0:0:1', classMethod='com.abalone.web.LoginController.loginPage', args=[]}
 2020-06-06 19:30:20.865  INFO 19904 --- [http-nio-80-exec-1] com.abalone.aspect.LogAspect             : Result : /login
@@ -13675,7 +13675,7 @@ Caused by: javax.persistence.NonUniqueResultException: result returns more than 
 2020-06-06 19:30:46.630  INFO 19904 --- [http-nio-80-exec-2] com.abalone.aspect.LogAspect             : Result : redirect:
 2020-06-06 19:30:46.639  INFO 19904 --- [http-nio-80-exec-9] com.abalone.aspect.LogAspect             : Request : {url='http://localhost/', ip='0:0:0:0:0:0:0:1', classMethod='com.abalone.web.IndexController.index', args=[Page request [number: 0, size 8, sort: updateTime: DESC], {}]}
 2020-06-06 19:30:46.670  INFO 19904 --- [http-nio-80-exec-9] com.abalone.aspect.LogAspect             : Result : index
-2020-06-06 19:30:49.770  INFO 19904 --- [http-nio-80-exec-5] com.abalone.aspect.LogAspect             : Request : {url='http://localhost/admin/logout', ip='0:0:0:0:0:0:0:1', classMethod='com.abalone.web.LoginController.logout', args=[org.apache.catalina.session.StandardSessionFacade@1634d7d4]}
+2020-06-06 19:30:49.770  INFO 19904 --- [http-nio-80-exec-5] com.abalone.aspect.LogAspect             : Request : {url='http://localhost/logout', ip='0:0:0:0:0:0:0:1', classMethod='com.abalone.web.LoginController.logout', args=[org.apache.catalina.session.StandardSessionFacade@1634d7d4]}
 2020-06-06 19:30:49.771  INFO 19904 --- [http-nio-80-exec-5] com.abalone.aspect.LogAspect             : Result : redirect:
 2020-06-06 19:30:49.792  INFO 19904 --- [http-nio-80-exec-7] com.abalone.aspect.LogAspect             : Request : {url='http://localhost/login', ip='0:0:0:0:0:0:0:1', classMethod='com.abalone.web.LoginController.loginPage', args=[]}
 2020-06-06 19:30:49.792  INFO 19904 --- [http-nio-80-exec-7] com.abalone.aspect.LogAspect             : Result : /login
@@ -13902,7 +13902,7 @@ java.lang.NullPointerException: null
 2020-06-06 19:59:13.794  INFO 19312 --- [http-nio-80-exec-4] com.abalone.aspect.LogAspect             : Result : index
 2020-06-06 19:59:20.908  INFO 19312 --- [http-nio-80-exec-5] com.abalone.aspect.LogAspect             : Request : {url='http://localhost/', ip='0:0:0:0:0:0:0:1', classMethod='com.abalone.web.IndexController.index', args=[Page request [number: 0, size 8, sort: updateTime: DESC], {}]}
 2020-06-06 19:59:20.969  INFO 19312 --- [http-nio-80-exec-5] com.abalone.aspect.LogAspect             : Result : index
-2020-06-06 19:59:24.223  INFO 19312 --- [http-nio-80-exec-5] com.abalone.aspect.LogAspect             : Request : {url='http://localhost/admin/logout', ip='0:0:0:0:0:0:0:1', classMethod='com.abalone.web.LoginController.logout', args=[org.apache.catalina.session.StandardSessionFacade@55646b58]}
+2020-06-06 19:59:24.223  INFO 19312 --- [http-nio-80-exec-5] com.abalone.aspect.LogAspect             : Request : {url='http://localhost/logout', ip='0:0:0:0:0:0:0:1', classMethod='com.abalone.web.LoginController.logout', args=[org.apache.catalina.session.StandardSessionFacade@55646b58]}
 2020-06-06 19:59:24.224  INFO 19312 --- [http-nio-80-exec-5] com.abalone.aspect.LogAspect             : Result : redirect:
 2020-06-06 19:59:24.247  INFO 19312 --- [http-nio-80-exec-9] com.abalone.aspect.LogAspect             : Request : {url='http://localhost/login', ip='0:0:0:0:0:0:0:1', classMethod='com.abalone.web.LoginController.loginPage', args=[]}
 2020-06-06 19:59:24.247  INFO 19312 --- [http-nio-80-exec-9] com.abalone.aspect.LogAspect             : Result : /login
@@ -14937,7 +14937,7 @@ org.thymeleaf.exceptions.TemplateInputException: Error resolving template "index
 2020-06-06 21:32:36.606  INFO 8468 --- [http-nio-80-exec-7] com.abalone.aspect.LogAspect             : Result : redirect:/comments/37
 2020-06-06 21:32:36.638  INFO 8468 --- [http-nio-80-exec-1] com.abalone.aspect.LogAspect             : Request : {url='http://localhost/comments/37', ip='0:0:0:0:0:0:0:1', classMethod='com.abalone.web.CommentController.comments', args=[37, {}]}
 2020-06-06 21:32:36.646  INFO 8468 --- [http-nio-80-exec-1] com.abalone.aspect.LogAspect             : Result : blog :: commentList
-2020-06-06 21:32:41.062  INFO 8468 --- [http-nio-80-exec-8] com.abalone.aspect.LogAspect             : Request : {url='http://localhost/admin/logout', ip='0:0:0:0:0:0:0:1', classMethod='com.abalone.web.LoginController.logout', args=[org.apache.catalina.session.StandardSessionFacade@1788ba77]}
+2020-06-06 21:32:41.062  INFO 8468 --- [http-nio-80-exec-8] com.abalone.aspect.LogAspect             : Request : {url='http://localhost/logout', ip='0:0:0:0:0:0:0:1', classMethod='com.abalone.web.LoginController.logout', args=[org.apache.catalina.session.StandardSessionFacade@1788ba77]}
 2020-06-06 21:32:41.063  INFO 8468 --- [http-nio-80-exec-8] com.abalone.aspect.LogAspect             : Result : redirect:
 2020-06-06 21:32:41.089  INFO 8468 --- [http-nio-80-exec-10] com.abalone.aspect.LogAspect             : Request : {url='http://localhost/login', ip='0:0:0:0:0:0:0:1', classMethod='com.abalone.web.LoginController.loginPage', args=[]}
 2020-06-06 21:32:41.090  INFO 8468 --- [http-nio-80-exec-10] com.abalone.aspect.LogAspect             : Result : /login
@@ -14957,7 +14957,7 @@ org.thymeleaf.exceptions.TemplateInputException: Error resolving template "index
 2020-06-06 21:38:15.767  INFO 8468 --- [http-nio-80-exec-3] com.abalone.aspect.LogAspect             : Result : blog
 2020-06-06 21:38:17.775  INFO 8468 --- [http-nio-80-exec-4] com.abalone.aspect.LogAspect             : Request : {url='http://localhost/comments/37', ip='0:0:0:0:0:0:0:1', classMethod='com.abalone.web.CommentController.comments', args=[37, {}]}
 2020-06-06 21:38:17.786  INFO 8468 --- [http-nio-80-exec-4] com.abalone.aspect.LogAspect             : Result : blog :: commentList
-2020-06-06 21:38:39.839  INFO 8468 --- [http-nio-80-exec-5] com.abalone.aspect.LogAspect             : Request : {url='http://localhost/admin/logout', ip='0:0:0:0:0:0:0:1', classMethod='com.abalone.web.LoginController.logout', args=[org.apache.catalina.session.StandardSessionFacade@1788ba77]}
+2020-06-06 21:38:39.839  INFO 8468 --- [http-nio-80-exec-5] com.abalone.aspect.LogAspect             : Request : {url='http://localhost/logout', ip='0:0:0:0:0:0:0:1', classMethod='com.abalone.web.LoginController.logout', args=[org.apache.catalina.session.StandardSessionFacade@1788ba77]}
 2020-06-06 21:38:39.840  INFO 8468 --- [http-nio-80-exec-5] com.abalone.aspect.LogAspect             : Result : redirect:
 2020-06-06 21:38:39.866  INFO 8468 --- [http-nio-80-exec-10] com.abalone.aspect.LogAspect             : Request : {url='http://localhost/login', ip='0:0:0:0:0:0:0:1', classMethod='com.abalone.web.LoginController.loginPage', args=[]}
 2020-06-06 21:38:39.867  INFO 8468 --- [http-nio-80-exec-10] com.abalone.aspect.LogAspect             : Result : /login
@@ -14981,7 +14981,7 @@ org.thymeleaf.exceptions.TemplateInputException: Error resolving template "index
 2020-06-06 21:41:27.334  INFO 8468 --- [http-nio-80-exec-3] com.abalone.aspect.LogAspect             : Result : index
 2020-06-06 21:59:22.920  INFO 8468 --- [http-nio-80-exec-3] com.abalone.aspect.LogAspect             : Request : {url='http://localhost/blog/37', ip='0:0:0:0:0:0:0:1', classMethod='com.abalone.web.IndexController.blog', args=[37, {}]}
 2020-06-06 21:59:22.948  INFO 8468 --- [http-nio-80-exec-3] com.abalone.aspect.LogAspect             : Result : blog
-2020-06-06 21:59:32.429  INFO 8468 --- [http-nio-80-exec-9] com.abalone.aspect.LogAspect             : Request : {url='http://localhost/admin/logout', ip='0:0:0:0:0:0:0:1', classMethod='com.abalone.web.LoginController.logout', args=[org.apache.catalina.session.StandardSessionFacade@1788ba77]}
+2020-06-06 21:59:32.429  INFO 8468 --- [http-nio-80-exec-9] com.abalone.aspect.LogAspect             : Request : {url='http://localhost/logout', ip='0:0:0:0:0:0:0:1', classMethod='com.abalone.web.LoginController.logout', args=[org.apache.catalina.session.StandardSessionFacade@1788ba77]}
 2020-06-06 21:59:32.430  INFO 8468 --- [http-nio-80-exec-9] com.abalone.aspect.LogAspect             : Result : redirect:
 2020-06-06 21:59:32.453  INFO 8468 --- [http-nio-80-exec-7] com.abalone.aspect.LogAspect             : Request : {url='http://localhost/login', ip='0:0:0:0:0:0:0:1', classMethod='com.abalone.web.LoginController.loginPage', args=[]}
 2020-06-06 21:59:32.453  INFO 8468 --- [http-nio-80-exec-7] com.abalone.aspect.LogAspect             : Result : /login
@@ -15062,7 +15062,7 @@ org.thymeleaf.exceptions.TemplateInputException: Error resolving template "index
 2020-06-06 22:17:34.978  WARN 21624 --- [http-nio-80-exec-5] org.hibernate.orm.deprecation            : HHH90000016: Found use of deprecated 'collection property' syntax in HQL/JPQL query [null.size]; use collection function syntax instead [size(null)].
 2020-06-06 22:17:34.994  WARN 21624 --- [http-nio-80-exec-5] org.hibernate.orm.deprecation            : HHH90000016: Found use of deprecated 'collection property' syntax in HQL/JPQL query [null.size]; use collection function syntax instead [size(null)].
 2020-06-06 22:17:35.007  INFO 21624 --- [http-nio-80-exec-5] com.abalone.aspect.LogAspect             : Result : index
-2020-06-06 22:17:38.359  INFO 21624 --- [http-nio-80-exec-7] com.abalone.aspect.LogAspect             : Request : {url='http://localhost/admin/logout', ip='0:0:0:0:0:0:0:1', classMethod='com.abalone.web.LoginController.logout', args=[org.apache.catalina.session.StandardSessionFacade@37117af6]}
+2020-06-06 22:17:38.359  INFO 21624 --- [http-nio-80-exec-7] com.abalone.aspect.LogAspect             : Request : {url='http://localhost/logout', ip='0:0:0:0:0:0:0:1', classMethod='com.abalone.web.LoginController.logout', args=[org.apache.catalina.session.StandardSessionFacade@37117af6]}
 2020-06-06 22:17:38.360  INFO 21624 --- [http-nio-80-exec-7] com.abalone.aspect.LogAspect             : Result : redirect:
 2020-06-06 22:17:38.397  INFO 21624 --- [http-nio-80-exec-8] com.abalone.aspect.LogAspect             : Request : {url='http://localhost/login', ip='0:0:0:0:0:0:0:1', classMethod='com.abalone.web.LoginController.loginPage', args=[]}
 2020-06-06 22:17:38.397  INFO 21624 --- [http-nio-80-exec-8] com.abalone.aspect.LogAspect             : Result : /login
@@ -15721,7 +15721,7 @@ public java.lang.String com.abalone.web.LoginController.guess(javax.servlet.http
 2020-06-06 23:23:13.101  INFO 1992 --- [http-nio-80-exec-4] com.abalone.aspect.LogAspect             : Result : blog
 2020-06-06 23:23:15.015  INFO 1992 --- [http-nio-80-exec-7] com.abalone.aspect.LogAspect             : Request : {url='http://localhost/comments/37', ip='0:0:0:0:0:0:0:1', classMethod='com.abalone.web.CommentController.comments', args=[37, {}]}
 2020-06-06 23:23:15.020  INFO 1992 --- [http-nio-80-exec-7] com.abalone.aspect.LogAspect             : Result : blog :: commentList
-2020-06-06 23:23:34.961  INFO 1992 --- [http-nio-80-exec-1] com.abalone.aspect.LogAspect             : Request : {url='http://localhost/admin/logout', ip='0:0:0:0:0:0:0:1', classMethod='com.abalone.web.LoginController.logout', args=[org.apache.catalina.session.StandardSessionFacade@743d8dc7]}
+2020-06-06 23:23:34.961  INFO 1992 --- [http-nio-80-exec-1] com.abalone.aspect.LogAspect             : Request : {url='http://localhost/logout', ip='0:0:0:0:0:0:0:1', classMethod='com.abalone.web.LoginController.logout', args=[org.apache.catalina.session.StandardSessionFacade@743d8dc7]}
 2020-06-06 23:23:34.961  INFO 1992 --- [http-nio-80-exec-1] com.abalone.aspect.LogAspect             : Result : redirect:
 2020-06-06 23:23:34.992  INFO 1992 --- [http-nio-80-exec-8] com.abalone.aspect.LogAspect             : Request : {url='http://localhost/login', ip='0:0:0:0:0:0:0:1', classMethod='com.abalone.web.LoginController.loginPage', args=[]}
 2020-06-06 23:23:34.992  INFO 1992 --- [http-nio-80-exec-8] com.abalone.aspect.LogAspect             : Result : login
@@ -15729,7 +15729,7 @@ public java.lang.String com.abalone.web.LoginController.guess(javax.servlet.http
 2020-06-06 23:23:39.105  INFO 1992 --- [http-nio-80-exec-5] com.abalone.aspect.LogAspect             : Result : admin/index
 2020-06-06 23:25:02.197  INFO 1992 --- [http-nio-80-exec-1] com.abalone.aspect.LogAspect             : Request : {url='http://localhost/', ip='0:0:0:0:0:0:0:1', classMethod='com.abalone.web.IndexController.index', args=[Page request [number: 0, size 8, sort: updateTime: DESC], {}]}
 2020-06-06 23:25:02.240  INFO 1992 --- [http-nio-80-exec-1] com.abalone.aspect.LogAspect             : Result : index
-2020-06-06 23:25:04.177  INFO 1992 --- [http-nio-80-exec-7] com.abalone.aspect.LogAspect             : Request : {url='http://localhost/admin/logout', ip='0:0:0:0:0:0:0:1', classMethod='com.abalone.web.LoginController.logout', args=[org.apache.catalina.session.StandardSessionFacade@743d8dc7]}
+2020-06-06 23:25:04.177  INFO 1992 --- [http-nio-80-exec-7] com.abalone.aspect.LogAspect             : Request : {url='http://localhost/logout', ip='0:0:0:0:0:0:0:1', classMethod='com.abalone.web.LoginController.logout', args=[org.apache.catalina.session.StandardSessionFacade@743d8dc7]}
 2020-06-06 23:25:04.177  INFO 1992 --- [http-nio-80-exec-7] com.abalone.aspect.LogAspect             : Result : redirect:
 2020-06-06 23:25:04.203  INFO 1992 --- [http-nio-80-exec-9] com.abalone.aspect.LogAspect             : Request : {url='http://localhost/login', ip='0:0:0:0:0:0:0:1', classMethod='com.abalone.web.LoginController.loginPage', args=[]}
 2020-06-06 23:25:04.203  INFO 1992 --- [http-nio-80-exec-9] com.abalone.aspect.LogAspect             : Result : login
@@ -16494,7 +16494,7 @@ Caused by: java.lang.NoSuchMethodException: javax.servlet.http.Cookie.<init>()
 2020-06-06 23:52:03.471  WARN 17508 --- [http-nio-80-exec-2] org.hibernate.orm.deprecation            : HHH90000016: Found use of deprecated 'collection property' syntax in HQL/JPQL query [null.size]; use collection function syntax instead [size(null)].
 2020-06-06 23:52:03.494  WARN 17508 --- [http-nio-80-exec-2] org.hibernate.orm.deprecation            : HHH90000016: Found use of deprecated 'collection property' syntax in HQL/JPQL query [null.size]; use collection function syntax instead [size(null)].
 2020-06-06 23:52:03.517  INFO 17508 --- [http-nio-80-exec-2] com.abalone.aspect.LogAspect             : Result : index
-2020-06-06 23:52:10.601  INFO 17508 --- [http-nio-80-exec-6] com.abalone.aspect.LogAspect             : Request : {url='http://localhost/admin/logout', ip='0:0:0:0:0:0:0:1', classMethod='com.abalone.web.LoginController.logout', args=[org.apache.catalina.session.StandardSessionFacade@4c9f2e7b]}
+2020-06-06 23:52:10.601  INFO 17508 --- [http-nio-80-exec-6] com.abalone.aspect.LogAspect             : Request : {url='http://localhost/logout', ip='0:0:0:0:0:0:0:1', classMethod='com.abalone.web.LoginController.logout', args=[org.apache.catalina.session.StandardSessionFacade@4c9f2e7b]}
 2020-06-06 23:52:10.611  INFO 17508 --- [http-nio-80-exec-6] com.abalone.aspect.LogAspect             : Result : redirect:
 2020-06-06 23:52:10.652  INFO 17508 --- [http-nio-80-exec-5] com.abalone.aspect.LogAspect             : Request : {url='http://localhost/login', ip='0:0:0:0:0:0:0:1', classMethod='com.abalone.web.LoginController.loginPage', args=[]}
 2020-06-06 23:52:10.653  INFO 17508 --- [http-nio-80-exec-5] com.abalone.aspect.LogAspect             : Result : login

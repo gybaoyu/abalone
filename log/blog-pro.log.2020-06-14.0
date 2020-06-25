@@ -486,7 +486,7 @@ Verify the connector's configuration, identify and stop any process that's liste
 2020-06-14 07:52:23.649  INFO 16952 --- [http-nio-80-exec-8] com.abalone.aspect.LogAspect             : Result : blog :: commentList
 2020-06-14 07:52:45.905  INFO 16952 --- [http-nio-80-exec-6] com.abalone.aspect.LogAspect             : Request : {url='http://localhost/', ip='0:0:0:0:0:0:0:1', classMethod='com.abalone.web.IndexController.index', args=[Page request [number: 0, size 8, sort: updateTime: DESC], {}]}
 2020-06-14 07:52:45.944  INFO 16952 --- [http-nio-80-exec-6] com.abalone.aspect.LogAspect             : Result : index
-2020-06-14 07:52:53.457  INFO 16952 --- [http-nio-80-exec-10] com.abalone.aspect.LogAspect             : Request : {url='http://localhost/admin/logout', ip='0:0:0:0:0:0:0:1', classMethod='com.abalone.web.LoginController.logout', args=[org.apache.catalina.session.StandardSessionFacade@4d91a3c0]}
+2020-06-14 07:52:53.457  INFO 16952 --- [http-nio-80-exec-10] com.abalone.aspect.LogAspect             : Request : {url='http://localhost/logout', ip='0:0:0:0:0:0:0:1', classMethod='com.abalone.web.LoginController.logout', args=[org.apache.catalina.session.StandardSessionFacade@4d91a3c0]}
 2020-06-14 07:52:53.457  INFO 16952 --- [http-nio-80-exec-10] com.abalone.aspect.LogAspect             : Result : login
 2020-06-14 07:52:56.892  INFO 16952 --- [http-nio-80-exec-1] com.abalone.aspect.LogAspect             : Request : {url='http://localhost/', ip='0:0:0:0:0:0:0:1', classMethod='com.abalone.web.IndexController.index', args=[Page request [number: 0, size 8, sort: updateTime: DESC], {}]}
 2020-06-14 07:52:56.925  INFO 16952 --- [http-nio-80-exec-1] com.abalone.aspect.LogAspect             : Result : index

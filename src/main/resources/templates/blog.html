@@ -61,7 +61,7 @@
                         </div>
                         <i class="dropdown icon"></i>
                         <div class="menu">
-                            <a href="#" th:href="@{/admin/logout}" class="item">注销</a>
+                            <a href="#" th:href="@{/logout}" class="item">注销</a>
 
                         </div>
                     </div>
@@ -128,7 +128,7 @@
                     <div class="ui orange basic label">
                         <div class="ui images" style="font-size: inherit !important;">
                             <div class="image">
-                                <img src="http://49.234.239.122/static/images/money.png" alt="" class="ui rounded image"
+                                <img th:src="@{images/money.png}" alt="" class="ui rounded image"
                                      style="width: 140px ">
                             </div>
                         </div>
@@ -165,9 +165,6 @@
                                 th:href="@{/register}">点我注册</a></div>
                         <div th:if="${session.user!=null}"><h3 class="ui dividing header">评论</h3></div>
                         <div class="comment" th:each="comment : ${comments}">
-                            <a class="avatar">
-                                <img src="https://unsplash.it/100/100?image=1005" th:src="@{${comment.avatar}}">
-                            </a>
                             <div class="content">
                                 <a class="author">
                                     <span th:text="${comment.nickname}">Matt</span>
