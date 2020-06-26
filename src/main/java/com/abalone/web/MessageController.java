@@ -35,8 +35,12 @@ public class MessageController {
     public String getMessage(@RequestParam String ask_text,
                              @RequestParam String username,
                              @RequestParam String email){
-        Message message = new Message(username,email,ask_text,new Date(),0);
-        messageRepository.save(message);
-        return "redirect:/message";
+        if (!ask_text.equals("")&&!username.equals("")) {
+            Message message = new Message(username, email, ask_text, new Date(), 0);
+            messageRepository.save(message);
+            return "message";
+        }else {
+            return "redirect:/message";
+        }
     }
 }

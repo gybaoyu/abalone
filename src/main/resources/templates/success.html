@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <title>success</title>
+    <style>
+        *{
+            margin: 0; /*外边距*/
+            padding: 0; /*内边距*/
+            box-sizing: border-box; /*盒子大小规则*/
+            font-family: sans-serif; /*字体:非衬线*/
+        }
+        body{
+            background: linear-gradient(45deg, #8500ff, #5acaff); /*背景颜色渐变*/
+            height: 100vh; /*高度：100视窗*/
+        }
+        #container{
+            position: absolute; /*绝对定位*/
+            top: 10%; /*距上部*/
+            left: 10%;
+            right: 10%;
+            bottom: 10%;
+            border-radius: 10px; /*圆角边框*/
+            display: flex; /*弹性盒模型*/
+            justify-content: center; /*主轴对齐方式*/
+            align-items: center; /*交叉轴对齐方式*/
+            background: url('../resources/static/images/bg4.jpg'), #151729; /*背景图片，颜色*/
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.5); /*背景阴影*/
+        }
+        #container .content{
+            max-width: 600px; /*最大宽度*/
+            text-align: center; /*字体行居中*/
+        }
+        #container .content h2{
+            font-size: 18vw; /*字体大小*/
+            color: #fff;
+            line-height: 1em; /*行高*/
+        }
+        #container .content h4{
+            position: relative;
+            font-size: 1.5em;
+            margin-bottom: 20px;
+            color: #111;
+            background: #fff;
+            font-weight: 300;
+            padding: 10px 20px;
+            display: inline-block; /*行内盒模型*/
+        }
+        #container .content p{
+            color: #fff;
+            font-size: 1.2em;
+        }
+        #container .content a{
+            position: relative;
+            display: inline-block;
+            padding: 10px 25px;
+            background: #ff0562;
+            color: #fff;
+            text-decoration: none;
+            margin-top: 25px;
+            border-radius: 25px;
+            border-bottom: 4px solid #d00d56; /*下边框*/
+            user-select: none;
+        }
+
+    </style>
+</head>
+<body>
+<div id='container'>
+    <div class='content'>
+        <h1 style="color: white">恭喜</h1>
+        <h4>友链已经成功添加了</h4>
+        <p>
+            Nice 马飞飞, 希望我们之间的友谊能够天长地久, 常来Abalone看看哦~o(*￣▽￣*)ブ
+        </p>
+        <a th:href="@{/}">
+            Back To Home
+        </a>
+    </div>
+</div>
+
+
+</body>
+<script>
+    // 根据id获取元素
+    const container = document.getElementById('container');
+    // 窗口的鼠标移动事件,传入event对象
+    window.onmousemove = function(e) {
+        // 返回被触发时的鼠标X，Y位置
+        let x = e.clientX / 5
+        y = e.clientY / 5;
+        // 将容器的背景图片定位进行修改
+        container.style.backgroundPositionX = x + 'px';
+        container.style.backgroundPositionY = y + 'px';
+    }
+</script>
+</html>

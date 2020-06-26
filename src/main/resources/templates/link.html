@@ -3,9 +3,382 @@
 <head>
     <meta charset="UTF-8">
     <title>Abalone-友链</title>
+    <link rel="stylesheet" th:href="@{/css/link.css}">
+    <link href="../static/images/me.jpg" th:href="@{/images/me.jpg}" rel="icon" type="image/x-ico">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/semantic-ui/2.2.4/semantic.min.css">
+    <link rel="stylesheet" th:href="@{/lib/editormd/css/editormd.min.css}">
+    <link rel="stylesheet" href="../static/css/me.css" th:href="@{/css/link.css}">
+
 </head>
 <body>
-<div id="text"></div>
+<!--导航-->
+<nav id="nav" class="gird-header ui inverted attached segment  ">
+    <div class="ui container">
+        <div class="ui inverted secondary stackable menu">
+            <h2 class="ui blue header item" style="font-family: STSong">Abalone</h2>
+            <!--<div class="right m-item item m-mobile-hide">-->
+            <a href="#" th:href="@{/}" class="m-item item m-mobile-hide "><i
+                    class="mini home icon"></i>首页</a>
+
+            <a href="#" th:href="@{/types/-1}" class="m-item item m-mobile-hide"><i
+                    class="mini idea icon"></i>分类</a>
+
+            <a href="#" th:href="@{/tags/-1}" class="m-item item m-mobile-hide"><i
+                    class="mini tags icon"></i>标签</a>
+
+            <a href="#" th:href="@{/archives}" class="m-item item m-mobile-hide"><i
+                    class="mini clock icon"></i>时间线</a>
+
+            <a href="#" th:href="@{/message}" class="m-item item"><i class="book icon"></i>留言板</a>
+
+            <a href="#" th:href="@{/link}" class="m-item item m-mobile-hide"><i
+                    class="mini linkify  icon"></i>&nbsp;友链</a>
+
+            <a href="#" th:href="@{/about}" class="m-item item m-mobile-hide"><i class="mini info icon"></i>关于我</a>
+
+            <a href="" th:href="@{/admin/blogs}" class="m-item item m-mobile-hide"><i
+                    class="mini desktop icon"></i>&nbsp;后台</a>
+            <div class="right m-item m-mobile-hide menu">
+                <div th:if="${session.user}==null">
+                    <div class="text">
+                        <a th:href="@{/login}">
+                            <button class="ui button small grey">登录</button>
+                        </a>
+                        <a th:href="@{/register}">
+                            <button class="ui button small grey">注册</button>
+                        </a>
+                    </div>
+                </div>
+                <div th:if="${session.user}!=null">
+                    <div class="ui dropdown item">
+                        <div class="text">
+                            <t th:text="${session.user.username}">...</t>
+                        </div>
+                        <i class="dropdown icon"></i>
+                        <div class="menu">
+                            <a href="#" th:href="@{/logout}" class="item">注销</a>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <a href="#" class="ui menu toggle black icon button m-right-top m-mobile-hide" style="display: none">
+        <i class="sidebar icon"></i>
+    </a>
+</nav>
+<!--顶部图片-->
+<div class="m-bg-class_outer" style="width: 100%;height: 750px">
+    <img th:src="@{/images/backimg3.jpg}" alt="" class="ui m-bg image"
+         style="width: 100%;height: 100%">
+    <div class="m-bg-class_cover" align="center">
+        <div class="m-margin-top-maxx" align="center">
+            <img class="ui circular image" align="center" th:src="@{/images/me.jpg}"
+                 style="width: 150px;height: 150px;">
+        </div>
+        <div class="m-font-size-title-large" align="center">Abalone</div>
+        <h3 id="text" class="m-font-size-text" align="center"></h3>
+        <hr style="width: 20%">
+        <div class="" align="center">
+            <a href="#" class="ui wechat circular icon button"><i class="weixin icon"></i></a>
+            <a href="#" class="ui qq circular icon button" data-content="958324611" data-position="bottom center"><i
+                    class="qq icon"></i></a>
+            <a href="https://github.com/gavy26/" target="_blank" class="ui github circular icon button"
+               data-content="点击跳转GitHub" data-position="bottom center"><i class="github icon"></i></a>
+            <a href="https://blog.csdn.net/cgy_gavy" target="_blank" class="ui csdn circular icon button"
+               data-content="点击跳转CSDN" data-position="bottom center"><i class="copyright outline icon"></i></a>
+            <a href="#" class="ui email circular icon button" data-content="gy958324611@hotmail.com"
+               data-position="bottom center"><i class="envelope  icon"></i></a>
+        </div>
+
+        <div class="ui wechat-qr flowing popup transition hidden">
+
+            <div align="center">Wechat:Miao10178</div>
+        </div>
+        <div class="ui qq-qr flowing popup transition hidden">
+
+            <div align="center">QQ:958324611</div>
+        </div>
+    </div>
+</div>
+
+<div class="m-container-mini m-padded-tb-big animated fadeIn">
+    <div class="ui container">
+        <div class="ui stackable grid">
+            <div class="twelve wide column">
+                <div class="ui attached segment m-opacity">
+                    <!--新增友链-->
+                    <h1 th:if="${session.user==null}">未登录用户无法添加友链</h1>
+                    <a th:if="${session.user==null}" th:href="@{/login}">点我登录</a>&nbsp;&nbsp;&nbsp;&nbsp;
+                    <a th:if="${session.user==null}" th:href="@{/register}">点我注册</a><br>
+                    <form method="post" th:action="@{/addLink}" th:if="${session.user!=null}">
+                        <div class="ui form">
+                            <!--输入网站名称-->
+                            <div class="five wide column">
+                                <div class="field m-mobile-wide m-margin-bottom-small">
+                                    <div class="ui left icon input">
+                                        <input type="text" id="name" name="name"
+                                               placeholder="请输入贵站名称(你的邮箱会通过当前登录的账号自动填写,因此请填写真实信息)">
+                                    </div>
+                                </div>
+                            </div>
+                            <!--输入网站链接-->
+                            <div class="five wide column">
+                                <div class="field m-mobile-wide m-margin-bottom-small">
+                                    <div class="ui left icon input">
+                                        <input type="text" name="href"
+                                               placeholder="请输入贵站链接(你的邮箱会通过当前登录的账号自动填写,因此请填写真实信息)">
+                                    </div>
+                                </div>
+                            </div>
+                            <!--输入网站图片-->
+                            <div class="five wide column">
+                                <div class="field m-mobile-wide m-margin-bottom-small">
+                                    <div class="ui left icon input">
+                                        <input type="text" name="image"
+                                               placeholder="请输入贵站图片链接(请确保图片链接有效,尽量使用大小相当于本站博客封面的图片以达到最佳观赏效果)">
+                                    </div>
+                                </div>
+                            </div>
+                            <!--输入网站描述-->
+                            <div class="five wide column">
+                                <div class="field m-mobile-wide m-margin-bottom-small">
+                                    <div class="ui left icon input">
+                                        <input type="text" name="description"
+                                               placeholder="请输入贵站描述(可以写你所擅长的技术或座右铭等....推荐长度小于150字)">
+                                    </div>
+                                </div>
+                            </div>
+
+
+                            <!--输入邮箱-->
+                            <div class="five wide column">
+                                <div class="field m-mobile-wide m-margin-bottom-small">
+                                    <div class="ui left icon input">
+                                        <input type="hidden" name="email" placeholder="Email"
+                                               th:value="${session.user.email}">
+                                    </div>
+                                </div>
+                            </div>
+                            <!--提交留言-->
+                            <div class="right aligned six wide column">
+                                <div class="field m-mobile-wide m-margin-bottom-small">
+                                    <input type="submit" value="提交友链" class="ui violet button">
+                                </div>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+                <!--友链展示-->
+                <div id="message-container" class="ui violet segment">
+                    <div class="ui threaded comments" style="max-width: 100%;">
+                        <div class="ui attached segment m-opacity">
+                            <div class="ui padded vertical segment m-padded-tb-large"  th:each="link : ${links}"th:if="@{${link.success==1}}">
+                                <div class="ui middle aligned mobile reversed stackable grid">
+                                    <div class="eleven wide column" >
+                                        <h3 class="ui header"><a th:href="@{${link.link}}" href="#" target="_blank" class="m-black" th:text="@{${link.name}}"></a></h3>
+                                        <p class="m-text" th:text="@{${link.description}}">description</p><!--网站描述-->
+                                        <div class="ui grid">
+                                            <div class="eleven wide column">
+                                                <div class="ui small horizontal link list">
+                                                    <div class="item">
+                                                        <!--网站名称-->
+                                                        <div class="content"><a href="#" class="header" th:text="@{${link.name}}">Abalone</a>
+                                                        </div>
+                                                    </div>
+                                                    <!--网站申请日期-->
+                                                    <div class="item">
+                                                        <i class="calendar icon"></i><span th:text="@{${link.create_time}}">2020-06-26</span>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <!--网站图片-->
+                                    <div class="five wide column">
+                                        <a href="#" th:href="@{${link.link}}" target="_blank">
+                                            <img th:src="@{${link.image}}" alt="" class="ui rounded image">
+                                        </a>
+                                    </div>
+
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!--右边的top-->
+            <div class="four wide column">
+
+                <!--留言注意事项-->
+                <div class="ui segments m-opacity">
+                    <div class="ui secondary segment ">
+                        <div class="ui two column grid">
+                            <div class="column">
+                                <i class="idea icon"></i>注意事项
+                            </div>
+                        </div>
+                    </div>
+                    <div class="ui violet segment">
+                        <p class="m-text-thin m-text-spaced m-opacity">
+                            1.请确保账号使用的是真实邮箱,<br>&nbsp;&nbsp;&nbsp;&nbsp;否则你将无法收到回复.
+                        </p>
+                        <br>
+                        <p class="m-text-thin m-text-spaced m-opacity">
+                            2.Abalone不会以任何方式泄露<br>&nbsp;&nbsp;&nbsp;任何用户的邮箱.
+                        </p>
+                        <br>
+                        <p class="m-text-thin m-text-spaced m-opacity">
+                            3.记得在贵站也添加上本站的友链(*^_^*)
+                        </p>
+                        <br>
+                        <p class="m-text-thin m-text-spaced m-opacity">
+                            4.本站友链添加需要审核,一般站主只有节假日和周末会有时间处理友链,因此请耐心等待~
+                        </p>
+                        <p class="m-text-thin m-text-spaced m-opacity">
+                            5.Just enjoy yourself~
+                        </p>
+                        <br>
+                    </div>
+                </div>
+                <!--最新推荐-->
+                <div class="ui segments m-margin-top-large m-opacity" th:if="${session.user==null}">
+                    <div class="ui secondary segment ">
+                        <div class="column">
+                            <i class="bookmark icon"></i>无法添加友链?
+                        </div>
+                    </div>
+                    <div class="ui violet segment">
+                        请先登录<br><br>
+                        <a th:href="@{/login}">点我登录</a>&nbsp;&nbsp;&nbsp;&nbsp;
+                        <a th:href="@{/register}">点我注册</a><br>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<!--底部栏-->
+<!--底部footer-->
+<footer class="ui inverted vertical segment m-padded-tb-massive">
+    <div class="ui center aligned container">
+        <div class="ui inverted divided stackable grid">
+            <div class="three wide column">
+                <div class="ui inverted link list">
+                    <div class="item">
+                        <img th:src="@{/images/wechat1.jpg}" class="ui rounded image" alt=""
+                             style="width: 110px">
+                    </div>
+                </div>
+            </div>
+
+            <div class="four wide column">
+                <h4 class="ui inverted header m-text-thin m-text-spaced ">关于我</h4>
+                <div class="ui inverted link list">
+                    <a href="https://space.bilibili.com/411498228" class="item m-text-thin">bilibili</a>
+                    <a href="https://github.com/gavy26" class="item m-text-thin">github</a>
+                    <a href="https://blog.csdn.net/cgy_gavy" class="item m-text-thin">CSDN</a>
+                </div>
+            </div>
+            <div class="four wide column">
+                <h4 class="ui inverted header m-text-thin m-text-spaced ">联系我</h4>
+                <div class="ui inverted link list">
+                    <a href="#" class="item m-text-thin">Email：gy958324611@hotmail.com</a>
+                    <a href="#" class="item m-text-thin">QQ：958324611</a>
+                </div>
+            </div>
+            <div class="four wide column">
+                <!--博客运行时间统计-->
+                <h4 class="ui inverted header m-text-thin m-text-spaced ">Abalone信息</h4>
+                <div id="blog-message">
+                    <div class="ui inverted link list" style="align-content: center;margin-top: 10px">
+                    </div>
+                </div>
+                <p class="m-text-thin m-text-spaced m-opacity-mini" style="text-align: left">
+                    &nbsp;&nbsp;&nbsp;这是我的个人博客、会分享关于编程、思考相关的任何内容，希望可以给来到这儿的人有所帮助...</p>
+            </div>
+        </div>
+        <div class="ui inverted section divider"></div>
+        <div style="color: #F08047;margin-top: -18px" class="ui inverted m-text-thin m-text-spaced">Abalone已运行: <span
+                id="htmer_time" class="item m-text-thin"></span> (*๓´╰╯`๓)
+        </div>
+        <p class="m-text-thin m-text-spaced m-opacity-mini">Copyright © 2020 - 2021 Abalone Designed by Abalone</p>
+    </div>
+</footer>
 <script th:src="@{/js/typing.js}"></script>
+<script th:src="@{/js/cursor.js}"></script>
+<script th:src="@{/js/jquery.min.js}"></script>
+<script th:src="@{/js/semantic.min.js}"></script>
+<script th:src="@{/lib/waypoints/jquery.waypoints.min.js}"></script>
+<script src="https://cdn.jsdelivr.net/gh/stevenjoezhang/live2d-widget/autoload.js"></script>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/font-awesome/css/font-awesome.min.css"/>
+<script>
+    var name = document.getElementById("name");
+    if (name==""){
+        alert("请将信息填写完整")
+    }
+</script>
+<script>
+    $('.menu.toggle').click(function () {
+        $('.m-item').toggleClass('m-mobile-hide');
+    });
+
+    $('#blog-message').load(/*[[@{/footer/blogmessage}]]*/"/footer/blogmessage");
+
+
+    // 运行时间统计
+    function secondToDate(second) {
+        if (!second) {
+            return 0;
+        }
+        var time = new Array(0, 0, 0, 0, 0);
+        if (second >= 365 * 24 * 3600) {
+            time[0] = parseInt(second / (365 * 24 * 3600));
+            second %= 365 * 24 * 3600;
+        }
+        if (second >= 24 * 3600) {
+            time[1] = parseInt(second / (24 * 3600));
+            second %= 24 * 3600;
+        }
+        if (second >= 3600) {
+            time[2] = parseInt(second / 3600);
+            second %= 3600;
+        }
+        if (second >= 60) {
+            time[3] = parseInt(second / 60);
+            second %= 60;
+        }
+        if (second > 0) {
+            time[4] = second;
+        }
+        return time;
+    }
+
+    function setTime() {
+        /*此处为网站的创建时间*/
+        var create_time = Math.round(new Date(Date.UTC(2020, 03, 25, 15, 15, 15)).getTime() / 1000);
+        var timestamp = Math.round((new Date().getTime() + 8 * 60 * 60 * 1000) / 1000);
+        currentTime = secondToDate((timestamp - create_time));
+        currentTimeHtml = currentTime[0] + '年' + currentTime[1] + '天'
+            + currentTime[2] + '时' + currentTime[3] + '分' + currentTime[4]
+            + '秒';
+        document.getElementById("htmer_time").innerHTML = currentTimeHtml;
+    }
+
+    setInterval(setTime, 1000);
+
+    $('.ui.dropdown').dropdown({
+        on: 'hover'
+    });
+</script>
 </body>
 </html>

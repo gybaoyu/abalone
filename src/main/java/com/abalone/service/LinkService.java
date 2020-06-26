@@ -14,4 +14,9 @@ public interface LinkService {
     void addLink(Link link);
     //审核友链
     void examine(Link link);
+    List<Link> getAllNotSucceedLink();
+    //通过id查找link
+    Link getLinkById(Long id);
+    //删除Link
+    void deleteLink(Long id);
 }

@@ -22,6 +22,15 @@ public class Link {
     private String email;
     private Integer success;
 
+    public Link(String name, String description, String link, String image, String email, Integer success) {
+        this.name = name;
+        this.description = description;
+        this.link = link;
+        this.image = image;
+        this.email = email;
+        this.success = success;
+    }
+
     @Override
     public String toString() {
         return "Link{" +

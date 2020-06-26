@@ -1,7 +1,6 @@
 package com.abalone.service;
 
 import com.abalone.dao.LinkRepository;
-import com.abalone.dao.MessageRepository;
 import com.abalone.po.Link;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -40,4 +39,19 @@ public class LinkServiceImpl implements LinkService {
         linkRepository.save(link);
     }
 
+    @Override
+    public List<Link> getAllNotSucceedLink() {
+        List<Link>links = linkRepository.findAllBySuccess(0);
+        return links;
+    }
+
+    @Override
+    public Link getLinkById(Long id) {
+        return linkRepository.findById(id);
+    }
+
+    @Override
+    public void deleteLink(Long id) {
+        linkRepository.delete(id);
+    }
 }

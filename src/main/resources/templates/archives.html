@@ -31,7 +31,7 @@
 
             <a href="#" th:href="@{/message}" class="m-item item"><i class="book icon"></i>留言板</a>
 
-            <a href="#" th:href="@{/link}" target="_blank" class="m-item item m-mobile-hide"><i
+            <a href="#" th:href="@{/link}"  class="m-item item m-mobile-hide"><i
                     class="mini linkify  icon"></i>&nbsp;友链</a>
 
             <a href="#" th:href="@{/about}" class="m-item item m-mobile-hide"><i class="mini info icon"></i>关于我</a>
@@ -167,7 +167,7 @@
                 <h4 class="ui inverted header m-text-thin m-text-spaced ">Abalone信息</h4>
                 <div id="blog-message">
                     <div class="ui inverted link list" style="align-content: center;margin-top: 10px"
-                         th:fragment="blogMessage">
+                        >
                         <div class="m-text-thin" style="text-align: left;margin-left: 75px;">
                             文章总数： <h2 class="ui orange header m-inline-block m-margin-top-null"
                                       style="font-size:medium;" th:text="${blogCount}"> 14 </h2> 篇
