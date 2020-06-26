@@ -109,7 +109,7 @@
             <div class="twelve wide column">
                 <div class="ui attached segment m-opacity">
                     <!--新增友链-->
-                    <h1 th:if="${session.user==null}">未登录用户无法添加友链</h1>
+                    <h1 th:if="${session.user==null}">未登录用户无法添加友链  (请使用有真实邮箱的账号登录)</h1>
                     <a th:if="${session.user==null}" th:href="@{/login}">点我登录</a>&nbsp;&nbsp;&nbsp;&nbsp;
                     <a th:if="${session.user==null}" th:href="@{/register}">点我注册</a><br>
                     <form method="post" th:action="@{/addLink}" th:if="${session.user!=null}">
@@ -117,36 +117,36 @@
                             <!--输入网站名称-->
                             <div class="five wide column">
                                 <div class="field m-mobile-wide m-margin-bottom-small">
-                                    <div class="ui left icon input">
+                                    网站名称: <div class="ui left icon input">
                                         <input type="text" id="name" name="name"
-                                               placeholder="请输入贵站名称(你的邮箱会通过当前登录的账号自动填写,因此请填写真实信息)">
+                                               placeholder="请输入网站名称">
                                     </div>
                                 </div>
                             </div>
                             <!--输入网站链接-->
                             <div class="five wide column">
                                 <div class="field m-mobile-wide m-margin-bottom-small">
-                                    <div class="ui left icon input">
+                                    网站链接: <div class="ui left icon input">
                                         <input type="text" name="href"
-                                               placeholder="请输入贵站链接(你的邮箱会通过当前登录的账号自动填写,因此请填写真实信息)">
+                                               placeholder="请输入网站链接">
                                     </div>
                                 </div>
                             </div>
                             <!--输入网站图片-->
                             <div class="five wide column">
                                 <div class="field m-mobile-wide m-margin-bottom-small">
-                                    <div class="ui left icon input">
+                                    网站首图: <div class="ui left icon input">
                                         <input type="text" name="image"
-                                               placeholder="请输入贵站图片链接(请确保图片链接有效,尽量使用大小相当于本站博客封面的图片以达到最佳观赏效果)">
+                                               placeholder="请输入网站图片链接(请确保图片链接有效)">
                                     </div>
                                 </div>
                             </div>
                             <!--输入网站描述-->
                             <div class="five wide column">
                                 <div class="field m-mobile-wide m-margin-bottom-small">
-                                    <div class="ui left icon input">
+                                    网站描述: <div class="ui left icon input">
                                         <input type="text" name="description"
-                                               placeholder="请输入贵站描述(可以写你所擅长的技术或座右铭等....推荐长度小于150字)">
+                                               placeholder="请输入网站描述">
                                     </div>
                                 </div>
                             </div>
@@ -171,7 +171,7 @@
                     </form>
                 </div>
                 <!--友链展示-->
-                <div id="message-container" class="ui violet segment">
+                <div id="message-container" class="ui violet segment m-opacity">
                     <div class="ui threaded comments" style="max-width: 100%;">
                         <div class="ui attached segment m-opacity">
                             <div class="ui padded vertical segment m-padded-tb-large"  th:each="link : ${links}"th:if="@{${link.success==1}}">
@@ -223,23 +223,29 @@
                         </div>
                     </div>
                     <div class="ui violet segment">
+                        <p class="m-text-thin m-text-lined m-opacity">
+                            1.本站信息:<br>
+                            网址: http://121.37.255.19<br>
+                            头像: http://121.37.255.19/images/me.jpg
+                            名称:Abalone &nbsp;<br>描述: Code Changes The World
+                        </p>
                         <p class="m-text-thin m-text-spaced m-opacity">
-                            1.请确保账号使用的是真实邮箱,<br>&nbsp;&nbsp;&nbsp;&nbsp;否则你将无法收到回复.
+                            2.请确保账号使用的是真实邮箱,<br>&nbsp;&nbsp;&nbsp;&nbsp;否则你将无法收到回复.
                         </p>
                         <br>
                         <p class="m-text-thin m-text-spaced m-opacity">
-                            2.Abalone不会以任何方式泄露<br>&nbsp;&nbsp;&nbsp;任何用户的邮箱.
+                            3.Abalone不会以任何方式泄露<br>&nbsp;&nbsp;&nbsp;任何用户的邮箱.
                         </p>
                         <br>
                         <p class="m-text-thin m-text-spaced m-opacity">
-                            3.记得在贵站也添加上本站的友链(*^_^*)
+                            4.记得在贵站也添加上本站的友链(*^_^*)
                         </p>
                         <br>
                         <p class="m-text-thin m-text-spaced m-opacity">
-                            4.本站友链添加需要审核,一般站主只有节假日和周末会有时间处理友链,因此请耐心等待~
+                            5.本站友链添加需要审核,一般站主只有节假日和周末会有时间处理友链,因此请耐心等待~
                         </p>
                         <p class="m-text-thin m-text-spaced m-opacity">
-                            5.Just enjoy yourself~
+                            6.Just enjoy yourself~
                         </p>
                         <br>
                     </div>
