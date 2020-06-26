@@ -31,8 +31,8 @@
 
             <a href="#" th:href="@{/message}" class="m-item item"><i class="book icon"></i>留言板</a>
 
-            <a href="#" th:href="@{/game}" target="_blank" class="m-item item m-mobile-hide"><i
-                    class="mini comment game icon"></i>&nbsp;游戏</a>
+            <a href="#" th:href="@{/link}" target="_blank" class="m-item item m-mobile-hide"><i
+                    class="mini linkify  icon"></i>&nbsp;友链</a>
 
             <a href="#" th:href="@{/about}" class="m-item item m-mobile-hide"><i class="mini info icon"></i>关于我</a>
 
@@ -79,7 +79,8 @@
                  style="width: 150px;height: 150px;">
         </div>
         <div class="m-font-size-title-large" align="center">Abalone</div>
-
+        <h3 id="text" class="m-font-size-text" align="center"></h3>
+        <hr style="width: 20%">
         <div class="" align="center">
             <a href="#" class="ui wechat circular icon button"><i class="weixin icon"></i></a>
             <a href="#" class="ui qq circular icon button" data-content="958324611" data-position="bottom center"><i
@@ -100,31 +101,6 @@
 
             <div align="center">QQ:958324611</div>
         </div>
-
-        <h3 class="m-font-size-text" align="center">Welcome To Abalone</h3>
-        <h3 class="m-font-size-text" align="center">留言板,留下你的脚印~plz</h3>
-        <hr style="width: 30%">
-        <div id="waypoint" class="ui m-margin-top-large" align="center">
-            <a th:href="@{/}" class="ui circular icon button m-opacity-small m-item item m-mobile-hide m-index-btn"
-            ><i class="home icon"></i>首页</a>
-            <a th:href="@{/types/-1}"
-               class="ui circular icon button m-opacity-small m-item item m-mobile-hide m-index-btn"
-            ><i class="clone outline icon"></i>分类</a>
-            <a th:href="@{/tags/-1}"
-               class="ui circular icon button m-opacity-small m-item item m-mobile-hide m-index-btn"
-            ><i class="tags icon"></i>标签</a>
-            <a th:href="@{/archives}"
-               class="ui circular icon button m-opacity-small m-item item m-mobile-hide m-index-btn"
-            ><i class="clock icon"></i>时间线</a>
-            <a th:href="@{/message}"
-               class="ui circular icon button m-opacity-small m-item item m-mobile-hide m-index-btn"
-            ><i class="book icon"></i>留言板</a>
-            <a th:href="@{/about}" class="ui circular icon button m-opacity-small m-item item m-mobile-hide m-index-btn"
-            ><i class="info icon"></i>关于我</a>
-            <a th:href="@{/admin/blogs}"
-               class="ui circular icon button m-opacity-small m-item item m-mobile-hide m-index-btn"
-            ><i class="pencil alternate icon"></i>后台</a>
-        </div>
     </div>
 </div>
 
@@ -134,6 +110,9 @@
             <div class="twelve wide column">
                 <div class="ui attached segment m-opacity">
                     <!--新增留言-->
+                    <h1 th:if="${session.user==null}">未登录用户无法留言</h1>
+                    <a th:if="${session.user==null}" th:href="@{/login}">点我登录</a>&nbsp;&nbsp;&nbsp;&nbsp;
+                    <a th:if="${session.user==null}" th:href="@{/register}">点我注册</a><br>
                     <form method="post" th:action="@{/addMessage}" th:if="${session.user!=null}">
                         <div id="message-form" class="ui form">
                             <!--留言区-->
@@ -215,20 +194,23 @@
                         </p>
                         <br>
                         <p class="m-text-thin m-text-spaced m-opacity">
-                            4.Just enjoy yourself~
+                            4.网络不是法外之地,请自觉遵守我国宪法,不得发表不当言论
+                        </p>
+                        <p class="m-text-thin m-text-spaced m-opacity">
+                            5.Just enjoy yourself~
                         </p>
                         <br>
                     </div>
                 </div>
                 <!--最新推荐-->
-                <div class="ui segments m-margin-top-large m-opacity">
+                <div class="ui segments m-margin-top-large m-opacity" th:if="${session.user==null}">
                     <div class="ui secondary segment ">
                         <div class="column">
                             <i class="bookmark icon"></i>无法留言?
                         </div>
                     </div>
                     <div class="ui violet segment">
-                        也许应该先登录?<br><br>
+                        请先登录?<br><br>
                         <a th:href="@{/login}">点我登录</a>&nbsp;&nbsp;&nbsp;&nbsp;
                         <a th:href="@{/register}">点我注册</a><br>
                     </div>
@@ -356,5 +338,6 @@
     });
 </script>
 <script th:src="@{/js/cursor.js}"></script>
+<script th:src="@{/js/typing.js}"></script>
 </body>
 </html>

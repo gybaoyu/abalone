@@ -32,8 +32,8 @@
 
             <a href="#" th:href="@{/message}" class="m-item item"><i class="book icon"></i>留言板</a>
 
-            <a href="#" th:href="@{/game}" target="_blank" class="m-item item m-mobile-hide"><i
-                    class="mini comment game icon"></i>&nbsp;游戏</a>
+            <a href="#" th:href="@{/link}" target="_blank" class="m-item item m-mobile-hide"><i
+                    class="mini linkify  icon"></i>&nbsp;友链</a>
 
             <a href="#" th:href="@{/about}" class="m-item item m-mobile-hide"><i class="mini info icon"></i>关于我</a>
 
@@ -80,7 +80,8 @@
                  style="width: 150px;height: 150px;">
         </div>
         <div class="m-font-size-title-large" align="center">Abalone</div>
-
+        <h3 id="text" class="m-font-size-text" align="center"></h3>
+        <hr style="width: 20%">
         <div class="" align="center">
             <a href="#" class="ui wechat circular icon button"><i class="weixin icon"></i></a>
             <a href="#" class="ui qq circular icon button" data-content="958324611" data-position="bottom center"><i
@@ -100,32 +101,6 @@
         <div class="ui qq-qr flowing popup transition hidden">
 
             <div align="center">QQ:958324611</div>
-        </div>
-
-        <h3 class="m-font-size-text" align="center">Welcome To Abalone</h3>
-        <h3 class="m-font-size-text" align="center">代码,改变世界</h3>
-        <hr style="width: 30%">
-        <div id="waypoint" class="ui m-margin-top-large" align="center">
-            <a th:href="@{/}" class="ui circular icon button m-opacity-small m-item item m-mobile-hide m-index-btn"
-            ><i class="home icon"></i>首页</a>
-            <a th:href="@{/types/-1}"
-               class="ui circular icon button m-opacity-small m-item item m-mobile-hide m-index-btn"
-            ><i class="clone outline icon"></i>分类</a>
-            <a th:href="@{/tags/-1}"
-               class="ui circular icon button m-opacity-small m-item item m-mobile-hide m-index-btn"
-            ><i class="tags icon"></i>标签</a>
-            <a th:href="@{/archives}"
-               class="ui circular icon button m-opacity-small m-item item m-mobile-hide m-index-btn"
-            ><i class="clock icon"></i>时间线</a>
-            <a th:href="@{/message}"
-               class="ui circular icon button m-opacity-small m-item item m-mobile-hide m-index-btn"
-            ><i class="book icon"></i>留言板</a>
-            <a th:href="@{/about}"
-               class="ui circular icon button m-opacity-small m-item item m-mobile-hide m-index-btn"
-            ><i class="info icon"></i>关于我</a>
-            <a th:href="@{/admin/blogs}"
-               class="ui circular icon button m-opacity-small m-item item m-mobile-hide m-index-btn"
-            ><i class="pencil alternate icon"></i>后台</a>
         </div>
     </div>
 
@@ -404,5 +379,6 @@
         on: 'hover'
     });
 </script>
+<script th:src="@{/js/typing.js}"></script>
 </body>
 </html>
