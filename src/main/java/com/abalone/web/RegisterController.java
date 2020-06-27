@@ -51,7 +51,7 @@ public class RegisterController {
         }else {
             userRepository.save(user);
             session.setAttribute("user", user);
-            session.setAttribute("type", 1);
+            session.setAttribute("type", 0);
             return "redirect:";
         }
     }

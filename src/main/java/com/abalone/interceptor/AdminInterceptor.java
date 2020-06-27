@@ -15,7 +15,7 @@ public class AdminInterceptor extends HandlerInterceptorAdapter {
                              HttpServletResponse response,
                              Object handler) throws Exception {
         if (request.getSession().getAttribute("type") == null) {
-            response.sendRedirect("/");
+            response.sendRedirect("redirect:/");
             return false;
         }
         return true;

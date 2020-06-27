@@ -5,6 +5,7 @@ import com.abalone.po.Link;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
@@ -26,10 +27,14 @@ public class LinkServiceImpl implements LinkService {
 
     @Override
     public void addLink(Link link) {
-        if (link!=null){
+        if (link != null) {
             link.setSuccess(0);//默认为0,还未审核
             link.setCreate_time(new Date());//设置createTime
+            if (!link.getLink().contains("http")) {
+                link.setLink("http://" + link.getLink());
+            }
             linkRepository.save(link);
+            System.out.println(link);
         }
     }
 
@@ -41,7 +46,7 @@ public class LinkServiceImpl implements LinkService {
 
     @Override
     public List<Link> getAllNotSucceedLink() {
-        List<Link>links = linkRepository.findAllBySuccess(0);
+        List<Link> links = linkRepository.findAllBySuccess(0);
         return links;
     }
 

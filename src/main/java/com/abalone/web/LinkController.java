@@ -8,7 +8,6 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import java.util.List;
 
@@ -34,7 +33,7 @@ public class LinkController {
                           @RequestParam String image,
                           @RequestParam String description,
                           @RequestParam String email) {
-        if (!name.equals("") && !href.equals("") && !image.equals("") && !description.equals("")) {
+        if (!name.equals("") && !href.equals("") && !image.equals("")) {
             Link link = new Link(name, description, href, image, email, 0);
             linkService.addLink(link);
             return "success";

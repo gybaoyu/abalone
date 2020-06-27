@@ -9,6 +9,7 @@ import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
+import java.util.List;
 
 
 @Service
@@ -76,5 +77,16 @@ public class UserServiceImpl implements UserService {
         } else {
             session.removeAttribute("user");
         }
+    }
+
+    @Override
+    public List<User> show() {
+        List<User>users = userRepository.findAll();
+        return users;
+    }
+
+    @Override
+    public void deleteUser(Long id) {
+        userRepository.delete(id);
     }
 }

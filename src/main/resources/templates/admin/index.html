@@ -23,12 +23,12 @@
             <a href="#" th:href="@{/admin/tags}" class="m-item item m-mobile-hide"><i class="mini tags icon"></i>标签</a>
             <a href="#" th:href="@{/admin/links}"  class="m-item item m-mobile-hide"><i
                     class="mini linkify  icon"></i>&nbsp;友链</a>
+            <a href="#" th:href="@{/admin/users}"  class="m-item item m-mobile-hide"><i
+                    class="mini user icon"></i>&nbsp;用户管理</a>
             <a href="#" th:href="@{/}" class="m-item item m-mobile-hide"><i class="mini desktop icon"></i>回到主页</a>
             <div class="right m-item m-mobile-hide menu">
                 <div class="ui dropdown item">
-                    <div class="text">
-                        <img th:src="@{${session.user.avatar}}"
-                             class="ui avatar image">
+                    <div class="text"th:if="${session.user}!=null">
                         <t th:text="${session.user.nickname}">...</t>
                     </div>
                     <i class="dropdown icon"></i>
@@ -59,8 +59,10 @@
         <div class="ui success large message">
             <h2>Hey,</h2>
             <h3>
+                <div th:if="${session.user}!=null">
                 <t th:text="${session.user.nickname}">...</t>
                 , you're here at last
+                </div>
             </h3>
         </div>
         <img th:src="@{/images/bg2.jpg}" class="ui rounded bordered fluid image">

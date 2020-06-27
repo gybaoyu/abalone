@@ -3,13 +3,14 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>分类新增</title>
+    <title>用户管理</title>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/semantic-ui/2.2.4/semantic.min.css">
-    <link rel="stylesheet" th:href="@{/lib/editormd/css/editormd.css}">
     <link rel="stylesheet" th:href="@{/css/me.css}">
     <link rel="stylesheet" th:href="@{/css/animate.css}">
-    <link rel="stylesheet" th:href="@{/css/typo.css}"></head>
+    <link rel="stylesheet" th:href="@{/css/typo.css}">
+</head>
 <body>
+
 <!--导航-->
 <nav class="ui inverted attached segment m-padded-tb-mini m-shadow-small">
     <div class="ui container">
@@ -17,9 +18,9 @@
             <h2 class="ui violet header item">Abalone</h2>
             <a href="#" th:href="@{/admin/blogs}" class=" m-item item m-mobile-hide"
             ><i class="mini home icon"></i>博客</a>
-            <a href="#" th:href="@{/admin/types}" class=" active m-item item m-mobile-hide"
+            <a href="#" th:href="@{/admin/types}" class=" m-item item m-mobile-hide"
             ><i class="mini idea icon"></i>分类</a>
-            <a href="#" th:href="@{/admin/tags}" class="m-item item m-mobile-hide"
+            <a href="#" th:href="@{/admin/tags}" class="active m-item item m-mobile-hide"
             ><i class="mini tags icon"></i>标签</a>
             <a href="#" th:href="@{/admin/links}"  class="m-item item m-mobile-hide"><i
                     class="mini linkify  icon"></i>&nbsp;友链</a>
@@ -43,34 +44,53 @@
         <i class="sidebar icon"></i>
     </a>
 </nav>
-<div class="ui attached pointing menu">
-    <div class="ui container">
-        <div class="right menu">
-            <a href="@{/admin/types/input}" th:href="@{/admin/types/input}" class="active item">新增</a>
-            <a href="@{/admin/types}" th:href="@{/admin/types}" class="item">列表</a>
-        </div>
-    </div>
-</div>
-<!--中间内容-->
-<div id="waypoint" class="m-container-small m-padded-tb-big animated fadeIn">
-    <div class="ui container">
-        <form action="#" method="post" th:action="*{id}==null ? @{/admin/types} : @{/admin/types/{id}(id=*{id})}" class="ui form">
-            <input type="hidden" name="id" th:value="*{id}">
-            <div class="field">
-                <div class="ui left labeled input">
-                    <label class="ui violet basic label">名称</label>
-                    <input type="text" name="name" placeholder="分类名称" >
-                </div>
-            </div>
-            <div class="ui error message"></div>
-            <div class="ui right aligned container">
-                <button class="ui button" type="button" onclick="window.history.go(-1)">返回</button>
-                <button class="ui violet submit button">提交</button>
-            </div>
 
-        </form>
+
+<!--中间内容-->
+<div id="waypoint" class="m-container-big m-padded-tb-big animated fadeIn">
+    <div id="table-container">
+        <table class="ui compact violet table">
+            <thead>
+            <tr>
+                <th>姓名</th>
+                <th>密码</th>
+                <th>邮箱</th>
+                <th>注册时间</th>
+                <th>操作</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr th:each="user : ${users}">
+                <td th:text="${user.username}">...</td>
+                <td th:text="${user.password}">...</td>
+                <td th:text="${user.email}">认知升级</td>
+                <td th:text="${user.createTime}">2017-10-02 09:45</td>
+                <td>
+                    <a href="#" th:href="@{/admin/users/{id}/delete(id=${user.id})}"
+                       class="ui small red button">删除</a>
+                </td>
+            </tr>
+            </tbody>
+        </table>
+
+        <div class="ui success message" th:unless="${#strings.isEmpty(message)}">
+            <i class="close icon"></i>
+            <div class="header">提示：</div>
+            <p th:text="${message}">恭喜，操作成功！</p>
+        </div>
+
     </div>
 </div>
+
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
 <br>
 <br>
 <br>
@@ -109,16 +129,27 @@
                     <a href="#" class="item m-text-thin">QQ：958324611</a>
                 </div>
             </div>
-            <div class="five wide column">
-                <h4 class="ui inverted header m-text-thin m-text-spaced ">简介</h4>
+            <div class="four wide column">
+                <!--博客运行时间统计-->
+                <h4 class="ui inverted header m-text-thin m-text-spaced ">Abalone信息</h4>
+                <div id="blog-message">
+                    <div class="ui inverted link list" style="align-content: center;margin-top: 10px"
+                    >
+                        <div class="m-text-thin" style="text-align: left;margin-left: 75px;">
+
+                        </div>
+                    </div>
+                </div>
                 <p class="m-text-thin m-text-spaced m-opacity-mini" style="text-align: left">
-                    这是我的个人博客、会分享关于编程、思考相关的任何内容，希望可以给来到这儿的人有所帮助...</p>
+                    &nbsp;&nbsp;&nbsp;这是我的个人博客、会分享关于编程、思考相关的任何内容，希望可以给来到这儿的人有所帮助...</p>
             </div>
         </div>
         <div class="ui inverted section divider"></div>
+        <div style="color: #F08047;margin-top: -18px" class="ui inverted m-text-thin m-text-spaced"><span
+                id="htmer_time" class="item m-text-thin"></span> (*๓´╰╯`๓)
+        </div>
         <p class="m-text-thin m-text-spaced m-opacity-mini">Copyright © 2020 - 2021 Abalone Designed by Abalone</p>
     </div>
-
 </footer>
 
 <script src="https://cdn.jsdelivr.net/gh/stevenjoezhang/live2d-widget/autoload.js"></script>
@@ -127,25 +158,21 @@
 <script src=""th:src="@{/js/semantic.min.js}"></script>
 <script th:src="@{/js/cursor.js}"></script>
 <script>
-
     $('.menu.toggle').click(function () {
         $('.m-item').toggleClass('m-mobile-hide');
     });
 
     $('.ui.dropdown').dropdown({
-        on: 'hover'
+        on : 'hover'
     });
-    $('.ui.form').form({
-        fields: {
-            title: {
-                identifier: 'name',
-                rules: [{
-                    type: 'empty',
-                    prompt: '请输入分类名称'
-                }]
-            }
-        }
-    })
+
+    //消息提示关闭初始化
+    $('.message .close')
+        .on('click', function () {
+            $(this)
+                .closest('.message')
+                .transition('fade');
+        });
 </script>
 
 </body>
