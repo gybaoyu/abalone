@@ -8,7 +8,8 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/semantic-ui/2.2.4/semantic.min.css">
     <link rel="stylesheet" th:href="@{/lib/editormd/css/editormd.min.css}">
     <link rel="stylesheet" href="../static/css/me.css" th:href="@{/css/me.css}">
-    <link href="https://ae01.alicdn.com/kf/U99de1a80dcaa49dca794b6b5ce291106P.jpg" th:href="@{https://ae01.alicdn.com/kf/U99de1a80dcaa49dca794b6b5ce291106P.jpg}" rel="icon" type="image/x-ico">
+    <link href="https://ae01.alicdn.com/kf/U99de1a80dcaa49dca794b6b5ce291106P.jpg"
+          th:href="@{https://ae01.alicdn.com/kf/U99de1a80dcaa49dca794b6b5ce291106P.jpg}" rel="icon" type="image/x-ico">
 </head>
 <body>
 <!--导航-->
@@ -31,7 +32,7 @@
 
             <a href="#" th:href="@{/message}" class="m-item item"><i class="book icon"></i>留言板</a>
 
-            <a href="#" th:href="@{/link}"  class="m-item item m-mobile-hide"><i
+            <a href="#" th:href="@{/link}" class="m-item item m-mobile-hide"><i
                     class="mini linkify  icon"></i>&nbsp;友链</a>
 
             <a href="#" th:href="@{/about}" class="m-item item m-mobile-hide"><i class="mini info icon"></i>关于我</a>
@@ -75,7 +76,8 @@
     <!--         style="width: 100%;height: 100%">-->
     <div class="m-bg-class_cover" align="center">
         <div class="m-margin-top-maxx" align="center">
-            <img class="ui circular image" align="center" th:src="@{https://ae01.alicdn.com/kf/U99de1a80dcaa49dca794b6b5ce291106P.jpg}"
+            <img class="ui circular image" align="center"
+                 th:src="@{https://ae01.alicdn.com/kf/U99de1a80dcaa49dca794b6b5ce291106P.jpg}"
                  style="width: 150px;height: 150px;">
         </div>
         <div class="m-font-size-title-large" align="center">Abalone</div>
@@ -189,7 +191,34 @@
 
             <!--右边的top-->
             <div class="four wide column">
-
+                <!--b站的信息-->
+                <div class="ui segments ">
+                    <div class="ui secondary segment m-opacity">
+                        <div class="column">
+                            <i class="user icon"></i>个人信息
+                        </div>
+                    </div>
+                    <div class="ui violet segment m-opacity">
+                        <img class="ui bordered rounded centered image"
+                             th:src="@{https://ae01.alicdn.com/kf/U99de1a80dcaa49dca794b6b5ce291106P.jpg}"
+                             style="width: 100px;height: 100px;">
+                        <div class="column">
+                            <a target="_blank" th:href="@{https://space.bilibili.com/411498228}"><h2 align="center">
+                                Abalone</h2></a>
+                            <div align="center">Code changes the world</div>
+                            Abalone,折腾于0&1世界中的憨憨?
+                            <p>
+                            <h3>B站信息:</h3>
+                            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Followers:
+                            <span th:text="${follower}"></span><br>
+                            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Likes:
+                            <span th:text="${likes}"></span><br>
+                            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Views:
+                            <span th:text="${view}"></span><br>
+                            </p>
+                        </div>
+                    </div>
+                </div>
                 <!--分类-->
                 <div class="ui segments m-opacity">
                     <div class="ui secondary segment ">
@@ -378,5 +407,6 @@
     });
 </script>
 <script th:src="@{/js/typing.js}"></script>
+
 </body>
 </html>
