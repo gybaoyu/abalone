@@ -1,6 +1,9 @@
 package com.abalone.service;
 
+import com.abalone.po.Blog;
 import com.abalone.po.Message;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
 
 import java.util.List;
 
@@ -13,4 +16,5 @@ public interface MessageService {
     List<Message> sortMessage();
     Message getMessage(Long id);
     void deleteMessage(Long id);
+    Page<Message> getMessageList(int pageNum, int pageSize);
 }

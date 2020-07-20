@@ -33,6 +33,6 @@ public class AdminUserController {
     public String delete(@PathVariable Long id, Model model){
         service.deleteUser(id);
         model.addAttribute("message","删除成功!");
-        return "admin/users";
+        return "redirect:/admin/users";
     }
 }

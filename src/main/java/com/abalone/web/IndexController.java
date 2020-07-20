@@ -1,9 +1,7 @@
 package com.abalone.web;
 
-import com.abalone.service.BiliService;
-import com.abalone.service.BlogService;
-import com.abalone.service.TagService;
-import com.abalone.service.TypeService;
+import com.abalone.po.User;
+import com.abalone.service.*;
 import net.sf.json.JSONObject;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Pageable;
@@ -14,7 +12,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
 import javax.servlet.http.HttpServletRequest;
-import java.util.Map;
+import javax.servlet.http.HttpSession;
 
 @Controller
 public class IndexController {
@@ -30,6 +28,9 @@ public class IndexController {
 
     @Autowired
     private BiliService biliService;
+
+    @Autowired
+    private UserService userService;
 
     @GetMapping("/")
     public String index(@PageableDefault(size = 8, sort = {"updateTime"}, direction = Sort.Direction.DESC) Pageable pageable,

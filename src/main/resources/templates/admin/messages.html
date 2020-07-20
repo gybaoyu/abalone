@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>博客管理</title>
+    <title>留言</title>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/semantic-ui/2.2.4/semantic.min.css">
     <link rel="stylesheet" th:href="@{/css/me.css}">
     <link rel="stylesheet" th:href="@{/css/animate.css}">
@@ -16,26 +16,26 @@
     <div class="ui container">
         <div class="ui inverted secondary stackable menu">
             <h2 class="ui violet header item">Abalone</h2>
-            <a href="#" th:href="@{/admin/blogs}" class="active m-item item m-mobile-hide"><i
-                    class="mini home icon"></i>博客</a>
-            <a href="#" th:href="@{/admin/types}" class=" m-item item m-mobile-hide"><i
-                    class="mini idea icon"></i>分类</a>
-            <a href="#" th:href="@{/admin/tags}" class="m-item item m-mobile-hide"><i class="mini tags icon"></i>标签</a>
+            <a href="#" th:href="@{/admin/blogs}" class=" m-item item m-mobile-hide"
+            ><i class="mini home icon"></i>博客</a>
+            <a href="#" th:href="@{/admin/types}" class=" m-item item m-mobile-hide"
+            ><i class="mini idea icon"></i>分类</a>
+            <a href="#" th:href="@{/admin/tags}" class="active m-item item m-mobile-hide"
+            ><i class="mini tags icon"></i>标签</a>
             <a href="#" th:href="@{/admin/links}"  class="m-item item m-mobile-hide"><i
                     class="mini linkify  icon"></i>&nbsp;友链</a>
             <a href="#" th:href="@{/admin/users}"  class="m-item item m-mobile-hide"><i
                     class="mini user icon"></i>&nbsp;用户管理</a>
             <a href="#" th:href="@{/admin/messages}" class="m-item item"><i class="book icon"></i>留言管理</a>
-            <a href="#" th:href="@{/}" class="m-item item m-mobile-hide"><i class="mini desktop icon"></i>回到主页</a>
+            <a href="#" th:href="@{/}" class="m-item item m-mobile-hide" ><i class="mini desktop icon"></i>回到主页</a>
             <div class="right m-item m-mobile-hide menu">
-                <div class="ui dropdown item">
-                    <div class="text"th:if="${session.user}!=null">
+                <div class="ui dropdown  item">
+                    <div class="text" th:if="${session.user}!=null">
                         <t th:text="${session.user.nickname}">...</t>
                     </div>
                     <i class="dropdown icon"></i>
                     <div class="menu">
                         <a href="#" th:href="@{/logout}" class="item">注销</a>
-
                     </div>
                 </div>
             </div>
@@ -45,30 +45,68 @@
         <i class="sidebar icon"></i>
     </a>
 </nav>
-<div class="ui attached pointing menu">
-    <div class="ui container">
-        <div class="right menu">
-            <a class="item" href="#" th:href="@{/admin/blogs/input}">发布</a>
-            <a class="item" href="#" th:href="@{/admin/blogs}">列表</a>
-        </div>
-    </div>
-</div>
-<!--中间内容-->
-<div id="waypoint" class="m-container-small m-padded-tb-big animated fadeIn">
 
-    <div class="ui container">
-        <div class="ui success large message">
-            <h2>Hey,</h2>
-            <h3>
-                <div th:if="${session.user}!=null">
-                <t th:text="${session.user.nickname}">...</t>
-                , you're here at last
-                </div>
-            </h3>
+
+<!--中间内容-->
+<div id="waypoint" class="m-container-big m-padded-tb-big animated fadeIn">
+    <div id="table-container">
+        <table class="ui compact violet table">
+            <thead>
+            <tr>
+                <th>姓名</th>
+                <th>密码</th>
+                <th>邮箱</th>
+                <th>注册时间</th>
+                <th>操作</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr th:each="message : ${messages}">
+                <td th:text="${message.username}">...</td>
+                <td th:text="${message.email}">...</td>
+                <td th:text="${message.ask_text}">认知升级</td>
+                <td th:text="${message.ask_time}">2017-10-02 09:45</td>
+                <td th:text="${message.reply}">2017-10-02 09:45</td>
+                <td>
+                    <a href="#" th:href="@{/admin/messages/{id}/delete(id=${message.id})}"
+                       class="ui small red button">删除</a>
+                </td>
+                <td>
+                    <a href="#" th:href="@{/admin/messages/{id}/answer(id=${message.id})}"
+                       class="ui small red button" th:if="${message.reply==0}">回复</a>
+                </td>
+            </tr>
+            </tbody>
+        </table>
+
+        <div class="ui success message" th:unless="${#strings.isEmpty(message)}">
+            <i class="close icon"></i>
+            <div class="header">提示：</div>
+            <p th:text="${message}">恭喜，操作成功！</p>
         </div>
-        <img th:src="@{https://ae01.alicdn.com/kf/Ufd5564d0071048af9af4582498beaec8o.jpg}" class="ui rounded bordered fluid image">
+
     </div>
 </div>
+
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
 <!--底部footer-->
 <footer class="ui inverted vertical segment m-padded-tb-massive">
     <div class="ui center aligned container">
@@ -102,7 +140,7 @@
                 <h4 class="ui inverted header m-text-thin m-text-spaced ">Abalone信息</h4>
                 <div id="blog-message">
                     <div class="ui inverted link list" style="align-content: center;margin-top: 10px"
-                        >
+                    >
                         <div class="m-text-thin" style="text-align: left;margin-left: 75px;">
 
                         </div>
@@ -119,22 +157,28 @@
         <p class="m-text-thin m-text-spaced m-opacity-mini">Copyright © 2020 - 2021 Abalone Designed by Abalone</p>
     </div>
 </footer>
+
 <script src="https://cdn.jsdelivr.net/gh/stevenjoezhang/live2d-widget/autoload.js"></script>
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/font-awesome/css/font-awesome.min.css"/>
 <script src="" th:src="@{/js/jquery.min.js}"></script>
 <script src=""th:src="@{/js/semantic.min.js}"></script>
 <script th:src="@{/js/cursor.js}"></script>
 <script>
-    $('menu.toggle').click(function () {
-        $('m-item').toggleClass('m-mobie-hide');
-    });
-
-    $('.ui.dropdown').dropdown({
-        on: 'hover'
-    });
     $('.menu.toggle').click(function () {
         $('.m-item').toggleClass('m-mobile-hide');
     });
+
+    $('.ui.dropdown').dropdown({
+        on : 'hover'
+    });
+
+    //消息提示关闭初始化
+    $('.message .close')
+        .on('click', function () {
+            $(this)
+                .closest('.message')
+                .transition('fade');
+        });
 </script>
 
 </body>

@@ -22,11 +22,13 @@
             ><i class="mini idea icon"></i>分类</a>
             <a href="#" th:href="@{/admin/tags}" class="active m-item item m-mobile-hide"
             ><i class="mini tags icon"></i>标签</a>
-            <a href="#" th:href="@{/admin/links}"  class="m-item item m-mobile-hide"><i
+            <a href="#" th:href="@{/admin/links}" class="m-item item m-mobile-hide"><i
                     class="mini linkify  icon"></i>&nbsp;友链</a>
-            <a href="#" th:href="@{/admin/users}"  class="m-item item m-mobile-hide"><i
+            <a href="#" th:href="@{/admin/users}" class="m-item item m-mobile-hide"><i
                     class="mini user icon"></i>&nbsp;用户管理</a>
-            <a href="#" th:href="@{/}" class="m-item item m-mobile-hide" ><i class="mini desktop icon"></i>回到主页</a>
+            <a href="#" th:href="@{/admin/messages}" class="m-item item"><i class="book icon"></i>留言管理</a>
+
+            <a href="#" th:href="@{/}" class="m-item item m-mobile-hide"><i class="mini desktop icon"></i>回到主页</a>
             <div class="right m-item m-mobile-hide menu">
                 <div class="ui dropdown  item">
                     <div class="text" th:if="${session.user}!=null">
@@ -155,7 +157,7 @@
 <script src="https://cdn.jsdelivr.net/gh/stevenjoezhang/live2d-widget/autoload.js"></script>
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/font-awesome/css/font-awesome.min.css"/>
 <script src="" th:src="@{/js/jquery.min.js}"></script>
-<script src=""th:src="@{/js/semantic.min.js}"></script>
+<script src="" th:src="@{/js/semantic.min.js}"></script>
 <script th:src="@{/js/cursor.js}"></script>
 <script>
     $('.menu.toggle').click(function () {
@@ -163,7 +165,7 @@
     });
 
     $('.ui.dropdown').dropdown({
-        on : 'hover'
+        on: 'hover'
     });
 
     //消息提示关闭初始化

@@ -18,6 +18,10 @@ public class LogAspect {
 
     private final Logger logger = LoggerFactory.getLogger(this.getClass());
 
+    public Logger getLogger() {
+        return logger;
+    }
+
     @Pointcut("execution(* com.abalone.web.*.*(..))")
     public void log() {}
 

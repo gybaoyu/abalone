@@ -1,9 +1,11 @@
 package com.abalone.service;
 
 import com.abalone.dao.MessageRepository;
-import com.abalone.po.Comment;
+import org.springframework.data.domain.PageRequest;
 import com.abalone.po.Message;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
 import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -43,5 +45,15 @@ public class MessageServiceImpl implements MessageService{
     @Transactional
     public void deleteMessage(Long id) {
         messageRepository.delete(id);
+    }
+
+    @Override
+    public Page<Message> getMessageList(int pageNum, int pageSize) {
+        Sort sort = new Sort(Sort.Direction.DESC, "id");
+        PageRequest request = new PageRequest(pageNum,pageSize,sort);
+        Pageable pageable = request;
+        Page<Message> messages = messageRepository.findAll(pageable);
+
+        return messages;
     }
 }
