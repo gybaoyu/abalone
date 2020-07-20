@@ -38,7 +38,11 @@ public class MailService {
         message.setTo(to);
         message.setSubject(subject);
         message.setText(content);
-        mailSender.send(message);//并不需要加log打印,已经有了切面了(我的项目里面)下面的也一样,所以不用抓异常(或者是直接用Log切面的对象)
+        try {
+            mailSender.send(message);
+        }catch (Exception e){
+            logger.error("出现了一个神奇的SSL异常",e);
+        }
     }
 
     /**
@@ -59,8 +63,11 @@ public class MailService {
             helper.setText(content, true);
         }catch (MessagingException e){
             logger.error("发送邮件时出了异常....",e);
-        }
+        }try {
             mailSender.send(message);
+        }catch (Exception e){
+            logger.error("出现了一个神奇的SSL异常",e);
+        }
     }
 
     /**
@@ -115,7 +122,7 @@ public class MailService {
             }
             mailSender.send(message);
         } catch (MessagingException e) {
-            logger.error("发送带静态文件的MimeMessge时发生异常！", e);
+            logger.error("发送带静态文件的MimeMessage时发生异常！", e);
         }
     }
 }

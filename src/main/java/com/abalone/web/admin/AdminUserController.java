@@ -30,7 +30,7 @@ public class AdminUserController {
     }
 
     @GetMapping("/users/{id}/delete")
-    public String delete(@PathVariable Long id, Model model){
+    public String delete(@PathVariable Long id, RedirectAttributes model){
         service.deleteUser(id);
         model.addAttribute("message","删除成功!");
         return "redirect:/admin/users";

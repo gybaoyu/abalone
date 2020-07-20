@@ -32,16 +32,16 @@ public class AdminLinkController {
     }
 
     @GetMapping("/links/{id}/success")
-    public String success(@PathVariable Long id, Model model){
+    public String success(@PathVariable Long id, RedirectAttributes model){
         linkService.examine(linkService.getLinkById(id));
         model.addAttribute("message","操作成功！");
-        return "admin/links";
+        return "redirect:/admin/links";
     }
 
     @GetMapping("/links/{id}/delete")
-    public String delete(@PathVariable Long id,Model model){
+    public String delete(@PathVariable Long id,RedirectAttributes model){
         linkService.deleteLink(id);
         model.addAttribute("message","删除成功!");
-        return "admin/links";
+        return "redirect:/admin/links";
     }
 }

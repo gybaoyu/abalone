@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <title>Abalone-回复</title>
+</head>
+<body>
+<form method="post" action="/admin/answer">
+收件人: <input name="to" type="text" th:value="${userMessage.email}"><br>
+主题: <input name="subject" type="text"><br>
+主要内容: <input name="content" type="text"><br>
+    <input type="submit"value="提交">
+</form>
+</body>
+</html>
