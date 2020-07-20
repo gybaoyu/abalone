@@ -1,8 +1,8 @@
 HELP.md
-src/main/resources/*.yml
 target/
-.mvn/wrapper/maven-wrapper.jar
-
+.mvn/*
+.log/*
+.test/*
 ### STS ###
 .apt_generated
 .classpath
