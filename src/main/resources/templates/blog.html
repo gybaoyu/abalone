@@ -182,9 +182,6 @@
                             </div>
                             <div class="comments" th:if="${#arrays.length(comment.replyComments)}>0">
                                 <div class="comment" th:each="reply : ${comment.replyComments}">
-                                    <a class="avatar">
-                                        <img src="https://unsplash.it/100/100?image=1005" th:src="@{/images/avatar.png}">
-                                    </a>
                                     <div class="content">
                                         <a class="author">
                                             <span th:text="${reply.nickname}">小红</span>
