@@ -27,5 +27,5 @@ spring:
           timeout: 50000
           # 连接时间的限制，单位毫秒
           connectiontimeout: 50000
-          # 邮件发送时间的限制，单位毫秒
+          # 邮件发送时间的限制，单位毫秒sss
           writetimeout: 50000

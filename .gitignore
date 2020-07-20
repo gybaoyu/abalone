@@ -1,7 +1,7 @@
 HELP.md
 src/main/resources/*.yml
 target/
-!.mvn/wrapper/maven-wrapper.jar
+.mvn/wrapper/maven-wrapper.jar
 
 ### STS ###
 .apt_generated
@@ -17,7 +17,7 @@ target/
 *.iws
 *.iml
 *.ipr
-
+*.yml
 
 ### NetBeans ###
 /nbproject/private/
@@ -29,7 +29,3 @@ build/
 
 ### VS Code ###
 .vscode/
-
-src/main/resources/application.yml
-src/main/resources/application-dev.yml
-src/main/resources/application-pro.yml
