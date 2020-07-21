@@ -6,9 +6,9 @@
 </head>
 <body>
 <form method="post" action="/admin/answer">
-收件人: <input name="to" type="text" th:value="${userMessage.email}"><br>
-主题: <input name="subject" type="text"><br>
-主要内容: <input name="content" type="text"><br>
+    <input name="to" type="hidden" th:value="${userMessage.email}"><br>
+    <input name="userId" type="hidden" th:value="${userMessage.id}">
+    回复内容: <input name="content" type="text"><br>
     <input type="submit"value="提交">
 </form>
 </body>

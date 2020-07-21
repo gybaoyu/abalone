@@ -4,5 +4,10 @@
       "name": "logging.server.port",
       "type": "java.lang.String",
       "description": "Description for logging.server.port."
-  }
-] }
+    },
+    {
+      "name": "spring.properties.mail.smtp.socketFactory.class",
+      "type": "java.lang.String",
+      "description": "Description for spring.properties.mail.smtp.socketFactory.class."
+    },
+  ] }

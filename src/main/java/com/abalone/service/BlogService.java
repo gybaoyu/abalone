@@ -11,6 +11,8 @@ import java.util.Map;
 
 public interface BlogService {
 
+    List<Blog>getAll();
+
     Blog getBlog(Long id);
 
     Blog getAndConvert(Long id);
